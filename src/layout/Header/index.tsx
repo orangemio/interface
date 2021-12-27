@@ -68,7 +68,6 @@ export default function Header({ onCollapsed }: HeaderProps) {
       </Modal>
 
       <MobileHeader>
-    
         <StyledMenuIcon onClick={() => onCollapsed()} />
         <MobileLogoWrapper>
           <Logo collapsed={false} />

@@ -2,10 +2,10 @@ import { ChainId, TokenAmount } from '@pangolindex/sdk'
 import React, { useState, useRef } from 'react'
 import { Text } from 'rebass'
 import { NavLink } from 'react-router-dom'
-import { useLocation } from 'react-router'
+// import { useLocation } from 'react-router'
 import { darken } from 'polished'
 import { useTranslation } from 'react-i18next'
-import { ChevronDown } from 'react-feather'
+// import { ChevronDown } from 'react-feather'
 import styled from 'styled-components'
 import Logo from '../../assets/svg/icon.svg'
 import LogoDark from '../../assets/svg/icon.svg'
@@ -27,7 +27,7 @@ import { ANALYTICS_PAGE } from '../../constants'
 import LanguageSelection from '../LanguageSelection'
 import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useToggleModal } from '../../state/application/hooks'
-import { MenuFlyout, MenuNavItem } from '../StyledMenu'
+// import { MenuFlyout } from '../StyledMenu'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
 const HeaderFrame = styled.div`
@@ -223,26 +223,26 @@ const StyledNavLink = styled(NavLink).attrs({
   }
 `
 
-const StyledLink = styled.div<{ isActive: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: left;
-  border-radius: 3rem;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: ${({ theme, isActive }) => (isActive ? theme.text1 : theme.text2)};
-  font-size: 1rem;
-  width: fit-content;
-  margin: 0 12px;
-  font-weight: ${({ isActive }) => (isActive ? 600 : 500)};
-  font-weight: 500;
-  line-height: 24px;
+// const StyledLink = styled.div<{ isActive: boolean }>`
+//   ${({ theme }) => theme.flexRowNoWrap}
+//   align-items: left;
+//   border-radius: 3rem;
+//   outline: none;
+//   cursor: pointer;
+//   text-decoration: none;
+//   color: ${({ theme, isActive }) => (isActive ? theme.text1 : theme.text2)};
+//   font-size: 1rem;
+//   width: fit-content;
+//   margin: 0 12px;
+//   font-weight: ${({ isActive }) => (isActive ? 600 : 500)};
+//   font-weight: 500;
+//   line-height: 24px;
 
-  :hover,
-  :focus {
-    color: ${({ theme }) => darken(0.1, theme.text1)};
-  }
-`
+//   :hover,
+//   :focus {
+//     color: ${({ theme }) => darken(0.1, theme.text1)};
+//   }
+// `
 
 const StyledExternalLink = styled(ExternalLink).attrs({
   activeClassName
@@ -276,11 +276,11 @@ const StyledExternalLink = styled(ExternalLink).attrs({
 `}
 `
 
-const NarrowMenuFlyout = styled(MenuFlyout)`
-  min-width: 8.125rem;
-  left: 15rem;
-  right: auto !important;
-`
+// const NarrowMenuFlyout = styled(MenuFlyout)`
+//   min-width: 8.125rem;
+//   left: 15rem;
+//   right: auto !important;
+// `
 
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.FUJI]: 'Fuji',
@@ -291,7 +291,7 @@ export default function Header() {
   const { account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
 
-  const location: any = useLocation()
+  // const location: any = useLocation()
 
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const [isDark] = useDarkModeManager()
@@ -322,9 +322,9 @@ export default function Header() {
           <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
             {t('header.swap')}
           </StyledNavLink>
-          <StyledNavLink id={`swap-nav-link`} to={'/buy'}>
+          {/* <StyledNavLink id={`swap-nav-link`} to={'/buy'}>
             {t('header.buy')}
-          </StyledNavLink>
+          </StyledNavLink> */}
           <StyledNavLink
             id={`pool-nav-link`}
             to={'/pool'}
@@ -339,7 +339,7 @@ export default function Header() {
             {t('header.pool')}
           </StyledNavLink>
 
-          <StyledLink
+          {/* <StyledLink
             id={`png-nav-link`}
             onClick={toggle}
             isActive={location?.pathname?.startsWith('/png')}
@@ -356,9 +356,17 @@ export default function Header() {
                 </MenuNavItem>
               </NarrowMenuFlyout>
             )}
-          </StyledLink>
+          </StyledLink> */}
 
           <StyledNavLink
+            id={`png-nav-link`}
+            to={'/png/2'}
+            isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/png')}
+          >
+            {t('header.farm')}
+          </StyledNavLink>
+
+          {/* <StyledNavLink
             id={`stake-nav-link`}
             to={'/stake/0'}
             isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/stake')}
@@ -367,7 +375,7 @@ export default function Header() {
           </StyledNavLink>
           <StyledExternalLink id={`vote-nav-link`} href={'https://pro.olympusdao.finance/'}>
             Bond <span style={{ fontSize: '11px' }}>↗</span>
-          </StyledExternalLink>
+          </StyledExternalLink> */}
           <StyledExternalLink id={`info-nav-link`} href={ANALYTICS_PAGE}>
             {t('header.charts')} <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLink>
