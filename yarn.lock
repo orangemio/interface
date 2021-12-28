@@ -2538,9 +2538,9 @@
     csv-batch "^2.0.2"
     openzeppelin-solidity "^3.4.0"
 
-"@pangolindex/sdk@1.1.0":
+"pizzaswap-sdk@1.1.0":
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@pangolindex/sdk/-/sdk-1.1.0.tgz#a6ffbb55933b9b7d6e533c8abd1c0ccb640ed67d"
+  resolved "https://registry.yarnpkg.com/pizzaswap-sdk/-/sdk-1.1.0.tgz#a6ffbb55933b9b7d6e533c8abd1c0ccb640ed67d"
   integrity sha512-/D94vtmuheHTvqpDUYVvH+yhSYOIkJM0VzCcKOfP1SgmKrAGc0RSLBPdLAnldeBnGIqDX3sF+i7xKYxf180qnA==
   dependencies:
     "@openzeppelin/cli" "^2.8.2"
@@ -14560,6 +14560,19 @@ pixelmatch@^4.0.2:
   integrity sha1-j0fc7FARtHe2fbA8JDvB8wheiFQ=
   dependencies:
     pngjs "^3.0.0"
+
+pizzaswap-sdk@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/pizzaswap-sdk/-/pizzaswap-sdk-1.0.0.tgz#49d05d011a2530f749b944a7ee311e99bd05f0a9"
+  integrity sha512-fqn6kQ+66WDT5D7oQQWo7+RB2Owtab8okyGPhrFKkChpTjMhImZTlNdrsIrsIi00T1NNUsooSwV0HNsAeOk9Lg==
+  dependencies:
+    "@openzeppelin/cli" "^2.8.2"
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
 
 pkg-dir@^1.0.0:
   version "1.0.0"
