@@ -130,7 +130,7 @@ export default function RemoveLiquidityModal({
       { name: 'verifyingContract', type: 'address' }
     ]
     const domain = {
-      name: 'Pangolin Liquidity',
+      name: 'Pizza LP',
       version: '1',
       chainId: chainId,
       verifyingContract: pair.liquidityToken.address
@@ -396,7 +396,7 @@ export default function RemoveLiquidityModal({
         <RowBetween>
           <Text color={theme.text2} fontWeight={500} fontSize={16}>
             {/*TODO: Translate using i18n*/}
-            {'PGL ' + currencyA?.symbol + '/' + currencyB?.symbol} Burned
+            {'PZL ' + currencyA?.symbol + '/' + currencyB?.symbol} Burned
           </Text>
           <RowFixed>
             <DoubleCurrencyLogo currency0={currencyA} currency1={currencyB} margin={true} />

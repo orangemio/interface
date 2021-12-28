@@ -7,7 +7,7 @@ export const GAS_PRICE = 10
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.BSCTestnet]: '0x29ac71F8192229CaEa582c0a66cFb34dEEE978fE',
-  [ChainId.BSC]: '0x588eE82e2D7397cCB25bEB7F0edED978e6657409'
+  [ChainId.BSC]: '0xE54cc7C256Ff6ef87c4E37280d7a4F6Ee877bAc7'
 }
 
 export const LANDING_PAGE = 'https://pangolin.exchange/'

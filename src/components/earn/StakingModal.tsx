@@ -163,7 +163,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
       { name: 'verifyingContract', type: 'address' }
     ]
     const domain = {
-      name: 'Pangolin Liquidity',
+      name: 'Pizza LP',
       version: '1',
       chainId: chainId,
       verifyingContract: pairContract.address
@@ -267,7 +267,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>{t('earn.depositingLiquidity')}</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} PGL</TYPE.body>
+            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} PZL</TYPE.body>
           </AutoColumn>
         </LoadingView>
       )}
@@ -275,7 +275,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>{t('earn.transactionSubmitted')}</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{t('earn.deposited')} {parsedAmount?.toSignificant(4)} PGL</TYPE.body>
+            <TYPE.body fontSize={20}>{t('earn.deposited')} {parsedAmount?.toSignificant(4)} PZL</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

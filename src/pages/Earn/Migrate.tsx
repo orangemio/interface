@@ -153,13 +153,13 @@ export default function Migrate({
             <CardSection>
               <AutoColumn gap="md">
                 <RowBetween>
-                  <TYPE.white fontWeight={600}>Step 1. Unstake Pangolin liquidity (PGL)</TYPE.white>
+                  <TYPE.white fontWeight={600}>Step 1. Unstake Pangolin liquidity (PZL)</TYPE.white>
                 </RowBetween>
                 {(requiresUnstake) && (
                   <>
                     <RowBetween style={{ marginBottom: '1rem' }}>
                       <TYPE.white fontSize={14}>
-                        {`You are currently staking deprecated PGL tokens. Unstake to continue the migration process`}
+                        {`You are currently staking deprecated PZL tokens. Unstake to continue the migration process`}
                       </TYPE.white>
                     </RowBetween>
                     <ButtonPrimary
@@ -180,13 +180,13 @@ export default function Migrate({
             <CardSection>
               <AutoColumn gap="md">
                 <RowBetween>
-                  <TYPE.white fontWeight={600}>Step 2. Convert Pangolin liquidity tokens (PGL)</TYPE.white>
+                  <TYPE.white fontWeight={600}>Step 2. Convert Pangolin liquidity tokens (PZL)</TYPE.white>
                 </RowBetween>
                 {(requiresConvert) && (
                   <>
                     <RowBetween style={{ marginBottom: '1rem' }}>
                       <TYPE.white fontSize={14}>
-                        {`You are currently holding deprecated PGL tokens. Migrate them including the underlying assets they represent to continue the migration process`}
+                        {`You are currently holding deprecated PZL tokens. Migrate them including the underlying assets they represent to continue the migration process`}
                       </TYPE.white>
                     </RowBetween>
                     {(canZap) ? (
@@ -200,7 +200,7 @@ export default function Migrate({
                       </ButtonPrimary>
                     ) : (
                       <ErrorText severity={2}>
-                        {`Pangolin does not support auto migration of this pair. Please withdraw the PGL and upgrade the tokens at `}
+                        {`Pangolin does not support auto migration of this pair. Please withdraw the PZL and upgrade the tokens at `}
                         <ExternalLink href={'https://bridge.avax.network/convert'}>
                           https://bridge.avax.network/convert
                         </ExternalLink>
@@ -216,7 +216,7 @@ export default function Migrate({
             <CardSection>
               <AutoColumn gap="md">
                 <RowBetween>
-                  <TYPE.white fontWeight={600}>Step 3. Stake Pangolin liquidity (PGL)</TYPE.white>
+                  <TYPE.white fontWeight={600}>Step 3. Stake Pangolin liquidity (PZL)</TYPE.white>
                 </RowBetween>
                 {(requiresStake) && (
                   <>
