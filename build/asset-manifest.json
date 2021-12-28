@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "./static/js/main.43a22541.chunk.js",
-    "main.js.map": "./static/js/main.43a22541.chunk.js.map",
+    "main.js": "./static/js/main.e508ad53.chunk.js",
+    "main.js.map": "./static/js/main.e508ad53.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.56803480.js",
     "runtime-main.js.map": "./static/js/runtime-main.56803480.js.map",
     "static/css/2.2f96b436.chunk.css": "./static/css/2.2f96b436.chunk.css",
-    "static/js/2.8f440ac4.chunk.js": "./static/js/2.8f440ac4.chunk.js",
-    "static/js/2.8f440ac4.chunk.js.map": "./static/js/2.8f440ac4.chunk.js.map",
+    "static/js/2.9271cc50.chunk.js": "./static/js/2.9271cc50.chunk.js",
+    "static/js/2.9271cc50.chunk.js.map": "./static/js/2.9271cc50.chunk.js.map",
     "static/js/3.da4ed68a.chunk.js": "./static/js/3.da4ed68a.chunk.js",
     "static/js/3.da4ed68a.chunk.js.map": "./static/js/3.da4ed68a.chunk.js.map",
     "static/js/4.fa03d5e7.chunk.js": "./static/js/4.fa03d5e7.chunk.js",
@@ -16,10 +16,10 @@
     "static/js/6.b944ac68.chunk.js": "./static/js/6.b944ac68.chunk.js",
     "static/js/6.b944ac68.chunk.js.map": "./static/js/6.b944ac68.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.b28c24d1803cb951a18b7c707d4a2439.js": "./precache-manifest.b28c24d1803cb951a18b7c707d4a2439.js",
+    "precache-manifest.6116cda1e7f5bffcc650f7a8ddbd2244.js": "./precache-manifest.6116cda1e7f5bffcc650f7a8ddbd2244.js",
     "service-worker.js": "./service-worker.js",
     "static/css/2.2f96b436.chunk.css.map": "./static/css/2.2f96b436.chunk.css.map",
-    "static/js/2.8f440ac4.chunk.js.LICENSE.txt": "./static/js/2.8f440ac4.chunk.js.LICENSE.txt",
+    "static/js/2.9271cc50.chunk.js.LICENSE.txt": "./static/js/2.9271cc50.chunk.js.LICENSE.txt",
     "static/js/3.da4ed68a.chunk.js.LICENSE.txt": "./static/js/3.da4ed68a.chunk.js.LICENSE.txt",
     "static/media/Apple_Pay_Mark_RGB_041619.svg": "./static/media/Apple_Pay_Mark_RGB_041619.fe4f01ad.svg",
     "static/media/inter.css": "./static/media/Inter.var.8dd26c3d.woff2",
@@ -84,7 +84,7 @@
   "entrypoints": [
     "static/js/runtime-main.56803480.js",
     "static/css/2.2f96b436.chunk.css",
-    "static/js/2.8f440ac4.chunk.js",
-    "static/js/main.43a22541.chunk.js"
+    "static/js/2.9271cc50.chunk.js",
+    "static/js/main.e508ad53.chunk.js"
   ]
 }
