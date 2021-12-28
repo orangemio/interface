@@ -49,7 +49,12 @@ interface RemoveLiquidityModalProps {
   currencyIdB: string
 }
 
-export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _currencyIdA, currencyIdB: _currencyIdB }: RemoveLiquidityModalProps) {
+export default function RemoveLiquidityModal({
+  isOpen,
+  onDismiss,
+  currencyIdA: _currencyIdA,
+  currencyIdB: _currencyIdB
+}: RemoveLiquidityModalProps) {
   const { account, chainId, library } = useActiveWeb3React()
   const theme = useContext(ThemeContext)
   const { t } = useTranslation()
@@ -63,7 +68,6 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
     currencyB,
     chainId
   ])
-
 
   // toggle wallet when disconnected
   const toggleWalletModal = useWalletModalToggle()
@@ -88,8 +92,8 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
     [Field.LIQUIDITY_PERCENT]: parsedAmounts[Field.LIQUIDITY_PERCENT].equalTo('0')
       ? '0'
       : parsedAmounts[Field.LIQUIDITY_PERCENT].lessThan(new Percent('1', '100'))
-        ? '<1'
-        : parsedAmounts[Field.LIQUIDITY_PERCENT].toFixed(0),
+      ? '<1'
+      : parsedAmounts[Field.LIQUIDITY_PERCENT].toFixed(0),
     [Field.LIQUIDITY]:
       independentField === Field.LIQUIDITY ? typedValue : parsedAmounts[Field.LIQUIDITY]?.toSignificant(6) ?? '',
     [Field.CURRENCY_A]:
@@ -111,7 +115,8 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
   )
 
   async function onAttemptToApprove() {
-    if (!pairContract || !pair || !library || !deadline || !chainId || !account) throw new Error(t('earn.missingDependencies'))
+    if (!pairContract || !pair || !library || !deadline || !chainId || !account)
+      throw new Error(t('earn.missingDependencies'))
     const liquidityAmount = parsedAmounts[Field.LIQUIDITY]
     if (!liquidityAmount) throw new Error(t('earn.missingLiquidityAmount'))
 
@@ -213,8 +218,8 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
     const liquidityAmount = parsedAmounts[Field.LIQUIDITY]
     if (!liquidityAmount) throw new Error('missing liquidity amount')
 
-    const currencyBIsAVAX = currencyB === CBNB
-    const oneCurrencyIsAVAX = currencyA === CBNB || currencyBIsAVAX
+    const currencyBIsBNB = currencyB === CBNB
+    const oneCurrencyIsBNB = currencyA === CBNB || currencyBIsBNB
 
     // TODO: Translate using i18n
     if (!tokenA || !tokenB) throw new Error('could not wrap')
@@ -222,14 +227,14 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
     let methodNames: string[], args: Array<string | string[] | number | boolean>
     // we have approval, use normal remove liquidity
     if (approval === ApprovalState.APPROVED) {
-      // removeLiquidityAVAX
-      if (oneCurrencyIsAVAX) {
-        methodNames = ['removeLiquidityAVAX', 'removeLiquidityAVAXSupportingFeeOnTransferTokens']
+      // removeLiquidityBNB
+      if (oneCurrencyIsBNB) {
+        methodNames = ['removeLiquidityBNB', 'removeLiquidityBNBSupportingFeeOnTransferTokens']
         args = [
-          currencyBIsAVAX ? tokenA.address : tokenB.address,
+          currencyBIsBNB ? tokenA.address : tokenB.address,
           liquidityAmount.raw.toString(),
-          amountsMin[currencyBIsAVAX ? Field.CURRENCY_A : Field.CURRENCY_B].toString(),
-          amountsMin[currencyBIsAVAX ? Field.CURRENCY_B : Field.CURRENCY_A].toString(),
+          amountsMin[currencyBIsBNB ? Field.CURRENCY_A : Field.CURRENCY_B].toString(),
+          amountsMin[currencyBIsBNB ? Field.CURRENCY_B : Field.CURRENCY_A].toString(),
           account,
           deadline.toHexString()
         ]
@@ -250,14 +255,14 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
     }
     // we have a signature, use permit versions of remove liquidity
     else if (signatureData !== null) {
-      // removeLiquidityAVAXWithPermit
-      if (oneCurrencyIsAVAX) {
-        methodNames = ['removeLiquidityAVAXWithPermit', 'removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens']
+      // removeLiquidityBNBWithPermit
+      if (oneCurrencyIsBNB) {
+        methodNames = ['removeLiquidityBNBWithPermit', 'removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens']
         args = [
-          currencyBIsAVAX ? tokenA.address : tokenB.address,
+          currencyBIsBNB ? tokenA.address : tokenB.address,
           liquidityAmount.raw.toString(),
-          amountsMin[currencyBIsAVAX ? Field.CURRENCY_A : Field.CURRENCY_B].toString(),
-          amountsMin[currencyBIsAVAX ? Field.CURRENCY_B : Field.CURRENCY_A].toString(),
+          amountsMin[currencyBIsBNB ? Field.CURRENCY_A : Field.CURRENCY_B].toString(),
+          amountsMin[currencyBIsBNB ? Field.CURRENCY_B : Field.CURRENCY_A].toString(),
           account,
           signatureData.deadline,
           false,
@@ -266,7 +271,7 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
           signatureData.s
         ]
       }
-      // removeLiquidityAVAXWithPermit
+      // removeLiquidityBNBWithPermit
       else {
         methodNames = ['removeLiquidityWithPermit']
         args = [
@@ -379,7 +384,7 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
         <TYPE.italic fontSize={12} color={theme.text2} textAlign="left" padding={'12px 0 0 0'}>
           {/*TODO: Translate using i18n*/}
           {`Output is estimated. If the price changes by more than ${allowedSlippage /
-          100}% your transaction will revert.`}
+            100}% your transaction will revert.`}
         </TYPE.italic>
       </AutoColumn>
     )
@@ -428,7 +433,6 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
     )
   }
 
-
   // TODO: Translate using i18n
   const pendingText = `Removing ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
     currencyA?.symbol
@@ -441,11 +445,11 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
     [onUserInput]
   )
 
-  const oneCurrencyIsAVAX = currencyA === CBNB || currencyB === CBNB
+  const oneCurrencyIsBNB = currencyA === CBNB || currencyB === CBNB
   const oneCurrencyIsWBNB = Boolean(
     chainId &&
-    ((currencyA && currencyEquals(WBNB[chainId], currencyA)) ||
-      (currencyB && currencyEquals(WBNB[chainId], currencyB)))
+      ((currencyA && currencyEquals(WBNB[chainId], currencyA)) ||
+        (currencyB && currencyEquals(WBNB[chainId], currencyB)))
   )
 
   const handleDismissConfirmation = useCallback(() => {
@@ -561,9 +565,9 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
                       </Text>
                     </RowFixed>
                   </RowBetween>
-                  {chainId && (oneCurrencyIsWBNB || oneCurrencyIsAVAX) ? (
+                  {chainId && (oneCurrencyIsWBNB || oneCurrencyIsBNB) ? (
                     <RowBetween style={{ justifyContent: 'flex-end' }}>
-                      {oneCurrencyIsAVAX ? (
+                      {oneCurrencyIsBNB ? (
                         <LinkStyledButton
                           onClick={() => {
                             setCurrencyIdA(currencyA === CBNB ? WBNB[chainId].address : currencyIdA)
@@ -575,8 +579,8 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
                       ) : oneCurrencyIsWBNB ? (
                         <LinkStyledButton
                           onClick={() => {
-                            setCurrencyIdA(currencyA && currencyEquals(currencyA, WBNB[chainId]) ? 'AVAX' : currencyIdA)
-                            setCurrencyIdB(currencyB && currencyEquals(currencyB, WBNB[chainId]) ? 'AVAX' : currencyIdB)
+                            setCurrencyIdA(currencyA && currencyEquals(currencyA, WBNB[chainId]) ? 'BNB' : currencyIdA)
+                            setCurrencyIdB(currencyB && currencyEquals(currencyB, WBNB[chainId]) ? 'BNB' : currencyIdB)
                           }}
                         >
                           {t('removeLiquidity.receiveAvax')}

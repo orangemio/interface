@@ -28,7 +28,7 @@ const PortfolioChart: React.FC<Props> = () => {
         <Text color="green1" fontSize="15px">
           +10.50%
         </Text>
-        <ToggleButtons options={['AVAX', 'USDT']} value={'USDT'} />
+        <ToggleButtons options={['BNB', 'USDT']} value={'USDT'} />
       </BalanceInfo>
       <ResponsiveContainer height={150} width={'100%'}>
         <LineChart data={data}>

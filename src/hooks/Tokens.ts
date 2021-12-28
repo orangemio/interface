@@ -102,7 +102,7 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
 }
 
 export function useCurrency(currencyId: string | undefined): Currency | null | undefined {
-  const isAVAX = currencyId?.toUpperCase() === 'AVAX'
-  const token = useToken(isAVAX ? undefined : currencyId)
-  return isAVAX ? CBNB : token
+  const isBNB = currencyId?.toUpperCase() === 'BNB'
+  const token = useToken(isBNB ? undefined : currencyId)
+  return isBNB ? CBNB : token
 }

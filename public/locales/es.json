@@ -67,7 +67,7 @@
     "deposit": "Depositar",
     "poolRate": "Ratio de la pool",
     "currentReward": "Recompensa actual",
-    "pngPerAvax": "PNG / Semana por AVAX",
+    "pngPerAvax": "PNG / Semana por BNB",
     "rewardPerWeek": "{{ symbol }} / Semana",
     "earnUpTo": "Gana hasta (anualmente)",
     "yourRate": "Tu ritmo",
@@ -383,7 +383,7 @@
     "youWillReceive": "Recivirá",
     "simple": "Simple",
     "detailed": "Detallado",
-    "receiveAvax": "Recibir AVAX",
+    "receiveAvax": "Recibir BNB",
     "receiveWavax": "Recibir WBNB",
     "price": "Precio:",
     "connectWallet": "Conectar cartera",
@@ -430,12 +430,12 @@
     "trade": "Comercio"
   },
   "buyPage": {
-    "buyAvaxInfo": "Compre AVAX con fiat de nuestro socio Wyre.",
+    "buyAvaxInfo": "Compre BNB con fiat de nuestro socio Wyre.",
     "privacyInfo": "Pangolin no almacena su historial de compras ni ningún dato personal.",
     "firstName": "Nombre",
     "lastName": "Apellido",
     "email": "Email",
-    "buyAvax": "Compre AVAX"
+    "buyAvax": "Compre BNB"
   },
   "votePage": {
     "unlockVotes": "Desbloquear votos",

@@ -89,7 +89,7 @@ const TokenListDrawer: React.FC<Props> = ({ isOpen, onClose }) => {
       })
   }, [lists])
 
-  const isAEBTokenList = useIsSelectedAEBTokenList()
+  const isAEBTokenList = false
 
   return (
     <Drawer title="Manage Lists" isOpen={isOpen} onClose={onClose}>
@@ -117,11 +117,6 @@ const TokenListDrawer: React.FC<Props> = ({ isOpen, onClose }) => {
         ) : null}
       </Box>
       <Scrollbars>
-        {isAEBTokenList && (
-          <Warning>
-            <DeprecatedWarning />
-          </Warning>
-        )}
         <List>
           {sortedLists.map(url => (
             <TokenListRow listUrl={url} key={url} />

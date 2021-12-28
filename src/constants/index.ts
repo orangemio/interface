@@ -244,8 +244,8 @@ export const MFI: { [chainId in ChainId]: Token } = {
 }
 
 export const SHIBX: { [chainId in ChainId]: Token } = {
-  [ChainId.BSCTestnet]: new Token(ChainId.BSCTestnet, ZERO_ADDRESS, 18, 'SHIBX', 'SHIBAVAX'),
-  [ChainId.BSC]: new Token(ChainId.BSC, '0x440aBbf18c54b2782A4917b80a1746d3A2c2Cce1', 18, 'SHIBX', 'SHIBAVAX')
+  [ChainId.BSCTestnet]: new Token(ChainId.BSCTestnet, ZERO_ADDRESS, 18, 'SHIBX', 'SHIBBNB'),
+  [ChainId.BSC]: new Token(ChainId.BSC, '0x440aBbf18c54b2782A4917b80a1746d3A2c2Cce1', 18, 'SHIBX', 'SHIBBNB')
 }
 
 export const AVE: { [chainId in ChainId]: Token } = {
@@ -393,9 +393,9 @@ export const RAI: { [chainId in ChainId]: Token } = {
   [ChainId.BSC]: new Token(ChainId.BSC, '0x97Cd1CFE2ed5712660bb6c14053C0EcB031Bff7d', 18, 'RAI', 'Rai Reflex Index')
 }
 
-export const AAVAXB: { [chainId in ChainId]: Token } = {
-  [ChainId.BSCTestnet]: new Token(ChainId.BSCTestnet, ZERO_ADDRESS, 18, 'aAVAXb', 'Ankr AVAX Bond'),
-  [ChainId.BSC]: new Token(ChainId.BSC, '0x6C6f910A79639dcC94b4feEF59Ff507c2E843929', 18, 'aAVAXb', 'Ankr AVAX Bond')
+export const ABNBB: { [chainId in ChainId]: Token } = {
+  [ChainId.BSCTestnet]: new Token(ChainId.BSCTestnet, ZERO_ADDRESS, 18, 'aBNBb', 'Ankr BNB Bond'),
+  [ChainId.BSC]: new Token(ChainId.BSC, '0x6C6f910A79639dcC94b4feEF59Ff507c2E843929', 18, 'aBNBb', 'Ankr BNB Bond')
 }
 
 export const INSUR: { [chainId in ChainId]: Token } = {

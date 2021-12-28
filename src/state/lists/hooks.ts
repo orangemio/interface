@@ -3,7 +3,7 @@ import { Tags, TokenInfo, TokenList } from '@pangolindex/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../index'
-import { AEB_TOKENLIST } from '../../constants/lists'
+import { PANCAKE_LIST, AEB_TOKENLIST } from '../../constants/lists'
 import { WBNB } from 'pizzaswap-sdk'
 import { PNG } from '../../constants'
 
@@ -150,7 +150,7 @@ export function useIsSelectedAEBTokenList(): boolean {
 export function useIsSelectedAEBToken(): boolean {
   const listsByUrl = useSelector<AppState, AppState['lists']['byUrl']>(state => state.lists.byUrl)
 
-  const allAEBTokens = listsByUrl[AEB_TOKENLIST]?.current?.tokens || []
+  const allAEBTokens = listsByUrl[PANCAKE_LIST]?.current?.tokens || []
 
   const selectedOutputToken = useSelector<AppState, AppState['swap']['OUTPUT']>(state => state.swap.OUTPUT)
 

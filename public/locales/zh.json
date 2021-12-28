@@ -67,7 +67,7 @@
     "deposit": "入金",
     "poolRate": "池率",
     "currentReward": "当前奖励",
-    "pngPerAvax": "PNG / 周 AVAX",
+    "pngPerAvax": "PNG / 周 BNB",
     "rewardPerWeek": "{{ symbol }} / 周",
     "earnUpTo": "赚取高达（每年）",
     "yourRate": "您的费率",
@@ -383,7 +383,7 @@
     "youWillReceive": "您将获得",
     "simple": "简易的",
     "detailed": "详细的",
-    "receiveAvax": "获得 AVAX",
+    "receiveAvax": "获得 BNB",
     "receiveWavax": "获得 WBNB",
     "price": "价格:",
     "connectWallet": "连接钱包",
@@ -430,12 +430,12 @@
     "trade": "贸易"
   },
   "buyPage": {
-    "buyAvaxInfo": "用我们的合作伙伴怀尔的法定资金购买 AVAX。",
+    "buyAvaxInfo": "用我们的合作伙伴怀尔的法定资金购买 BNB。",
     "privacyInfo": "Pangolin 不存储您的购买历史记录或任何个人数据。",
     "firstName": "名",
     "lastName": "姓",
     "email": "邮箱",
-    "buyAvax": "购买 AVAX"
+    "buyAvax": "购买 BNB"
   },
   "votePage": {
     "unlockVotes": "解锁投票",

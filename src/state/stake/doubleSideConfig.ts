@@ -69,7 +69,7 @@ import {
   TSD,
   EVRT,
   RAI,
-  AAVAXB,
+  ABNBB,
   INSUR,
   TIME,
   AVME,
@@ -626,8 +626,8 @@ export const DOUBLE_SIDE_STAKING: { [key: string]: DoubleSideStaking } = {}
 //     version: 1,
 //     multiplier: 2
 //   },
-//   WBNB_AAVAXB_V1: {
-//     tokens: [WBNB[ChainId.BSC], AAVAXB[ChainId.BSC]],
+//   WBNB_ABNBB_V1: {
+//     tokens: [WBNB[ChainId.BSC], ABNBB[ChainId.BSC]],
 //     stakingRewardAddress: '0xAa01F80375528F36291677C683905b4A113A6470',
 //     version: 1,
 //     multiplier: 2

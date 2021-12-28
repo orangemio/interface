@@ -67,7 +67,7 @@
     "deposit": "Yatır",
     "poolRate": "Havuzun getirisi",
     "currentReward": "Mevcut ödül",
-    "pngPerAvax": "PNG (AVAX başına, haftalık)",
+    "pngPerAvax": "PNG (BNB başına, haftalık)",
     "rewardPerWeek": "{{ symbol }} (haftalık)",
     "earnUpTo": "Şu kadara kadar kazanın (yıllık)",
     "yourRate": "Getiriniz",
@@ -383,7 +383,7 @@
     "youWillReceive": "Şu kadar teslim alacaksınız: ",
     "simple": "Basit",
     "detailed": "Detaylı",
-    "receiveAvax": "AVAX'ları Teslim Al",
+    "receiveAvax": "BNB'ları Teslim Al",
     "receiveWavax": "WBNB'ları Teslim Al",
     "price": "Fiyat:",
     "connectWallet": "Cüzdanı Bağla",
@@ -430,12 +430,12 @@
     "trade": "Ticaret"
   },
   "buyPage": {
-    "buyAvaxInfo": "Ortağımız Wyre aracılığıyla AVAX satın alın.",
+    "buyAvaxInfo": "Ortağımız Wyre aracılığıyla BNB satın alın.",
     "privacyInfo": "Pangolin, satın alma geçmişinizi ya da şahsi bilgilerinizi depolamaz.",
     "firstName": "Ad",
     "lastName": "Soyad",
     "email": "E-mail",
-    "buyAvax": "AVAX Satın Al"
+    "buyAvax": "BNB Satın Al"
   },
   "votePage": {
     "unlockVotes": "Oyların Kilidini Kaldır",

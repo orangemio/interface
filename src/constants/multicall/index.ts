@@ -1,9 +1,10 @@
 import { ChainId } from 'pizzaswap-sdk'
 import MULTICALL_ABI from './abi.json'
 
+//TODO: ORANGE MultiCall
 const MULTICALL_NETWORKS: { [chainId in ChainId]: string } = {
-  [ChainId.BSCTestnet]: '0xb465Fd2d9C71d5D6e6c069aaC9b4E21c69aAA78f',
-  [ChainId.BSC]: '0x0FB54156B496b5a040b51A71817aED9e2927912E'
+  [ChainId.BSCTestnet]: '0x9659Db3C4C43073A73a0E5Fbb8ba4149924c89d6',
+  [ChainId.BSC]: '0xf9806eD9D536bf5837cC52535d9A51c5028dD890'
 }
 
 export { MULTICALL_ABI, MULTICALL_NETWORKS }

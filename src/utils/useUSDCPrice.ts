@@ -46,13 +46,13 @@ export default function useUSDCPrice(currency?: Currency): Price | undefined {
 			return new Price(USDC, USDC, '1', '1')
 		}
 
-		const avaxPairAVAXAmount = avaxPair?.reserveOf(WBNB[chainId])
-		const avaxPairAVAXUSDCValue: JSBI =
-			avaxPairAVAXAmount && usdcAvaxPair ? usdcAvaxPair.priceOf(WBNB[chainId]).quote(avaxPairAVAXAmount).raw : JSBI.BigInt(0)
+		const avaxPairBNBAmount = avaxPair?.reserveOf(WBNB[chainId])
+		const avaxPairBNBUSDCValue: JSBI =
+			avaxPairBNBAmount && usdcAvaxPair ? usdcAvaxPair.priceOf(WBNB[chainId]).quote(avaxPairBNBAmount).raw : JSBI.BigInt(0)
 
 		// all other tokens
 		// first try the usdc pair
-		if (usdcPairState === PairState.EXISTS && usdcPair && usdcPair.reserveOf(USDC).greaterThan(avaxPairAVAXUSDCValue)) {
+		if (usdcPairState === PairState.EXISTS && usdcPair && usdcPair.reserveOf(USDC).greaterThan(avaxPairBNBUSDCValue)) {
 			const price = usdcPair.priceOf(wrapped)
 			return new Price(currency, USDC, price.denominator, price.numerator)
 		}

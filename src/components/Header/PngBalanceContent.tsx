@@ -68,7 +68,7 @@ export default function PngBalanceContent({ setShowPngBalanceModal }: { setShowP
 
   const totalSupply: TokenAmount | undefined = useTotalSupply(png)
 
-  // Determine PNG price in AVAX
+  // Determine PNG price in BNB
   const oneToken = JSBI.BigInt(1000000000000000000)
   const { t } = useTranslation()
 

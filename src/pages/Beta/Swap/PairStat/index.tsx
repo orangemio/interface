@@ -14,12 +14,12 @@ const PairStat = () => {
       <Box borderRight={`1px solid ${theme.text2}`} padding={"10px 20px"} display="flex" alignItems="center" height="100%">
         <DoubleCurrencyLogo size={24} currency0={currency0} currency1={currency1} />
         <Text color="text1" fontSize={24} fontWeight={500} lineHeight="55px" marginLeft={10}>
-          AVAX/PNG
+          BNB/PNG
         </Text>
       </Box>
       <Box padding={10}>
         <Stat
-          title="AVAX Price"
+          title="BNB Price"
           stat="80.06$"
           titlePosition="top"
           titleFontSize={16}
@@ -41,7 +41,7 @@ const PairStat = () => {
 
       <Box padding={10}>
         <Stat
-          title="AVAX/PNG"
+          title="BNB/PNG"
           stat="80"
           titlePosition="top"
           titleFontSize={16}
@@ -52,7 +52,7 @@ const PairStat = () => {
 
       <Box padding={10}>
         <Stat
-          title="PNG/AVAX"
+          title="PNG/BNB"
           stat="0.1"
           titlePosition="top"
           titleFontSize={16}

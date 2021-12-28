@@ -408,8 +408,6 @@ const LimitOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
         </Box>
 
         <Box p={10}>
-          {isAEBToken && <DeprecatedWarning />}
-
           <CurrencyInputTextBox
             label={
               independentField === (LimitNewField.OUTPUT as any) && trade

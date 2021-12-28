@@ -67,7 +67,7 @@
     "deposit": "Gửi",
     "poolRate": "Tỷ suất bể",
     "currentReward": "Phần thưởng hiện tại",
-    "pngPerAvax": "PNG/tuần trên mỗi AVAX",
+    "pngPerAvax": "PNG/tuần trên mỗi BNB",
     "rewardPerWeek": "{{ symbol }} / Tuần",
     "earnUpTo": "Lợi nhuận hàng năm lên đến",
     "yourRate": "Tỷ lệ của bạn",
@@ -383,7 +383,7 @@
     "youWillReceive": "Bạn sẽ nhận",
     "simple": "Đơn giản",
     "detailed": "Chi tiết",
-    "receiveAvax": "Nhận AVAX",
+    "receiveAvax": "Nhận BNB",
     "receiveWavax": "Nhận WBNB",
     "price": "Giá:",
     "connectWallet": "Kết nối ví",
@@ -430,12 +430,12 @@
     "trade": "Buôn bán"
   },
   "buyPage": {
-    "buyAvaxInfo": "Mua AVAX bằng fiat từ đối tác Wyre của chúng tôi.",
+    "buyAvaxInfo": "Mua BNB bằng fiat từ đối tác Wyre của chúng tôi.",
     "privacyInfo": "Pangolin không lưu trữ lịch sử mua hàng của bạn hoặc bất kỳ dữ liệu cá nhân nào.",
     "firstName": "Tên đầu",
     "lastName": "Tên cuối",
     "email": "Thư điện tử",
-    "buyAvax": "Mua AVAX"
+    "buyAvax": "Mua BNB"
   },
   "votePage": {
     "unlockVotes": "Mở khóa phiếu bầu",

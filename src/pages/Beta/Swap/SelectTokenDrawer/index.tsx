@@ -24,7 +24,7 @@ interface Props {
 }
 
 const currencyKey = (currency: Currency): string => {
-  return currency instanceof Token ? currency.address : currency === CBNB ? 'AVAX' : ''
+  return currency instanceof Token ? currency.address : currency === CBNB ? 'BNB' : ''
 }
 
 const SelectTokenDrawer: React.FC<Props> = props => {

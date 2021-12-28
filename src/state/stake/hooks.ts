@@ -85,7 +85,7 @@ export interface DoubleSideStakingInfo extends StakingInfoBase {
   tokens: [Token, Token]
   // the pool weight
   multiplier: JSBI
-  // total staked AVAX in the pool
+  // total staked BNB in the pool
   totalStakedInWavax: TokenAmount
   totalStakedInUsd: TokenAmount
 }
@@ -154,7 +154,7 @@ const calculateTotalStakedAmountInAvax = function(
   reserveInWavax: JSBI
 ): TokenAmount {
   if (JSBI.GT(amountAvailable, 0)) {
-    // take the total amount of LP tokens staked, multiply by AVAX value of all LP tokens, divide by all LP tokens
+    // take the total amount of LP tokens staked, multiply by BNB value of all LP tokens, divide by all LP tokens
     return new TokenAmount(
       WBNB[ChainId.BSC],
       JSBI.divide(

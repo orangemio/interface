@@ -169,19 +169,19 @@ const Dashboard = () => {
                 <Slider ref={sliderRef} {...NewsFeedSettings}>
                   <div>
                     <NewsContent>
-                      AVAX has been forming a harmonic pattern, and currently retracing a major Fibonacci level.
+                      BNB has been forming a harmonic pattern, and currently retracing a major Fibonacci level.
                     </NewsContent>
                     <NewsDate>7:00 PM IST, 14-OCT-21</NewsDate>
                   </div>
                   <div>
                     <NewsContent>
-                      AVAX has been forming a harmonic pattern, and currently retracing a major Fibonacci level.
+                      BNB has been forming a harmonic pattern, and currently retracing a major Fibonacci level.
                     </NewsContent>
                     <NewsDate>7:00 PM IST, 14-OCT-21</NewsDate>
                   </div>
                   <div>
                     <NewsContent>
-                      AVAX has been forming a harmonic pattern, and currently retracing a major Fibonacci level.
+                      BNB has been forming a harmonic pattern, and currently retracing a major Fibonacci level.
                     </NewsContent>
                     <NewsDate>7:00 PM IST, 14-OCT-21</NewsDate>
                   </div>
@@ -267,7 +267,7 @@ const Dashboard = () => {
                   </TokenChart>
                   <TokenList>
                     <TokenRow onClick={() => handleToken('PNG')} />
-                    <TokenRow name="AVAX" onClick={() => handleToken('AVAX')} />
+                    <TokenRow name="BNB" onClick={() => handleToken('BNB')} />
                     <TokenRow name="ETH.e" diffPercent={-1.5} onClick={() => handleToken('ETH')} />
                     <TokenRow name="LINK.e" onClick={() => handleToken('LINK.e')} />
                     <TokenRow name="USDT.e" onClick={() => handleToken('USDT.e')} />

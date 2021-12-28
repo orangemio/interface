@@ -292,7 +292,7 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
       })
   }, [lists])
 
-  const isAEBTokenList = useIsSelectedAEBTokenList()
+  const isAEBTokenList = false
 
   const { t } = useTranslation()
   return (
@@ -338,12 +338,6 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
       </PaddedColumn>
 
       <Separator />
-
-      {isAEBTokenList && (
-        <WarningWrapper>
-          <DeprecatedWarning />
-        </WarningWrapper>
-      )}
 
       <ListContainer>
         {sortedLists.map(listUrl => (

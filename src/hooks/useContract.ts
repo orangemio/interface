@@ -97,7 +97,11 @@ export function usePngContract(): Contract | null {
 }
 
 export function useStakingContract(stakingAddress?: string, withSignerIfPossible?: boolean): Contract | null {
-  return useContract(stakingAddress, stakingAddress === MINICHEF_ADDRESS ? MINICHEF_ABI : STAKING_REWARDS_ABI, withSignerIfPossible)
+  return useContract(
+    stakingAddress,
+    stakingAddress === MINICHEF_ADDRESS ? MINICHEF_ABI : STAKING_REWARDS_ABI,
+    withSignerIfPossible
+  )
 }
 
 export function useAirdropContract(): Contract | null {

@@ -227,9 +227,9 @@ export default function RemoveLiquidity({
     let methodNames: string[], args: Array<string | string[] | number | boolean>
     // we have approval, use normal remove liquidity
     if (approval === ApprovalState.APPROVED) {
-      // removeLiquidityAVAX
+      // removeLiquidityBNB
       if (oneCurrencyIsETH) {
-        methodNames = ['removeLiquidityAVAX', 'removeLiquidityAVAXSupportingFeeOnTransferTokens']
+        methodNames = ['removeLiquidityBNB', 'removeLiquidityBNBSupportingFeeOnTransferTokens']
         args = [
           currencyBIsETH ? tokenA.address : tokenB.address,
           liquidityAmount.raw.toString(),
@@ -255,9 +255,9 @@ export default function RemoveLiquidity({
     }
     // we have a signataure, use permit versions of remove liquidity
     else if (signatureData !== null) {
-      // removeLiquidityAVAXWithPermit
+      // removeLiquidityBNBWithPermit
       if (oneCurrencyIsETH) {
-        methodNames = ['removeLiquidityAVAXWithPermit', 'removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens']
+        methodNames = ['removeLiquidityBNBWithPermit', 'removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens']
         args = [
           currencyBIsETH ? tokenA.address : tokenB.address,
           liquidityAmount.raw.toString(),
@@ -271,7 +271,7 @@ export default function RemoveLiquidity({
           signatureData.s
         ]
       }
-      // removeLiquidityAVAXWithPermit
+      // removeLiquidityBNBWithPermit
       else {
         methodNames = ['removeLiquidityWithPermit']
         args = [
@@ -445,7 +445,7 @@ export default function RemoveLiquidity({
     [onUserInput]
   )
 
-  const oneCurrencyIsAVAX = currencyA === CBNB || currencyB === CBNB
+  const oneCurrencyIsBNB = currencyA === CBNB || currencyB === CBNB
   const oneCurrencyIsWBNB = Boolean(
     chainId &&
       ((currencyA && currencyEquals(WBNB[chainId], currencyA)) ||
@@ -578,9 +578,9 @@ export default function RemoveLiquidity({
                         </Text>
                       </RowFixed>
                     </RowBetween>
-                    {chainId && (oneCurrencyIsWBNB || oneCurrencyIsAVAX) ? (
+                    {chainId && (oneCurrencyIsWBNB || oneCurrencyIsBNB) ? (
                       <RowBetween style={{ justifyContent: 'flex-end' }}>
-                        {oneCurrencyIsAVAX ? (
+                        {oneCurrencyIsBNB ? (
                           <StyledInternalLink
                             to={`/remove/${currencyA === CBNB ? WBNB[chainId].address : currencyIdA}/${
                               currencyB === CBNB ? WBNB[chainId].address : currencyIdB
@@ -591,8 +591,8 @@ export default function RemoveLiquidity({
                         ) : oneCurrencyIsWBNB ? (
                           <StyledInternalLink
                             to={`/remove/${
-                              currencyA && currencyEquals(currencyA, WBNB[chainId]) ? 'AVAX' : currencyIdA
-                            }/${currencyB && currencyEquals(currencyB, WBNB[chainId]) ? 'AVAX' : currencyIdB}`}
+                              currencyA && currencyEquals(currencyA, WBNB[chainId]) ? 'BNB' : currencyIdA
+                            }/${currencyB && currencyEquals(currencyB, WBNB[chainId]) ? 'BNB' : currencyIdB}`}
                           >
                             {t('removeLiquidity.receiveAvax')}
                           </StyledInternalLink>
