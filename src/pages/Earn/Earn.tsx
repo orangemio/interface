@@ -253,7 +253,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
               <RowBetween>
                 <TYPE.white fontSize={14}>{t('earnPage.depositPangolinLiquidity')}</TYPE.white>
               </RowBetween>{' '}
-              <AutoRow justify="space-between">
+              {/* <AutoRow justify="space-between">
                 <ExternalLink
                   style={{ color: 'white', textDecoration: 'underline' }}
                   href="https://pangolin.exchange/litepaper"
@@ -277,7 +277,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                     <TYPE.white fontSize={14}>{t('earnPage.getInsuranceCoverage')}</TYPE.white>
                   </ExternalLink>
                 </FlexDiv>
-              </AutoRow>
+              </AutoRow> */}
             </AutoColumn>
           </CardSection>
           <CardBGImage />

@@ -46,7 +46,7 @@ export default function Menu() {
             <Info size={14} />
             {t('menu.about')}
           </MenuItem>
-          <MenuNavItem id="link" to={'/IDO'}>
+          {/* <MenuNavItem id="link" to={'/IDO'}>
             <Calendar size={14} />
             {t('menu.idos')}
           </MenuNavItem>
@@ -69,12 +69,12 @@ export default function Menu() {
           <MenuNavItem id="link" to={'/vote'}>
             <CheckSquare size={14} />
             {t('header.vote')}
-          </MenuNavItem>
-          <MenuItem id="link" href="https://twitter.com/pangolindex">
+          </MenuNavItem> */}
+          <MenuItem id="link" href="#">
             <Twitter size={14} />
             {t('menu.twitter')}
           </MenuItem>
-          <MenuItem id="link" href="https://github.com/pangolindex">
+          <MenuItem id="link" href="#">
             <GitHub size={14} />
             {t('menu.code')}
           </MenuItem>
