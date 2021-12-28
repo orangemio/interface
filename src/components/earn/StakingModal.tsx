@@ -8,7 +8,7 @@ import { TYPE, CloseIcon } from '../../theme'
 import { ButtonConfirmed, ButtonError } from '../Button'
 import ProgressCircles from '../ProgressSteps'
 import CurrencyInputPanel from '../CurrencyInputPanel'
-import { TokenAmount, Pair, ChainId } from '@pangolindex/sdk'
+import { TokenAmount, Pair, ChainId } from 'pizzaswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { usePairContract, useStakingContract } from '../../hooks/useContract'
@@ -74,7 +74,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
   const dummyPair = new Pair(
     new TokenAmount(stakingInfo.tokens[0], '0'),
     new TokenAmount(stakingInfo.tokens[1], '0'),
-    chainId ? chainId : ChainId.AVALANCHE
+    chainId ? chainId : ChainId.BSC
   )
   const pairContract = usePairContract(dummyPair.liquidityToken.address)
 

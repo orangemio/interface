@@ -1,10 +1,10 @@
-import { ChainId, JSBI, Token, TokenAmount } from '@pangolindex/sdk'
+import { ChainId, JSBI, Token, TokenAmount } from 'pizzaswap-sdk'
 import { BigNumber } from 'ethers'
 import { ZERO_ADDRESS } from '../constants'
 import { computePngCirculation } from './computePngCirculation'
 
 describe('computePngCirculation', () => {
-	const token = new Token(ChainId.AVALANCHE, ZERO_ADDRESS, 18)
+	const token = new Token(ChainId.BSC, ZERO_ADDRESS, 18)
 
 	function expandTo18Decimals(num: JSBI | string | number) {
 		return JSBI.multiply(JSBI.BigInt(num), JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(18)))

@@ -1,4 +1,4 @@
-import { CurrencyAmount, CAVAX, JSBI } from '@pangolindex/sdk'
+import { CurrencyAmount, CBNB, JSBI } from 'pizzaswap-sdk'
 import { MIN_ETH } from '../constants'
 
 /**
@@ -7,7 +7,7 @@ import { MIN_ETH } from '../constants'
  */
 export function maxAmountSpend(currencyAmount?: CurrencyAmount): CurrencyAmount | undefined {
   if (!currencyAmount) return undefined
-  if (currencyAmount.currency === CAVAX) {
+  if (currencyAmount.currency === CBNB) {
     if (JSBI.greaterThan(currencyAmount.raw, MIN_ETH)) {
       return CurrencyAmount.ether(JSBI.subtract(currencyAmount.raw, MIN_ETH))
     } else {
@@ -19,7 +19,7 @@ export function maxAmountSpend(currencyAmount?: CurrencyAmount): CurrencyAmount 
 
 export function galetoMaxAmountSpend(currencyAmount?: any): any | undefined {
   if (!currencyAmount) return undefined
-  if (currencyAmount.currency === CAVAX) {
+  if (currencyAmount.currency === CBNB) {
     if (JSBI.greaterThan(currencyAmount, MIN_ETH)) {
       return CurrencyAmount.ether(JSBI.subtract(currencyAmount.raw, MIN_ETH))
     } else {

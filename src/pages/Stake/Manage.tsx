@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react'
 import { AutoColumn } from '../../components/Column'
 import styled from 'styled-components'
 
-import { ChainId, JSBI } from '@pangolindex/sdk'
+import { ChainId, JSBI } from 'pizzaswap-sdk'
 import { Link, RouteComponentProps } from 'react-router-dom'
 import { useCurrency } from '../../hooks/Tokens'
 import { useWalletModalToggle } from '../../state/application/hooks'
@@ -91,7 +91,7 @@ export default function Manage({
 	const rewardToken = wrappedCurrency(rewardCurrency ?? undefined, chainId)
 
 	const stakingInfo = useSingleSideStakingInfo(Number(version), rewardToken)?.[0]
-  const png = PNG[chainId ? chainId : ChainId.AVALANCHE]
+  const png = PNG[chainId ? chainId : ChainId.BSC]
 
 	const backgroundColorStakingToken = useColor(png)
 

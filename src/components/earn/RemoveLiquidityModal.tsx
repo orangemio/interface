@@ -15,7 +15,7 @@ import { useCurrency } from '../../hooks/Tokens'
 import useTransactionDeadline from '../../hooks/useTransactionDeadline'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { Field } from '../../state/burn/actions'
-import { CAVAX, ChainId, currencyEquals, Percent, WAVAX } from '@pangolindex/sdk'
+import { CBNB, ChainId, currencyEquals, Percent, WBNB } from 'pizzaswap-sdk'
 import { Contract } from '@ethersproject/contracts'
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import { ROUTER_ADDRESS } from '../../constants'
@@ -107,7 +107,7 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
   const [approval, approveCallback] = useApproveCallback(
     parsedAmounts[Field.LIQUIDITY],
-    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.AVALANCHE]
+    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.BSC]
   )
 
   async function onAttemptToApprove() {
@@ -213,8 +213,8 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
     const liquidityAmount = parsedAmounts[Field.LIQUIDITY]
     if (!liquidityAmount) throw new Error('missing liquidity amount')
 
-    const currencyBIsAVAX = currencyB === CAVAX
-    const oneCurrencyIsAVAX = currencyA === CAVAX || currencyBIsAVAX
+    const currencyBIsAVAX = currencyB === CBNB
+    const oneCurrencyIsAVAX = currencyA === CBNB || currencyBIsAVAX
 
     // TODO: Translate using i18n
     if (!tokenA || !tokenB) throw new Error('could not wrap')
@@ -441,11 +441,11 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
     [onUserInput]
   )
 
-  const oneCurrencyIsAVAX = currencyA === CAVAX || currencyB === CAVAX
-  const oneCurrencyIsWAVAX = Boolean(
+  const oneCurrencyIsAVAX = currencyA === CBNB || currencyB === CBNB
+  const oneCurrencyIsWBNB = Boolean(
     chainId &&
-    ((currencyA && currencyEquals(WAVAX[chainId], currencyA)) ||
-      (currencyB && currencyEquals(WAVAX[chainId], currencyB)))
+    ((currencyA && currencyEquals(WBNB[chainId], currencyA)) ||
+      (currencyB && currencyEquals(WBNB[chainId], currencyB)))
   )
 
   const handleDismissConfirmation = useCallback(() => {
@@ -561,22 +561,22 @@ export default function RemoveLiquidityModal({ isOpen, onDismiss, currencyIdA: _
                       </Text>
                     </RowFixed>
                   </RowBetween>
-                  {chainId && (oneCurrencyIsWAVAX || oneCurrencyIsAVAX) ? (
+                  {chainId && (oneCurrencyIsWBNB || oneCurrencyIsAVAX) ? (
                     <RowBetween style={{ justifyContent: 'flex-end' }}>
                       {oneCurrencyIsAVAX ? (
                         <LinkStyledButton
                           onClick={() => {
-                            setCurrencyIdA(currencyA === CAVAX ? WAVAX[chainId].address : currencyIdA)
-                            setCurrencyIdB(currencyB === CAVAX ? WAVAX[chainId].address : currencyIdB)
+                            setCurrencyIdA(currencyA === CBNB ? WBNB[chainId].address : currencyIdA)
+                            setCurrencyIdB(currencyB === CBNB ? WBNB[chainId].address : currencyIdB)
                           }}
                         >
                           {t('removeLiquidity.receiveWavax')}
                         </LinkStyledButton>
-                      ) : oneCurrencyIsWAVAX ? (
+                      ) : oneCurrencyIsWBNB ? (
                         <LinkStyledButton
                           onClick={() => {
-                            setCurrencyIdA(currencyA && currencyEquals(currencyA, WAVAX[chainId]) ? 'AVAX' : currencyIdA)
-                            setCurrencyIdB(currencyB && currencyEquals(currencyB, WAVAX[chainId]) ? 'AVAX' : currencyIdB)
+                            setCurrencyIdA(currencyA && currencyEquals(currencyA, WBNB[chainId]) ? 'AVAX' : currencyIdA)
+                            setCurrencyIdB(currencyB && currencyEquals(currencyB, WBNB[chainId]) ? 'AVAX' : currencyIdB)
                           }}
                         >
                           {t('removeLiquidity.receiveAvax')}

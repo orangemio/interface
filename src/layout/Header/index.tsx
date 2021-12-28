@@ -1,4 +1,4 @@
-import { ChainId, TokenAmount } from '@pangolindex/sdk'
+import { ChainId, TokenAmount } from 'pizzaswap-sdk'
 import React, { useState, useRef } from 'react'
 import { useActiveWeb3React } from '../../hooks'
 import { useETHBalances, useAggregatePngBalance } from '../../state/wallet/hooks'
@@ -35,8 +35,8 @@ import {
 import Logo from '../Logo'
 
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
-  [ChainId.FUJI]: 'Fuji',
-  [ChainId.AVALANCHE]: 'Avalanche'
+  [ChainId.BSCTestnet]: 'Fuji',
+  [ChainId.BSC]: 'Avalanche'
 }
 
 interface HeaderProps {
@@ -81,7 +81,7 @@ export default function Header({ onCollapsed }: HeaderProps) {
               <NetworkCard title={NETWORK_LABELS[chainId]}>{NETWORK_LABELS[chainId]}</NetworkCard>
             )}
           </HideSmall>
-          {aggregateBalance && (
+          {/* {aggregateBalance && (
             <PNGWrapper onClick={() => setShowPngBalanceModal(true)}>
               <PNGAmount active={!!account} style={{ pointerEvents: 'auto' }}>
                 {account && (
@@ -106,7 +106,7 @@ export default function Header({ onCollapsed }: HeaderProps) {
               </PNGAmount>
               <CardNoise />
             </PNGWrapper>
-          )}
+          )} */}
           <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
             {account && userEthBalance ? (
               <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>

@@ -5,7 +5,7 @@ import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
 import { abi as IPangolinRouterABI } from '@pangolindex/exchange-contracts/artifacts/contracts/pangolin-periphery/interfaces/IPangolinRouter.sol/IPangolinRouter.json'
 import { ROUTER_ADDRESS } from '../constants'
-import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, CAVAX, currencyEquals, Trade } from '@pangolindex/sdk'
+import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, CBNB, currencyEquals, Trade } from 'pizzaswap-sdk'
 import { TokenAddressMap } from '../state/lists/hooks'
 
 // returns the checksummed address if the address is valid, otherwise returns false
@@ -18,8 +18,8 @@ export function isAddress(value: any): string | false {
 }
 
 const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
-  43113: 'https://testnet.snowtrace.io',
-  43114: 'https://snowtrace.io'
+  56: 'https://testnet.bscscan.com',
+  97: 'https://bscscan.com'
 }
 
 export function getEtherscanLink(
@@ -27,7 +27,7 @@ export function getEtherscanLink(
   data: string,
   type: 'transaction' | 'token' | 'address' | 'block'
 ): string {
-  const prefix = `${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[43114]}`
+  const prefix = `${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[56]}`
 
   switch (type) {
     case 'transaction': {
@@ -97,7 +97,7 @@ export function getContract(address: string, ABI: any, library: Web3Provider, ac
 // account is optional
 export function getRouterContract(chainId: ChainId, library: Web3Provider, account?: string): Contract {
   return getContract(
-    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.AVALANCHE],
+    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.BSC],
     IPangolinRouterABI,
     library,
     account
@@ -109,7 +109,7 @@ export function escapeRegExp(string: string): string {
 }
 
 export function isTokenOnList(defaultTokens: TokenAddressMap, currency?: Currency): boolean {
-  if (currency === CAVAX) return true
+  if (currency === CBNB) return true
   return Boolean(currency instanceof Token && defaultTokens[currency.chainId]?.[currency.address])
 }
 

@@ -1,10 +1,10 @@
-import { ChainId, Token } from '@pangolindex/sdk'
+import { ChainId, Token } from 'pizzaswap-sdk'
 import { Tags, TokenInfo, TokenList } from '@pangolindex/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../index'
 import { AEB_TOKENLIST } from '../../constants/lists'
-import { WAVAX } from '@pangolindex/sdk'
+import { WBNB } from 'pizzaswap-sdk'
 import { PNG } from '../../constants'
 
 type TagDetails = Tags[keyof Tags]
@@ -34,8 +34,8 @@ export type TokenAddressMap = Readonly<{ [chainId in ChainId]: Readonly<{ [token
  * An empty result, useful as a default.
  */
 const EMPTY_LIST: TokenAddressMap = {
-  [ChainId.FUJI]: {},
-  [ChainId.AVALANCHE]: {}
+  [ChainId.BSCTestnet]: {},
+  [ChainId.BSC]: {}
 }
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =
@@ -56,7 +56,7 @@ export function listToTokenMap(list: TokenList): TokenAddressMap {
           })
           ?.filter((x): x is TagInfo => Boolean(x)) ?? []
       const token = new WrappedTokenInfo(tokenInfo, tags)
-      if (tokenMap[token.chainId][token.address] !== undefined) throw Error('Duplicate tokens.')
+      // if (tokenMap[token.chainId][token.address] !== undefined) throw Error('Duplicate tokens.')
       return {
         ...tokenMap,
         [token.chainId]: {
@@ -74,7 +74,7 @@ export function listToTokenMap(list: TokenList): TokenAddressMap {
 export function useTokenList(urls: string[] | undefined): TokenAddressMap {
   const lists = useSelector<AppState, AppState['lists']['byUrl']>(state => state.lists.byUrl)
 
-  let tokenList = {} as { [chainId: string]: { [tokenAddress: string]: WrappedTokenInfo } }
+  const tokenList = {} as { [chainId: string]: { [tokenAddress: string]: WrappedTokenInfo } }
   return useMemo(() => {
     ;([] as string[]).concat(urls || []).forEach(url => {
       const current = lists[url]?.current
@@ -141,13 +141,13 @@ export function useAllLists(): TokenList[] {
   )
 }
 
-export function useIsSelectedAEBTokenList(): Boolean {
+export function useIsSelectedAEBTokenList(): boolean {
   const selectedListUrl = useSelectedListUrl()
   const isSelected = (selectedListUrl || []).includes(AEB_TOKENLIST)
   return isSelected
 }
 
-export function useIsSelectedAEBToken(): Boolean {
+export function useIsSelectedAEBToken(): boolean {
   const listsByUrl = useSelector<AppState, AppState['lists']['byUrl']>(state => state.lists.byUrl)
 
   const allAEBTokens = listsByUrl[AEB_TOKENLIST]?.current?.tokens || []
@@ -156,8 +156,8 @@ export function useIsSelectedAEBToken(): Boolean {
 
   const aebToken = allAEBTokens.find(token => token?.address === selectedOutputToken?.currencyId)
 
-  // ignore PNG and WAVAX token
-  if (aebToken?.address === PNG[ChainId.AVALANCHE].address || aebToken?.address === WAVAX[ChainId.AVALANCHE].address) {
+  // ignore PNG and WBNB token
+  if (aebToken?.address === PNG[ChainId.BSC].address || aebToken?.address === WBNB[ChainId.BSC].address) {
     return false
   }
 

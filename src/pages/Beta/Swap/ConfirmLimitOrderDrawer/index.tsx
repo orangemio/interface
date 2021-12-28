@@ -1,7 +1,7 @@
 import React, { useContext, useState, useCallback } from 'react'
 import { ArrowDown, AlertTriangle, ArrowUpCircle } from 'react-feather'
 import { useTranslation } from 'react-i18next'
-import { Token, Trade, TradeType, CAVAX } from '@pangolindex/sdk'
+import { Token, Trade, TradeType, CBNB } from 'pizzaswap-sdk'
 import { CurrencyLogo, Text, Box, Button } from '@pangolindex/components'
 import { ThemeContext } from 'styled-components'
 import { getEtherscanLink } from 'src/utils'
@@ -89,10 +89,10 @@ const ConfirmLimitOrderDrawer: React.FC<Props> = props => {
   const outputTokenInfo = outputCurrency1?.tokenInfo
 
   const inputCurrency =
-    inputCurrency1 && inputCurrency1?.symbol === CAVAX.symbol
-      ? CAVAX
-      : inputTokenInfo && inputTokenInfo.symbol === CAVAX.symbol
-      ? CAVAX
+    inputCurrency1 && inputCurrency1?.symbol === CBNB.symbol
+      ? CBNB
+      : inputTokenInfo && inputTokenInfo.symbol === CBNB.symbol
+      ? CBNB
       : new Token(
           inputTokenInfo?.chainId,
           inputTokenInfo?.address,
@@ -102,10 +102,10 @@ const ConfirmLimitOrderDrawer: React.FC<Props> = props => {
         )
 
   const outputCurrency =
-    outputCurrency1 && outputCurrency1?.symbol === CAVAX.symbol
-      ? CAVAX
-      : outputTokenInfo && outputTokenInfo?.symbol === CAVAX.symbol
-      ? CAVAX
+    outputCurrency1 && outputCurrency1?.symbol === CBNB.symbol
+      ? CBNB
+      : outputTokenInfo && outputTokenInfo?.symbol === CBNB.symbol
+      ? CBNB
       : outputTokenInfo
       ? new Token(
           outputTokenInfo?.chainId,

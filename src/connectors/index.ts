@@ -23,12 +23,12 @@ export function getNetworkLibrary(): Web3Provider {
 }
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [43113, 43114]
+  supportedChainIds: [43113, 43114, 56, 97]
 })
 
 export const walletlink = new WalletLinkConnector({
   url: NETWORK_URL,
-  appName: 'Pangolin',
+  appName: 'PizzaSwap',
   appLogoUrl: 'https://raw.githubusercontent.com/pangolindex/interface/master/public/images/384x384_App_Icon.png'
 })
 

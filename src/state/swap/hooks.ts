@@ -1,6 +1,6 @@
 import { Version } from '../../hooks/useToggledVersion'
 import { parseUnits } from '@ethersproject/units'
-import { Currency, CurrencyAmount, CAVAX, JSBI, Token, TokenAmount, Trade, FACTORY_ADDRESS, ChainId } from '@pangolindex/sdk'
+import { Currency, CurrencyAmount, CBNB, JSBI, Token, TokenAmount, Trade, FACTORY_ADDRESS, ChainId } from 'pizzaswap-sdk'
 import { ParsedQs } from 'qs'
 import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -35,7 +35,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : currency === CAVAX ? 'AVAX' : ''
+          currencyId: currency instanceof Token ? currency.address : currency === CBNB ? 'AVAX' : ''
         })
       )
     },
@@ -89,8 +89,8 @@ export function tryParseAmount(value?: string, currency?: Currency): CurrencyAmo
 }
 
 const BAD_RECIPIENT_ADDRESSES: string[] = [
-  FACTORY_ADDRESS[ChainId.AVALANCHE], // v2 factory
-  ROUTER_ADDRESS[ChainId.AVALANCHE] // v2 router 02
+  FACTORY_ADDRESS[ChainId.BSC], // v2 factory
+  ROUTER_ADDRESS[ChainId.BSC] // v2 router 02
 ]
 
 /**

@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, CAVAX, TokenAmount, WAVAX } from '@pangolindex/sdk'
+import { Currency, currencyEquals, CBNB, TokenAmount, WBNB } from 'pizzaswap-sdk'
 import React, { useCallback, useContext, useState } from 'react'
 import { Plus } from 'react-feather'
 import ReactGA from 'react-ga'
@@ -38,7 +38,7 @@ import { Dots, Wrapper } from '../Pool/styleds'
 import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { currencyId } from '../../utils/currencyId'
 import { PoolPriceBar } from './PoolPriceBar'
-import { ChainId } from '@pangolindex/sdk'
+import { ChainId } from 'pizzaswap-sdk'
 import { useTranslation } from 'react-i18next'
 
 export default function AddLiquidity({
@@ -54,10 +54,10 @@ export default function AddLiquidity({
   const currencyB = useCurrency(currencyIdB)
   const { t } = useTranslation()
 
-  const oneCurrencyIsWAVAX = Boolean(
+  const oneCurrencyIsWBNB = Boolean(
     chainId &&
-      ((currencyA && currencyEquals(currencyA, WAVAX[chainId])) ||
-        (currencyB && currencyEquals(currencyB, WAVAX[chainId])))
+      ((currencyA && currencyEquals(currencyA, WBNB[chainId])) ||
+        (currencyB && currencyEquals(currencyB, WBNB[chainId])))
   )
 
   const toggleWalletModal = useWalletModalToggle() // toggle wallet when disconnected
@@ -122,11 +122,11 @@ export default function AddLiquidity({
   // check whether the user has approved the router on the tokens
   const [approvalA, approveACallback] = useApproveCallback(
     parsedAmounts[Field.CURRENCY_A],
-    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.AVALANCHE]
+    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.BSC]
   )
   const [approvalB, approveBCallback] = useApproveCallback(
     parsedAmounts[Field.CURRENCY_B],
-    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.AVALANCHE]
+    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.BSC]
   )
 
   const addTransaction = useTransactionAdder()
@@ -149,8 +149,8 @@ export default function AddLiquidity({
       method: (...args: any) => Promise<TransactionResponse>,
       args: Array<string | string[] | number>,
       value: BigNumber | null
-    if (currencyA === CAVAX || currencyB === CAVAX) {
-      const tokenBIsETH = currencyB === CAVAX
+    if (currencyA === CBNB || currencyB === CBNB) {
+      const tokenBIsETH = currencyB === CBNB
       estimate = router.estimateGas.addLiquidityAVAX
       method = router.addLiquidityAVAX
       args = [
@@ -455,7 +455,7 @@ export default function AddLiquidity({
 
       {pair && !noLiquidity && pairState !== PairState.INVALID ? (
         <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '400px', marginTop: '1rem' }}>
-          <MinimalPositionCard showUnwrapped={oneCurrencyIsWAVAX} pair={pair} />
+          <MinimalPositionCard showUnwrapped={oneCurrencyIsWBNB} pair={pair} />
         </AutoColumn>
       ) : null}
     </>

@@ -1,4 +1,4 @@
-import { Currency, currencyEquals, CAVAX, WAVAX } from '@pangolindex/sdk'
+import { Currency, currencyEquals, CBNB, WBNB } from 'pizzaswap-sdk'
 import { useMemo } from 'react'
 import { tryParseAmount } from '../state/swap/hooks'
 import { useTransactionAdder } from '../state/transactions/hooks'
@@ -36,7 +36,7 @@ export default function useWrapCallback(
 
     const sufficientBalance = inputAmount && balance && !balance.lessThan(inputAmount)
 
-    if (inputCurrency === CAVAX && currencyEquals(WAVAX[chainId], outputCurrency)) {
+    if (inputCurrency === CBNB && currencyEquals(WBNB[chainId], outputCurrency)) {
       return {
         wrapType: WrapType.WRAP,
         execute:
@@ -44,7 +44,7 @@ export default function useWrapCallback(
             ? async () => {
                 try {
                   const txReceipt = await wethContract.deposit({ value: `0x${inputAmount.raw.toString(16)}` })
-                  addTransaction(txReceipt, { summary: `Wrap ${inputAmount.toSignificant(6)} AVAX to WAVAX` })
+                  addTransaction(txReceipt, { summary: `Wrap ${inputAmount.toSignificant(6)} AVAX to WBNB` })
                 } catch (error) {
                   console.error('Could not deposit', error)
                 }
@@ -52,7 +52,7 @@ export default function useWrapCallback(
             : undefined,
         inputError: sufficientBalance ? undefined : 'Insufficient AVAX balance'
       }
-    } else if (currencyEquals(WAVAX[chainId], inputCurrency) && outputCurrency === CAVAX) {
+    } else if (currencyEquals(WBNB[chainId], inputCurrency) && outputCurrency === CBNB) {
       return {
         wrapType: WrapType.UNWRAP,
         execute:
@@ -60,13 +60,13 @@ export default function useWrapCallback(
             ? async () => {
                 try {
                   const txReceipt = await wethContract.withdraw(`0x${inputAmount.raw.toString(16)}`)
-                  addTransaction(txReceipt, { summary: `Unwrap ${inputAmount.toSignificant(6)} WAVAX to AVAX` })
+                  addTransaction(txReceipt, { summary: `Unwrap ${inputAmount.toSignificant(6)} WBNB to AVAX` })
                 } catch (error) {
                   console.error('Could not withdraw', error)
                 }
               }
             : undefined,
-        inputError: sufficientBalance ? undefined : 'Insufficient WAVAX balance'
+        inputError: sufficientBalance ? undefined : 'Insufficient WBNB balance'
       }
     } else {
       return NOT_APPLICABLE

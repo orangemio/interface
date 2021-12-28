@@ -4,7 +4,7 @@ import { RowBetween } from '../Row'
 import styled from 'styled-components'
 import { TYPE, StyledInternalLink } from '../../theme'
 import DoubleCurrencyLogo from '../DoubleLogo'
-import { CAVAX, Token } from '@pangolindex/sdk'
+import { CBNB, Token } from 'pizzaswap-sdk'
 import { ButtonPrimary } from '../Button'
 import { DoubleSideStakingInfo, useMinichefPools } from '../../state/stake/hooks'
 import { useColor } from '../../hooks/useColor'
@@ -101,8 +101,8 @@ export default function DoubleSidePoolCard({
   const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
 
   const token: Token =
-    currency0 === CAVAX || currency1 === CAVAX
-      ? currency0 === CAVAX
+    currency0 === CBNB || currency1 === CBNB
+      ? currency0 === CBNB
         ? token1
         : token0
       : token0.equals(PNG[token0.chainId])

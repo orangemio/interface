@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { ChainId, Token, TokenAmount } from '@pangolindex/sdk'
+import { ChainId, Token, TokenAmount } from 'pizzaswap-sdk'
 import { useTokenContract } from '../hooks/useContract'
 import { useSingleCallResult } from '../state/multicall/hooks'
 import { PNG } from '../constants'
@@ -12,7 +12,7 @@ export function useTotalSupply(token?: Token): TokenAmount | undefined {
   const totalSupply: BigNumber = useSingleCallResult(contract, 'totalSupply')?.result?.[0]
 
   // Special case to handle PNG's proxy burnt total supply
-  if (token?.equals(PNG[ChainId.AVALANCHE])) {
+  if (token?.equals(PNG[ChainId.BSC])) {
     return new TokenAmount(token, '230000000000000000000000000')
   }
 

@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react'
 import { Text, Box, Button } from '@pangolindex/components'
-import { ChainId } from '@pangolindex/sdk'
+import { ChainId } from 'pizzaswap-sdk'
 import { Plus } from 'react-feather'
 import { ThemeContext } from 'styled-components'
 import { LINK, PNG, TIME, AAVEe, APEIN, BIFI, PEFI } from 'src/constants'
@@ -15,7 +15,7 @@ import { useOnClickOutside } from 'src/hooks/useOnClickOutside'
 import useToggle from 'src/hooks/useToggle'
 
 const WatchList = () => {
-  const { chainId = ChainId.AVALANCHE } = useActiveWeb3React()
+  const { chainId = ChainId.BSC } = useActiveWeb3React()
   const coins = [PNG, LINK, TIME, AAVEe, APEIN, BIFI, PEFI].map(coin => coin[chainId])
   const theme = useContext(ThemeContext)
   const [selectedToken, setSelectedToken] = useState(coins[0])

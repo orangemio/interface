@@ -2,7 +2,7 @@ import React, { useState, useContext, useCallback, useEffect } from 'react'
 import { useGelatoLimitOrders } from '@gelatonetwork/limit-orders-react'
 import { RefreshCcw, Divide, X } from 'react-feather'
 import { Text, Box, Button, ToggleButtons } from '@pangolindex/components'
-import { Token, Trade, JSBI, CurrencyAmount, TokenAmount, CAVAX } from '@pangolindex/sdk'
+import { Token, Trade, JSBI, CurrencyAmount, TokenAmount, CBNB } from 'pizzaswap-sdk'
 import { ThemeContext } from 'styled-components'
 import SelectTokenDrawer from '../../SelectTokenDrawer'
 import ConfirmLimitOrderDrawer from '../../ConfirmLimitOrderDrawer'
@@ -77,10 +77,10 @@ const LimitOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
   const outputTokenInfo = gelatoOutputCurrency?.tokenInfo
 
   const inputCurrency =
-    gelatoInputCurrency && gelatoInputCurrency?.symbol === CAVAX.symbol
-      ? CAVAX
-      : inputTokenInfo && inputTokenInfo.symbol === CAVAX.symbol
-      ? CAVAX
+    gelatoInputCurrency && gelatoInputCurrency?.symbol === CBNB.symbol
+      ? CBNB
+      : inputTokenInfo && inputTokenInfo.symbol === CBNB.symbol
+      ? CBNB
       : inputTokenInfo
       ? new Token(
           inputTokenInfo?.chainId,
@@ -92,10 +92,10 @@ const LimitOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
       : undefined
 
   const outputCurrency =
-    gelatoOutputCurrency && gelatoOutputCurrency?.symbol === CAVAX.symbol
-      ? CAVAX
-      : outputTokenInfo && outputTokenInfo?.symbol === CAVAX.symbol
-      ? CAVAX
+    gelatoOutputCurrency && gelatoOutputCurrency?.symbol === CBNB.symbol
+      ? CBNB
+      : outputTokenInfo && outputTokenInfo?.symbol === CBNB.symbol
+      ? CBNB
       : outputTokenInfo
       ? new Token(
           outputTokenInfo?.chainId,
@@ -284,7 +284,7 @@ const LimitOrder: React.FC<Props> = ({ swapType, setSwapType }) => {
 
       // here need to add isToken because in Galato hook require this variable to select currency
       const newCurrency = { ...currency }
-      if (currency?.symbol === CAVAX.symbol) {
+      if (currency?.symbol === CBNB.symbol) {
         newCurrency.isNative = true
       } else {
         newCurrency.isToken = true

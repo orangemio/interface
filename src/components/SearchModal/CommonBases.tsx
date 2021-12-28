@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from 'rebass'
-import { ChainId, Currency, currencyEquals, CAVAX, Token } from '@pangolindex/sdk'
+import { ChainId, Currency, currencyEquals, CBNB, Token } from 'pizzaswap-sdk'
 import styled from 'styled-components'
 
 import { SUGGESTED_BASES } from '../../constants'
@@ -47,13 +47,13 @@ export default function CommonBases({
       <AutoRow gap="4px">
         <BaseWrapper
           onClick={() => {
-            if (!selectedCurrency || !currencyEquals(selectedCurrency, CAVAX)) {
-              onSelect(CAVAX)
+            if (!selectedCurrency || !currencyEquals(selectedCurrency, CBNB)) {
+              onSelect(CBNB)
             }
           }}
-          disable={selectedCurrency === CAVAX}
+          disable={selectedCurrency === CBNB}
         >
-          <CurrencyLogo currency={CAVAX} style={{ marginRight: 8 }} />
+          <CurrencyLogo currency={CBNB} style={{ marginRight: 8 }} />
           <Text fontWeight={500} fontSize={16}>
             AVAX
           </Text>

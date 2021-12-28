@@ -15,7 +15,7 @@ import { useActiveWeb3React } from '../../hooks'
 import Confetti from '../../components/Confetti'
 import { useTokenBalance } from '../../state/wallet/hooks'
 import { UNI, SUSHI } from '../../constants'
-import { ChainId, JSBI } from '@pangolindex/sdk'
+import { ChainId, JSBI } from 'pizzaswap-sdk'
 import { useTranslation } from 'react-i18next'
 
 const PageWrapper = styled(AutoColumn)``
@@ -74,10 +74,10 @@ export default function Vote() {
 
   const claimAmount = useUserUnclaimedAmount(account)
 
-  const uniAmount = useTokenBalance(account ? account : undefined, chainId ? UNI[chainId] : UNI[ChainId.AVALANCHE])
+  const uniAmount = useTokenBalance(account ? account : undefined, chainId ? UNI[chainId] : UNI[ChainId.BSC])
   const sushiAmount = useTokenBalance(
     account ? account : undefined,
-    chainId ? SUSHI[chainId] : SUSHI[ChainId.AVALANCHE]
+    chainId ? SUSHI[chainId] : SUSHI[ChainId.BSC]
   )
 
   const hasUni = uniAmount?.greaterThan(JSBI.BigInt(1)) || uniAmount?.equalTo(JSBI.BigInt(1))

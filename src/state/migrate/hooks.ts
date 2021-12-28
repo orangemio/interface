@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from 'react'
-import { ChainId, Pair } from '@pangolindex/sdk'
+import { ChainId, Pair } from 'pizzaswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 import { useTokenBalancesWithLoadingIndicator } from '../wallet/hooks'
 import { usePairs } from '../../data/Reserves'
@@ -20,7 +20,7 @@ export function useGetUserLP() {
   const tokenPairsWithLiquidityTokens = useMemo(
     () =>
       trackedTokenPairs.map(tokens => ({
-        liquidityToken: toV2LiquidityToken(tokens, chainId ? chainId : ChainId.AVALANCHE),
+        liquidityToken: toV2LiquidityToken(tokens, chainId ? chainId : ChainId.BSC),
         tokens
       })),
     [trackedTokenPairs, chainId]

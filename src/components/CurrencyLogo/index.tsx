@@ -1,4 +1,4 @@
-import { Currency, CAVAX, Token } from '@pangolindex/sdk'
+import { Currency, CBNB, Token } from 'pizzaswap-sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 
@@ -36,7 +36,7 @@ export default function CurrencyLogo({
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
 
   const srcs: string[] = useMemo(() => {
-    if (currency === CAVAX) return []
+    if (currency === CBNB) return []
 
     if (currency instanceof Token) {
       if (currency instanceof WrappedTokenInfo) {
@@ -48,7 +48,7 @@ export default function CurrencyLogo({
     return []
   }, [currency, uriLocations])
 
-  if (currency === CAVAX) {
+  if (currency === CBNB) {
     return <StyledEthereumLogo src={AvaxLogo} size={size} style={style} />
   }
 

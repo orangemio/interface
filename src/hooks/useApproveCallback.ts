@@ -1,6 +1,6 @@
 import { MaxUint256 } from '@ethersproject/constants'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Trade, TokenAmount, CurrencyAmount, CAVAX, ChainId } from '@pangolindex/sdk'
+import { Trade, TokenAmount, CurrencyAmount, CBNB, ChainId } from 'pizzaswap-sdk'
 import { useCallback, useMemo } from 'react'
 import { ROUTER_ADDRESS } from '../constants'
 import { useTokenAllowance } from '../data/Allowances'
@@ -33,7 +33,7 @@ export function useApproveCallback(
   // check the current approval status
   const approvalState: ApprovalState = useMemo(() => {
     if (!amountToApprove || !spender) return ApprovalState.UNKNOWN
-    if (amountToApprove.currency === CAVAX) return ApprovalState.APPROVED
+    if (amountToApprove.currency === CBNB) return ApprovalState.APPROVED
     // we might not have enough data to know whether or not we need to approve
     if (!currentAllowance) return ApprovalState.UNKNOWN
 
@@ -106,7 +106,7 @@ export function useApproveCallbackFromTrade(trade?: Trade, allowedSlippage = 0) 
     () => (trade ? computeSlippageAdjustedAmounts(trade, allowedSlippage)[Field.INPUT] : undefined),
     [trade, allowedSlippage]
   )
-  return useApproveCallback(amountToApprove, chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.AVALANCHE])
+  return useApproveCallback(amountToApprove, chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.BSC])
 }
 
 // wraps useApproveCallback in the context of a swap

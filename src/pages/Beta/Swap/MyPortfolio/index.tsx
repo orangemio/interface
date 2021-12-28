@@ -1,18 +1,18 @@
 import React from 'react'
 import { PageWrapper, GridContainer } from './styleds'
 import { Text, Box } from '@pangolindex/components'
-import { ChainId, JSBI, Pair, Token, TokenAmount, WAVAX } from '@pangolindex/sdk'
+import { ChainId, JSBI, Pair, Token, TokenAmount, WBNB } from 'pizzaswap-sdk'
 import { LINK, PNG } from 'src/constants'
 import PortfolioChart from './PortfolioChart'
 import PortfolioRow from './PortfolioRow'
 import { useActiveWeb3React } from 'src/hooks'
 
 const MyPortfolio = () => {
-  const { chainId = ChainId.AVALANCHE } = useActiveWeb3React()
+  const { chainId = ChainId.BSC } = useActiveWeb3React()
 
   const dummyPair = new Pair(
     new TokenAmount(PNG[chainId], JSBI.BigInt(10)),
-    new TokenAmount(WAVAX[chainId], JSBI.BigInt(10)),
+    new TokenAmount(WBNB[chainId], JSBI.BigInt(10)),
     chainId
   )
   const data = [PNG[chainId], dummyPair, LINK[chainId]]

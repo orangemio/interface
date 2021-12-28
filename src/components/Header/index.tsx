@@ -1,4 +1,4 @@
-import { ChainId, TokenAmount } from '@pangolindex/sdk'
+import { ChainId, TokenAmount } from 'pizzaswap-sdk'
 import React, { useState, useRef } from 'react'
 import { Text } from 'rebass'
 import { NavLink } from 'react-router-dom'
@@ -283,8 +283,8 @@ const StyledExternalLink = styled(ExternalLink).attrs({
 // `
 
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
-  [ChainId.FUJI]: 'Fuji',
-  [ChainId.AVALANCHE]: 'Avalanche'
+  [ChainId.BSCTestnet]: 'Testnet',
+  [ChainId.BSC]: 'BSC'
 }
 
 export default function Header() {

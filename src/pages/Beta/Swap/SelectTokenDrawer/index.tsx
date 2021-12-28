@@ -3,7 +3,7 @@ import { TextInput, Box, Text } from '@pangolindex/components'
 import Drawer from '../Drawer'
 import { useAllTokens, useToken } from 'src/hooks/Tokens'
 import { useTokenComparator } from 'src/components/SearchModal/sorting'
-import { CAVAX, Currency, currencyEquals, Token } from '@pangolindex/sdk'
+import { CBNB, Currency, currencyEquals, Token } from 'pizzaswap-sdk'
 import { filterTokens } from 'src/components/SearchModal/filtering'
 import { FixedSizeList } from 'react-window'
 import AutoSizer from 'react-virtualized-auto-sizer'
@@ -24,7 +24,7 @@ interface Props {
 }
 
 const currencyKey = (currency: Currency): string => {
-  return currency instanceof Token ? currency.address : currency === CAVAX ? 'AVAX' : ''
+  return currency instanceof Token ? currency.address : currency === CBNB ? 'AVAX' : ''
 }
 
 const SelectTokenDrawer: React.FC<Props> = props => {
@@ -82,7 +82,7 @@ const SelectTokenDrawer: React.FC<Props> = props => {
     ]
   }, [filteredTokens, searchQuery, searchToken, tokenComparator])
 
-  const currencies = useMemo(() => [Currency.CAVAX, ...filteredSortedTokens], [filteredSortedTokens])
+  const currencies = useMemo(() => [Currency.CBNB, ...filteredSortedTokens], [filteredSortedTokens])
 
   const onSelect = useCallback(
     currency => {

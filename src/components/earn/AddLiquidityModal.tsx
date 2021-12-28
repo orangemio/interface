@@ -13,7 +13,7 @@ import { useCurrency } from '../../hooks/Tokens'
 import useTransactionDeadline from '../../hooks/useTransactionDeadline'
 import { useIsExpertMode, useUserSlippageTolerance } from '../../state/user/hooks'
 import { Field } from '../../state/mint/actions'
-import { CAVAX, ChainId, Currency, TokenAmount } from '@pangolindex/sdk'
+import { CBNB, ChainId, Currency, TokenAmount } from 'pizzaswap-sdk'
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import { ROUTER_ADDRESS } from '../../constants'
 import { calculateGasMargin, calculateSlippageAmount, getRouterContract } from '../../utils'
@@ -119,11 +119,11 @@ export default function AddLiquidityModal({ isOpen, onDismiss, currencyIdA: _cur
   // check whether the user has approved the router on the tokens
   const [approvalA, approveACallback] = useApproveCallback(
     parsedAmounts[Field.CURRENCY_A],
-    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.AVALANCHE]
+    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.BSC]
   )
   const [approvalB, approveBCallback] = useApproveCallback(
     parsedAmounts[Field.CURRENCY_B],
-    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.AVALANCHE]
+    chainId ? ROUTER_ADDRESS[chainId] : ROUTER_ADDRESS[ChainId.BSC]
   )
 
   const addTransaction = useTransactionAdder()
@@ -146,8 +146,8 @@ export default function AddLiquidityModal({ isOpen, onDismiss, currencyIdA: _cur
       method: (...args: any) => Promise<TransactionResponse>,
       args: Array<string | string[] | number>,
       value: BigNumber | null
-    if (currencyA === CAVAX || currencyB === CAVAX) {
-      const tokenBIsETH = currencyB === CAVAX
+    if (currencyA === CBNB || currencyB === CBNB) {
+      const tokenBIsETH = currencyB === CBNB
       estimate = router.estimateGas.addLiquidityAVAX
       method = router.addLiquidityAVAX
       args = [

@@ -19,7 +19,7 @@ import UnstakingModal from '../../components/earn/UnstakingModal'
 import Confetti from '../../components/Confetti'
 import BridgeMigratorModal from '../../components/earn/BridgeMigratorModal'
 import Loader from '../../components/Loader'
-import { ChainId, Token, WAVAX } from '@pangolindex/sdk'
+import { ChainId, Token, WBNB } from 'pizzaswap-sdk'
 import { PNG } from '../../constants'
 import { ErrorText } from '../../components/swap/styleds'
 import { injected } from '../../connectors'
@@ -73,8 +73,8 @@ export default function Migrate({
   const [pglFromStatus, pglFrom] = usePair(currencyFromA ?? undefined, currencyFromB ?? undefined)
   const [pglToStatus, pglTo] = usePair(currencyToA ?? undefined, currencyToB ?? undefined)
 
-  const canZap = (pglFrom?.involvesToken(PNG[ChainId.AVALANCHE]) && pglTo?.involvesToken(PNG[ChainId.AVALANCHE]))
-    || (pglFrom?.involvesToken(WAVAX[ChainId.AVALANCHE]) && pglTo?.involvesToken(WAVAX[ChainId.AVALANCHE]))
+  const canZap = (pglFrom?.involvesToken(PNG[ChainId.BSC]) && pglTo?.involvesToken(PNG[ChainId.BSC]))
+    || (pglFrom?.involvesToken(WBNB[ChainId.BSC]) && pglTo?.involvesToken(WBNB[ChainId.BSC]))
 
   const stakingInfoFrom = useStakingInfo(Number(versionFrom), pglFrom)?.[0]
   const stakingInfoTo = useStakingInfo(Number(versionTo), pglTo)?.[0]
@@ -106,8 +106,8 @@ export default function Migrate({
 
   const addTokenButton = (token: Token | undefined) => {
     if (!token) return
-    if (token.equals(PNG[ChainId.AVALANCHE])) return
-    if (token.equals(WAVAX[ChainId.AVALANCHE])) return
+    if (token.equals(PNG[ChainId.BSC])) return
+    if (token.equals(WBNB[ChainId.BSC])) return
     return (
       <ButtonPrimary
         width={'250'}
