@@ -3,7 +3,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { injected, walletlink, walletconnect } from '../connectors'
 
-export const GAS_PRICE = 10
+export const GAS_PRICE = 6
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.BSCTestnet]: '0x60Eda46BD29eAc062596061221e9167356cBC8B2',
@@ -11,7 +11,7 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
 }
 
 export const LANDING_PAGE = 'https://halfpizza.com/about'
-export const ANALYTICS_PAGE = '#'
+export const ANALYTICS_PAGE = 'https://info.pizaswap.com'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 

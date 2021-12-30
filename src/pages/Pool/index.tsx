@@ -80,7 +80,7 @@ export default function Pool() {
   const theme = useContext(ThemeContext)
   const { account, chainId } = useActiveWeb3React()
 
-  const AccountAnalytics = account ? ANALYTICS_PAGE + '#/account/' + account : ANALYTICS_PAGE + '#/accounts'
+  const AccountAnalytics = account ? ANALYTICS_PAGE + '/account/' + account : ANALYTICS_PAGE + '/accounts'
 
   // fetch the user's balances of all tracked V2 LP tokens
   const trackedTokenPairs = useTrackedTokenPairs()
