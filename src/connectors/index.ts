@@ -6,7 +6,7 @@ import { NetworkConnector } from './NetworkConnector'
 
 const NETWORK_URL = process.env.REACT_APP_NETWORK_URL
 
-export const NETWORK_CHAIN_ID: number = parseInt(process.env.REACT_APP_CHAIN_ID ?? '43114')
+export const NETWORK_CHAIN_ID: number = parseInt(process.env.REACT_APP_CHAIN_ID ?? '56')
 
 if (typeof NETWORK_URL === 'undefined') {
   throw new Error(`REACT_APP_NETWORK_URL must be a defined environment variable`)
@@ -28,13 +28,13 @@ export const injected = new InjectedConnector({
 
 export const walletlink = new WalletLinkConnector({
   url: NETWORK_URL,
-  appName: 'PizzaSwap',
+  appName: 'Pizza Swap',
   appLogoUrl: 'https://raw.githubusercontent.com/pangolindex/interface/master/public/images/384x384_App_Icon.png'
 })
 
 export const walletconnect = new WalletConnectConnector({
   rpc: {
-    43114: NETWORK_URL
+    56: NETWORK_URL
   },
   qrcode: true,
   bridge: 'https://bridge.walletconnect.org'
