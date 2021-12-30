@@ -35,7 +35,7 @@
     "disconnect": "Disconnect",
     "change": "Change",
     "copy": "Copy Address",
-    "viewExplorer": "View on the Snowtrace Explorer",
+    "viewExplorer": "View on the  Explorer",
     "clearAll": "(clear all)",
     "transactionAppear": "Your transactions will appear here...",
     "recentTransactions": "Recent Transactions",
@@ -43,7 +43,7 @@
   },
   "addressInputPanel": {
     "recipient": "Recipient",
-    "viewExplorer": "(View on Avalanche Snowtrace Explorer)",
+    "viewExplorer": "(View on  Explorer)",
     "walletAddress": "Wallet Address"
   },
   "currencyInputPanel": {
@@ -104,7 +104,7 @@
   },
   "modalView": {
     "confirmTransaction": "Confirm this transaction in your wallet",
-    "viewTransaction": "View transaction on the Snowtrace Explorer"
+    "viewTransaction": "View transaction on the  Explorer"
   },
   "navigationTabs": {
     "useThisTool": "Use this tool to find pairs that don't automatically appear in the interface.",
@@ -120,7 +120,7 @@
   "popups": {
     "tokenListUpdated": "The token list \" {{oldList}} \" has been updated to ",
     "updateAvailable": "An update is available for the token list \" {{oldList}} \"",
-    "viewExplorer": "View on the Snowtrace Explorer",
+    "viewExplorer": "View on the  Explorer",
     "hash": "Hash: ",
     "added": "added",
     "removed": "removed",
@@ -211,13 +211,13 @@
     "purchaseArbitraryWarning": "If you purchase an arbitrary token, <strong>you may be unable to sell it back.</strong>",
     "understand": "I understand",
     "continue": "Continue",
-    "viewExplorer": "View on the Snowtrace Explorer"
+    "viewExplorer": "View on the  Explorer"
   },
   "transactionConfirmation": {
     "waitingConfirmation": "Waiting For Confirmation",
     "confirmTransaction": "Confirm this transaction in your wallet",
     "transactionSubmitted": "Transaction Submitted",
-    "viewExplorer": "View on the Snowtrace Explorer",
+    "viewExplorer": "View on the  Explorer",
     "close": "Close",
     "error": "Error",
     "dismiss": "Dismiss"
@@ -250,16 +250,16 @@
     "votes": "Votes",
     "submittingVote": "Submitting Vote",
     "confirmTransaction": "Confirm this transaction in your wallet",
-    "viewExplorer": "View on the Snowtrace Explorer"
+    "viewExplorer": "View on the  Explorer"
   },
   "walletModal": {
     "wrongNetwork": "Wrong Network",
     "errorConnecting": "Error connecting",
-    "pleaseConnectAvalanche": "Please connect to the appropriate Avalanche network.",
-    "switchAvalanche": "Switch to Avalanche Chain",
+    "pleaseConnectAvalanche": "Please connect to the appropriate BSC network.",
+    "switchAvalanche": "Switch to BSC Chain",
     "errorConnectingRefresh": "Error connecting. Try refreshing the page.",
     "connectToWallet": "Connect to a wallet",
-    "newToAvalanche": "New to Avalanche? ",
+    "newToAvalanche": "New to BSC? ",
     "learnMoreWallet": "Learn more about setting up a wallet",
     "initializing": "Initializing...",
     "tryAgain": "Try Again"
@@ -352,7 +352,7 @@
   },
   "pool": {
     "liquidityProviderRewards": "Liquidity provider rewards",
-    "liquidityProvidersEarn": "Liquidity providers earn a 0.25% fee on all trades proportional to their share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.",
+    "liquidityProvidersEarn": "Liquidity provider charges a fee of 0.23% on all trades, proportional to its share in the pool. 0.18% of the 0.23% fee is added to the pool, accumulates in real time and can be claimed by withdrawing your liquidity. 0.05% of the 0.23% fee is attributed to the market wallet as a marketing fee.",
     "readMoreProviding": "Read more about providing liquidity",
     "viewStakedLiquidity": "View your staked liquidity",
     "yourLiquidity": "Your liquidity",

@@ -43,7 +43,7 @@
   },
   "addressInputPanel": {
     "recipient": "接收者",
-    "viewExplorer": "(在 Avalanche Snowtrace Explorer 上查看)",
+    "viewExplorer": "(在 Avalanche Explorer 上查看)",
     "walletAddress": "钱包地址"
   },
   "currencyInputPanel": {
@@ -104,7 +104,7 @@
   },
   "modalView": {
     "confirmTransaction": "在您的钱包中确认此交易",
-    "viewTransaction": "在 Snowtrace Explore 上查看交易"
+    "viewTransaction": "在  Explore 上查看交易"
   },
   "navigationTabs": {
     "useThisTool": "使用此工具查找交易对不会自动出现在界面中",
@@ -352,7 +352,7 @@
   },
   "pool": {
     "liquidityProviderRewards": "流动性提供者奖励",
-    "liquidityProvidersEarn": "流动性提供者在所有交易中收取 0.25% 的费用，费用与其在池中的份额成正比。费用被添加到池中，实时累积，可以通过提取您的流动性来索取。",
+    "liquidityProvidersEarn": "流动性提供者在所有交易中收取0.23%的费用，费用与其在池中的份额成正比。0.23%费用中的0.18%被添加到池中，实时积累，可以通过提取您的流动性来索取。0.23%费用中的0.05%作为市场推广费用归集到市场钱包中。",
     "readMoreProviding": "阅读有关提供流动性的更多信息",
     "viewStakedLiquidity": "查看您质押的流动性",
     "yourLiquidity": "您的流动性",

@@ -519,8 +519,8 @@ export const AIRDROP_ADDRESS: { [chainId in ChainId]?: string } = {
 }
 
 const WBNB_AND_PNG_ONLY: ChainTokenList = {
-  [ChainId.BSCTestnet]: [WBNB[ChainId.BSCTestnet], PNG[ChainId.BSCTestnet]],
-  [ChainId.BSC]: [WBNB[ChainId.BSC], PNG[ChainId.BSC]]
+  [ChainId.BSCTestnet]: [WBNB[ChainId.BSCTestnet]],
+  [ChainId.BSC]: [WBNB[ChainId.BSC]]
 }
 
 // used to construct intermediary pairs for trading
