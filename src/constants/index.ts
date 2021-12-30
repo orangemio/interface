@@ -7,7 +7,7 @@ export const GAS_PRICE = 6
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.BSCTestnet]: '0x60Eda46BD29eAc062596061221e9167356cBC8B2',
-  [ChainId.BSC]: '0xE54cc7C256Ff6ef87c4E37280d7a4F6Ee877bAc7'
+  [ChainId.BSC]: '0x00F9EBd1Cc6931105AdBf66EaCe1b69312Fe28FC'
 }
 
 export const LANDING_PAGE = 'https://halfpizza.com/about'
