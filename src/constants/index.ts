@@ -6,12 +6,12 @@ import { injected, walletlink, walletconnect } from '../connectors'
 export const GAS_PRICE = 10
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
-  [ChainId.BSCTestnet]: '0x29ac71F8192229CaEa582c0a66cFb34dEEE978fE',
+  [ChainId.BSCTestnet]: '0x60Eda46BD29eAc062596061221e9167356cBC8B2',
   [ChainId.BSC]: '0xE54cc7C256Ff6ef87c4E37280d7a4F6Ee877bAc7'
 }
 
-export const LANDING_PAGE = 'https://pangolin.exchange/'
-export const ANALYTICS_PAGE = 'https://info.pangolin.exchange/'
+export const LANDING_PAGE = '#'
+export const ANALYTICS_PAGE = '#'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 

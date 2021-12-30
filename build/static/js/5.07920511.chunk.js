@@ -1,0 +1,2 @@
+(this["webpackJsonp@pangolindex/interface"]=this["webpackJsonp@pangolindex/interface"]||[]).push([[5],{1336:function(n,i){},1343:function(n,i){},1345:function(n,i){}}]);
+//# sourceMappingURL=5.07920511.chunk.js.map

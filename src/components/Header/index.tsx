@@ -388,7 +388,8 @@ export default function Header() {
               <NetworkCard title={NETWORK_LABELS[chainId]}>{NETWORK_LABELS[chainId]}</NetworkCard>
             )}
           </HideSmall>
-          {aggregateBalance && (
+          {/* //TODO:ORANGE */}
+          {/* {aggregateBalance && (
             <PNGWrapper onClick={() => setShowPngBalanceModal(true)}>
               <PNGAmount active={!!account} style={{ pointerEvents: 'auto' }}>
                 {account && (
@@ -413,7 +414,7 @@ export default function Header() {
               </PNGAmount>
               <CardNoise />
             </PNGWrapper>
-          )}
+          )} */}
           <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
             {account && userEthBalance ? (
               <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>

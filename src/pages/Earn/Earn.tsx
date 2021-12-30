@@ -224,7 +224,6 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
   const stakingRewardsExist = Boolean(
     typeof chainId === 'number' && (DOUBLE_SIDE_STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0
   )
-
   const getSortField = (label: string, field: string, sortBy: any, setSortBy: Function) => {
     return (
       <SortField
@@ -253,7 +252,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
               <RowBetween>
                 <TYPE.white fontSize={14}>{t('earnPage.depositPangolinLiquidity')}</TYPE.white>
               </RowBetween>{' '}
-              <AutoRow justify="space-between">
+              {/* <AutoRow justify="space-between">
                 <ExternalLink
                   style={{ color: 'white', textDecoration: 'underline' }}
                   href="https://pangolin.exchange/litepaper"
@@ -277,13 +276,13 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                     <TYPE.white fontSize={14}>{t('earnPage.getInsuranceCoverage')}</TYPE.white>
                   </ExternalLink>
                 </FlexDiv>
-              </AutoRow>
+              </AutoRow> */}
             </AutoColumn>
           </CardSection>
           <CardBGImage />
           <CardNoise />
         </DataCard>
-        {version === '0' && (
+        {/* {version === '0' && (
           <DataCard>
             <CardNoise />
             <CardSection>
@@ -302,17 +301,17 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
               </AutoColumn>
             </CardSection>
           </DataCard>
-        )}
+        )} */}
       </TopSection>
 
       <AutoColumn gap="lg" style={{ width: '100%', maxWidth: '720px' }}>
         <DataRow style={{ alignItems: 'baseline' }}>
           <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>{t('earnPage.participatingPools')}</TYPE.mediumHeader>
         </DataRow>
-
         <PoolSection>
           {(stakingRewardsExist && stakingInfos?.length === 0) || poolCardsLoading ? (
-            <Loader style={{ margin: 'auto' }} />
+            // <Loader style={{ margin: 'auto' }} />
+            t('earnPage.noActiveRewards')
           ) : (!stakingRewardsExist || poolCards?.length === 0) && !poolCardsLoading ? (
             t('earnPage.noActiveRewards')
           ) : (
