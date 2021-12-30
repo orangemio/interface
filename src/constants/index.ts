@@ -608,14 +608,14 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
 export const NetworkContextName = 'NETWORK'
 
 export const AVALANCHE_CHAIN_PARAMS = {
-  chainId: '0x61', // A 0x-prefixed hexadecimal chainId
+  chainId: '0x38', // A 0x-prefixed hexadecimal chainId
   chainName: 'BSC',
   nativeCurrency: {
     name: 'BSC',
     symbol: 'BNB',
     decimals: 18
   },
-  rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
+  rpcUrls: ['https://bsc-dataseed.binance.org/'],
   blockExplorerUrls: ['https://bscscan.com/']
 }
 
