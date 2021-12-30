@@ -181,7 +181,7 @@
     "priceImpact": "Impacto en el precio",
     "priceImpactHelper": "La diferencia entre el precio de merkado y el precio estimado debido al tamaño del intercambio.",
     "liquidityProviderFee": "Tasa de proveedor de liquidez",
-    "liquidityProviderHelper": "Una parte de cada intercambio (0.30%) va a los proveedores de liquidez como un incentivo protocolario.",
+    "liquidityProviderHelper": "Una parte de cada intercambio (0.23%) va a los proveedores de liquidez como un incentivo protocolario.",
     "route": "Ruta",
     "routingHelper": "Enrutando estos tokens produce el mejor precio para su intercambio.",
     "confirmSwap": "Confirmar intercambio",
