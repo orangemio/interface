@@ -70,11 +70,11 @@ export default function Menu() {
             <CheckSquare size={14} />
             {t('header.vote')}
           </MenuNavItem> */}
-          <MenuItem id="link" href="#">
+          <MenuItem id="link" href="https://twitter.com/HalfPizza3">
             <Twitter size={14} />
             {t('menu.twitter')}
           </MenuItem>
-          <MenuItem id="link" href="#">
+          <MenuItem id="link" href="https://github.com/halfpizza/Half-Pizza">
             <GitHub size={14} />
             {t('menu.code')}
           </MenuItem>

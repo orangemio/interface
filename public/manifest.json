@@ -1,6 +1,6 @@
 {
-  "short_name": "Pangolin",
-  "name": "Pangolin",
+  "short_name": "PizzaSwap",
+  "name": "PizzaSwap",
   "icons": [
     {
       "src": "./images/192x192_App_Icon.png",
@@ -17,6 +17,6 @@
   ],
   "orientation": "portrait",
   "display": "standalone",
-  "theme_color": "#FF6B00",
+  "theme_color": "#ff4d4f",
   "background_color": "#fff"
 }

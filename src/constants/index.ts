@@ -10,7 +10,7 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
   [ChainId.BSC]: '0xE54cc7C256Ff6ef87c4E37280d7a4F6Ee877bAc7'
 }
 
-export const LANDING_PAGE = '#'
+export const LANDING_PAGE = 'https://halfpizza.com/about'
 export const ANALYTICS_PAGE = '#'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
