@@ -182,7 +182,7 @@
     "priceImpact": "价格影响",
     "priceImpactHelper": "由于交易规模而导致的市场价格和估计价格之间的差异。",
     "liquidityProviderFee": "流动性提供者费用",
-    "liquidityProviderHelper": "每笔交易的一部分（0.30%）作为协议激励流动性提供者。",
+    "liquidityProviderHelper": "每笔交易的一部分（0.23%）作为协议激励流动性提供者。",
     "route": "路由",
     "routingHelper": "通过这些代币路由可以为您的交易带来最优惠的价格。",
     "confirmSwap": "确认兌换",
