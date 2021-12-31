@@ -53,16 +53,16 @@ export default function Menu() {
           <MenuItem id="link" href={TutorialPage}>
             <Book size={14} />
             {t('menu.tutorials')}
-          </MenuItem>
-          <MenuItem id="link" href="https://t.me/pangolindex">
+          </MenuItem> */}
+          <MenuItem id="link" href="https://t.me/s2LPWnB1200zMmY0">
             <Send size={14} />
             {t('menu.telegram')}
           </MenuItem>
-          <MenuItem id="link" href="https://discord.com/invite/PARrDYYbfw">
+          <MenuItem id="link" href="https://www.facebook.com/HalfPizzaGroup">
             <MessageCircle size={14} />
-            {t('menu.discord')}
+            {t('menu.facebook')}
           </MenuItem>
-          <MenuItem id="link" href="https://gov.pangolin.exchange">
+          {/* <MenuItem id="link" href="https://gov.pangolin.exchange">
             <MessageSquare size={14} />
             {t('header.forum')}
           </MenuItem>
