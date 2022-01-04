@@ -3,6 +3,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { injected, walletlink, walletconnect } from '../connectors'
 
+//
 export const GAS_PRICE = 6
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]: string } = {
