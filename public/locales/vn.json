@@ -353,7 +353,7 @@
   },
   "pool": {
     "liquidityProviderRewards": "Phần thưởng người cung cấp thanh khoản",
-    "liquidityProvidersEarn": "Những người cung cấp thanh khoản kiếm được một khoản phí 0,3% cho tất cả các giao dịch tỷ lệ với cổ phần của họ trong bể. Phí được thêm vào bể, tích lũy trong thời gian thực và có thể được nhận bằng cách rút tiền thanh khoản của bạn.",
+    "liquidityProvidersEarn": "Người cung cấp tính chất lượng sẽ phải nhận một phí 0.23. trong tất cả các giao dịch, tỉ lệ với cổ phần của họ trong hồ bơi. 0.18='của 0.23=. phí được thêm vào hồ bơi để thực hiện tích lũy thời gian, có thể lấy được bằng cách rút ra tiền mặt. 0.05. tính toán chi phí 0.23. được thu thập trong ví thị trường như chi phí thị trường.",
     "readMoreProviding": "Tìm hiểu thêm về cung cấp thanh khoản",
     "viewStakedLiquidity": "Quan sát số lượng thanh khoản đã cung cấp của bạn",
     "yourLiquidity": "Số lượng thanh khoản của bạn",

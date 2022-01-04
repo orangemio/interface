@@ -353,7 +353,7 @@
   },
   "pool": {
     "liquidityProviderRewards": "Liquiditätsprovider-Vergütungen",
-    "liquidityProvidersEarn": "Durch das Bereitstellen von Liquidität verdienen Liquiditätsprovider 0,25% an allen Trades auf diesem Paar, proportional zu ihren Anteil am Pool. Gebühren werden dem Pool hinzugefügt, fallen in Echtzeit an und können beansprucht werden, indem die Liquidität abgebucht wird.",
+    "liquidityProvidersEarn": "Die Liquiditätsorganisationen erheben bei allen Transaktionen eine Gebühr von 0,23%, die proportional zu ihrem Anteil am Pool ist. Die 0,18% der 0,23% wird dem Pool für die Echtzeit-Akkumulation hinzugefügt, die durch die Entnahme Ihrer Liquidität gewonnen werden kann. Die 0,05% der 0,23% Aufwendungen werden als Marketingkosten in die MarktPortemonnaie eingesammelt.",
     "readMoreProviding": "Erfahre mehr über das Bereitstellen von Liquidität",
     "viewStakedLiquidity": "Lass dir deine gestakte Liquidität anzeigen",
     "yourLiquidity": "Deine Liquidität",

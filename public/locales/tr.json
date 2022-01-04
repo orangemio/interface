@@ -353,7 +353,7 @@
   },
   "pool": {
     "liquidityProviderRewards": "Likidite sağlayıcılarına verilen ödüller",
-    "liquidityProvidersEarn": "Likidite sağlayanlar, havuzdaki paylarıyla orantılı olarak tüm işlemlerden %0.25 ücret alır. Ücretler havuza eklenir, gerçek zamanlı olarak birikir ve likiditenizi çekerek talep edilebilir.",
+    "liquidityProvidersEarn": "Liquidity sunucuları tüm transaksyonlarda %0,23 ücreti yüklüyor. Bu, havuzdaki paylaşımlarına uygun. Yüzde 0.23'nin %0.18'ünü gerçek zamanlı toplama için havuza ekleniyor. Bu sizin likvidiyetinizi çıkararak alınabilir. 0,23'in %0,05 pazar cüzdanına pazar harcamaları olarak toplanıyor.",
     "readMoreProviding": "Likidite sağlamak hakkında daha fazla bilgi edinin",
     "viewStakedLiquidity": "Sağladığınız likiditeyi görüntüleyin",
     "yourLiquidity": "Likiditeniz",

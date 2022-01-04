@@ -353,7 +353,7 @@
   },
   "pool": {
     "liquidityProviderRewards": "Recompensas dos provedores de liquidez",
-    "liquidityProvidersEarn": "Os provedores de liquidez ganham uma taxa de 0,25% sobre todas as trocas proporcionais a sua parte na pool. As taxas são adicionadas à pool, acumulando em tempo real e podendo ser reivindicadas retirando sua liquidez.",
+    "liquidityProvidersEarn": "Os fornecedores de liquidez cobram uma taxa de 0.23% em todas as operações, o que é proporcional à sua parte no conjunto. 0.18% da taxa 0.23% é adicionada ao pool para acumulação em tempo real, que pode ser obtida extraindo a sua liquidez. 0.05% das despesas 0.23% são recolhidas na carteira de mercado como despesas de marketing.",
     "readMoreProviding": "Leia mais sobre como fornecer liquidez",
     "viewStakedLiquidity": "Veja sua liquidez depositada",
     "yourLiquidity": "Sua liquidez",

@@ -353,7 +353,7 @@
   },
   "pool": {
     "liquidityProviderRewards": "Recompensas a proveedores de liquidez",
-    "liquidityProvidersEarn": "Los proveedores de liquiez ganan una tasa del 0.25% de todos los intercambios de forma proporcional a su parte de la pool. Las tasas se añaden a la pool, se acumulan en tiempo real y pueden ser reclamadas retirando su liquidez.",
+    "liquidityProvidersEarn": "Los proveedores de liquidez cobran una tasa del 0,23% por todas las transacciones, que es proporcional a su participación en el Grupo. El 0,18% de los gastos del 0,23% se añade al Grupo y se acumula en tiempo real, que se puede obtener extrayendo su liquidez. El 0,05% de los gastos del 0,23% se agrupa como gastos de comercialización en la cartera del mercado.",
     "readMoreProviding": "Leer más sobre la provisión de liquidez",
     "viewStakedLiquidity": "Ver su liquidez depositada",
     "yourLiquidity": "Su liquidez",
