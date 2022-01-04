@@ -312,9 +312,9 @@
     "claim": "Claim "
   },
   "earnPage": {
-    "pangolinLiquidityMining": "Pangolin liquidity mining",
+    "pangolinLiquidityMining": "Half Pizza liquidity mining",
     "pangolinLiquidityStaking": "Pangolin PNG staking",
-    "depositPangolinLiquidity": "Deposit your Pizza LP Provider PZL tokens to receive PIZA, the Pangolin protocol governance token.",
+    "depositPangolinLiquidity": "Deposit your Pizza LP Provider PZL tokens to receive PIZA, the Half Pizza protocol governance token.",
     "depositPangolinStaking": "Deposit and stake your PNG tokens to earn more tokens.",
     "currentOpportunities": "Current opportunities",
     "readMoreAboutPng": "Read more about PNG",
