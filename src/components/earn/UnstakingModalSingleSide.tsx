@@ -106,7 +106,7 @@ export default function UnstakingModalSingleSide({ isOpen, onDismiss, stakingInf
             <TYPE.body fontSize={20}>
               {t('earn.withdrawingLiquidity', {
                 amount: stakingInfo?.stakedAmount?.toSignificant(4),
-                symbol: 'PNG'
+                symbol: 'PIZA'
               })}
             </TYPE.body>
             <TYPE.body fontSize={20}>
@@ -122,12 +122,8 @@ export default function UnstakingModalSingleSide({ isOpen, onDismiss, stakingInf
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>{t('earn.transactionSubmitted')}</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>
-              {t('earn.withdrewStakingToken', { symbol: 'PNG' })}
-            </TYPE.body>
-            <TYPE.body fontSize={20}>
-              {t('earn.claimedReward', { symbol: stakingInfo?.rewardToken?.symbol })}
-            </TYPE.body>
+            <TYPE.body fontSize={20}>{t('earn.withdrewStakingToken', { symbol: 'PNG' })}</TYPE.body>
+            <TYPE.body fontSize={20}>{t('earn.claimedReward', { symbol: stakingInfo?.rewardToken?.symbol })}</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

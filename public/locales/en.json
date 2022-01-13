@@ -67,7 +67,7 @@
     "deposit": "Deposit",
     "poolRate": "Pool rate",
     "currentReward": "Current reward",
-    "pngPerAvax": "PNG / Week per BNB",
+    "pngPerAvax": "PIZA / Week per BNB",
     "rewardPerWeek": "{{ symbol }} / Week",
     "earnUpTo": "Earn up to (yearly)",
     "yourRate": "Your rate",

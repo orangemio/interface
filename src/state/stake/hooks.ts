@@ -759,7 +759,6 @@ export const useMinichefStakingInfos = (version = 2, pairToFilterBy?: Pair | nul
   const pairAddresses = useMemo(() => {
     return pairs.map(([state, pair]) => pair?.liquidityToken.address)
   }, [pairs])
-  console.log(pairAddresses)
   const pairTotalSupplies = useMultipleContractSingleData(pairAddresses, ERC20_INTERFACE, 'totalSupply')
   const balances = useMultipleContractSingleData(pairAddresses, ERC20_INTERFACE, 'balanceOf', [MINICHEF_ADDRESS])
 
