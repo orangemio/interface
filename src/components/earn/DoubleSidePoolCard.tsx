@@ -112,8 +112,8 @@ export default function DoubleSidePoolCard({
   // get the color of the token
   const backgroundColor = useColor(token)
 
-  const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
-
+  // const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
+  const totalStakedInUsd = '-'
   const pairAddress = stakingInfo?.stakedAmount?.token?.address
 
   return (

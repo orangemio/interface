@@ -150,6 +150,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
 
   useEffect(() => {
     setPoolCardsLoading(true)
+    console.log(stakingInfos, 'stakingInfos')
     if (stakingInfos?.length > 0) {
       Promise.all(
         stakingInfos

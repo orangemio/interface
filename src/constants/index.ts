@@ -37,7 +37,7 @@ export const PNG: { [chainId in ChainId]: Token } = {
     'PNG',
     'Pangolin'
   ),
-  [ChainId.BSC]: new Token(ChainId.BSC, '0x60781C2586D68229fde47564546784ab3fACA982', 18, 'PNG', 'Pangolin')
+  [ChainId.BSC]: new Token(ChainId.BSC, '0xfc646d0b564bf191b3d3adf2b620a792e485e6da', 18, 'PIZA', 'PIZA')
 }
 
 export const ETH: { [chainId in ChainId]: Token } = {
