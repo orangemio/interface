@@ -20,7 +20,7 @@ export const GOVERNANCE_ADDRESS = '0xb0Ff2b1047d9E8d294c2eD798faE3fA817F43Ee1'
 
 export const BRIDGE_MIGRATOR_ADDRESS = '0x4b23Aa72A1214d0E4fd3f2c8Da7C6ba660F7483C'
 
-export const MINICHEF_ADDRESS = '0x1f806f7C8dED893fd3caE279191ad7Aa3798E928'
+export const MINICHEF_ADDRESS = '0x9aCE19331B992D671F80Ee4D9Dcb2a880d7C22d5'
 
 export const NATIVE = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
 
@@ -43,6 +43,11 @@ export const PNG: { [chainId in ChainId]: Token } = {
 export const ETH: { [chainId in ChainId]: Token } = {
   [ChainId.BSCTestnet]: new Token(ChainId.BSCTestnet, ZERO_ADDRESS, 18, 'ETH', 'Ether'),
   [ChainId.BSC]: new Token(ChainId.BSC, '0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15', 18, 'ETH', 'Ether')
+}
+
+export const PIZA: { [chainId in ChainId]: Token } = {
+  [ChainId.BSCTestnet]: new Token(ChainId.BSCTestnet, ZERO_ADDRESS, 18, 'PIZA', 'PIZA'),
+  [ChainId.BSC]: new Token(ChainId.BSC, '0xfc646d0b564bf191b3d3adf2b620a792e485e6da', 18, 'PIZA', 'PIZA')
 }
 
 export const WETHe: { [chainId in ChainId]: Token } = {

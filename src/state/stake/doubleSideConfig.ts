@@ -93,24 +93,13 @@ import {
   NFTD,
   CLY,
   COOK,
-  SKILL
+  SKILL,
+  PIZA
 } from '../../constants'
 import { BridgeMigrator, DoubleSideStaking, Migration } from './hooks'
 export const DOUBLE_SIDE_STAKING: { [key: string]: DoubleSideStaking } = {
-  WBNB_ETH_V0: {
-    tokens: [WBNB[ChainId.BSC], ETH[ChainId.BSC]],
-    stakingRewardAddress: '0xa16381eae6285123c323A665D4D99a6bCfaAC307',
-    version: 0,
-    multiplier: 0
-  },
-  PNG_MFI_V1: {
-    tokens: [PNG[ChainId.BSC], MFI[ChainId.BSC]],
-    stakingRewardAddress: '0x4c0650668A63EF468c7bDCd910A62287e9FC4d52',
-    version: 1,
-    multiplier: 5
-  },
-  WBNB_JEWEL_V2: {
-    tokens: [WBNB[ChainId.BSC], JEWEL[ChainId.BSC]],
+  WBNB_PIZA_V2: {
+    tokens: [WBNB[ChainId.BSC], PIZA[ChainId.BSC]],
     stakingRewardAddress: MINICHEF_ADDRESS,
     version: 2
   }
