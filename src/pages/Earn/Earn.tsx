@@ -6,6 +6,7 @@ import { DoubleSideStakingInfo } from '../../state/stake/hooks'
 import { DOUBLE_SIDE_STAKING_REWARDS_INFO } from '../../state/stake/doubleSideConfig'
 import { TYPE, ExternalLink } from '../../theme'
 import DoubleSidePoolCard from '../../components/earn/DoubleSidePoolCard'
+import SidePoolItem from '../../components/earn/SidePoolItem'
 import { NavLink } from 'react-router-dom'
 import { AutoRow, RowBetween } from '../../components/Row'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
@@ -119,28 +120,6 @@ const ContainerContent = styled.div`
   }
 `
 
-const RowItem = styled.div`
-  display: flex;
-  width: 100%;
-  line-height: 50px;
-  background: #F6F5F8;
-  border-radius: 10px;
-  white-space:nowrap
-  margin-top: 18px;
-  padding: 0 10px;
-  &:first-child{
-    margin-top: 0;
-  }
-`
-const ContentItem = styled.div`
-  align-items: center;
-  justify-items: center;
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-content: center;
-}
-`
 
 export interface EarnProps {
   version: string
@@ -199,15 +178,23 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
       })
     ).then(stakingInfoData => {
       const poolCards = stakingInfoData.map((stakingInfo, index) => {
-        return (
-          <DoubleSidePoolCard
-            swapFeeApr={stakingInfo.swapFeeApr}
-            stakingApr={stakingInfo.stakingApr}
-            key={index}
-            stakingInfo={stakingInfo}
-            version={version}
-          />
-        )
+
+        return (<SidePoolItem 
+          swapFeeApr={stakingInfo.swapFeeApr}
+          stakingApr={stakingInfo.stakingApr}
+          key={index}
+          stakingInfo={stakingInfo}
+          version={version}
+        />)
+        // return (
+        //   <DoubleSidePoolCard
+        //     swapFeeApr={stakingInfo.swapFeeApr}
+        //     stakingApr={stakingInfo.stakingApr}
+        //     key={index}
+        //     stakingInfo={stakingInfo}
+        //     version={version}
+        //   />
+        // )
       })
       setPoolCards(poolCards)
     })
@@ -267,17 +254,35 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
           })
       ).then(updatedStakingInfos => {
         const poolCards = updatedStakingInfos.map((stakingInfo, index) => {
-          return (
-            <DoubleSidePoolCard
-              // @ts-ignore
-              swapFeeApr={stakingInfo.swapFeeApr}
-              // @ts-ignore
-              stakingApr={stakingInfo.stakingApr}
-              key={index}
-              stakingInfo={stakingInfo}
-              version={version}
-            />
-          )
+          // return (
+          //   <DoubleSidePoolCard
+          //     // @ts-ignore
+          //     swapFeeApr={stakingInfo.swapFeeApr}
+          //     // @ts-ignore
+          //     stakingApr={stakingInfo.stakingApr}
+          //     key={index}
+          //     stakingInfo={stakingInfo}
+          //     version={version}
+          //   />
+          // )
+          return (<SidePoolItem 
+            swapFeeApr={stakingInfo.swapFeeApr}
+            stakingApr={stakingInfo.stakingApr}
+            key={index}
+            stakingInfo={stakingInfo}
+            version={version}
+          />)
+          // return (
+          //   <DoubleSidePoolCard
+          //     // @ts-ignore
+          //     swapFeeApr={stakingInfo.swapFeeApr}
+          //     // @ts-ignore
+          //     stakingApr={stakingInfo.stakingApr}
+          //     key={index}
+          //     stakingInfo={stakingInfo}
+          //     version={version}
+          //   />
+          // )
         })
         setStakingInfoData(updatedStakingInfos)
         setPoolCards(poolCards)
@@ -340,13 +345,14 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
           </SearchBox>
           <ListContainer>
             <ContainerHeader>
-              <HeaderTitle>资金池</HeaderTitle>
+              <HeaderTitle> Cash Pooling</HeaderTitle>
               <HeaderTitle>TVL</HeaderTitle>
-              <HeaderTitle>奖励</HeaderTitle>
-              <HeaderTitle>APR</HeaderTitle>
+              <HeaderTitle>Rewards APR</HeaderTitle>
+              <HeaderTitle>Total APR</HeaderTitle>
             </ContainerHeader>
             <ContainerContent>
-              <RowItem>
+             {filteredPoolCards}
+              {/* <RowItem>
                 <ContentItem>
                   <img height={'20px'} src={'./static/media/icon.adcff230.svg'} />
                   <img height={'20px'} style={{margin:'0 5px 0 3px'}} src={'./static/media/icon.adcff230.svg'} />
@@ -362,7 +368,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                 <ContentItem>
                 4.92%
                 </ContentItem>
-              </RowItem>
+              </RowItem> */}
 
             </ContainerContent>
           </ListContainer>
