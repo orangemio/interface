@@ -47,12 +47,9 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo, versi
     if (stakingContract && poolMap && stakingInfo?.stakedAmount) {
       setAttempting(true)
       const method = version < 2 ? 'getReward' : 'harvest'
-      const args = version < 2
-        ? []
-        : [poolMap[stakingInfo.stakedAmount.token.address], account]
+      const args = version < 2 ? [] : [poolMap[stakingInfo.stakedAmount.token.address], account]
 
-      await stakingContract
-        [method](...args)
+      await stakingContract[method](...args)
         .then((response: TransactionResponse) => {
           addTransaction(response, {
             summary: t('earn.claimAccumulated', { symbol: 'PNG' })
@@ -90,11 +87,9 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo, versi
               <TYPE.body>{t('earn.unclaimedReward', { symbol: 'PNG' })}</TYPE.body>
             </AutoColumn>
           )}
-          <TYPE.subHeader style={{ textAlign: 'center' }}>
-            {t('earn.liquidityRemainsPool')}
-          </TYPE.subHeader>
+          <TYPE.subHeader style={{ textAlign: 'center' }}>{t('earn.liquidityRemainsPool')}</TYPE.subHeader>
           <ButtonError disabled={!!error} error={!!error && !!stakingInfo?.stakedAmount} onClick={onClaimReward}>
-            {error ?? t('earn.claimReward', { symbol: 'PNG' })}
+            {error ?? t('earn.claimReward', { symbol: 'PIZA' })}
           </ButtonError>
         </ContentWrapper>
       )}
@@ -104,7 +99,7 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo, versi
             <TYPE.body fontSize={20}>
               {t('earn.claimingReward', {
                 amount: stakingInfo?.earnedAmount?.toSignificant(6),
-                symbol: 'PNG'
+                symbol: 'PIZA'
               })}
             </TYPE.body>
           </AutoColumn>

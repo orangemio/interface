@@ -111,9 +111,9 @@ export default function DoubleSidePoolCard({
 
   // get the color of the token
   const backgroundColor = useColor(token)
-
-  const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
-
+  // TODO: Orange NEED FIX
+  // const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
+  const totalStakedInUsd = '-'
   const pairAddress = stakingInfo?.stakedAmount?.token?.address
 
   return (
@@ -163,7 +163,7 @@ export default function DoubleSidePoolCard({
           <TYPE.white>{swapFeeApr && !stakingInfo.isPeriodFinished ? `${swapFeeApr}%` : '-'}</TYPE.white>
         </RowBetween>
         <RowBetween>
-          <TYPE.white>PNG Rewards APR</TYPE.white>
+          <TYPE.white>PIZA Rewards APR</TYPE.white>
           <TYPE.white>{stakingApr && !stakingInfo.isPeriodFinished ? `${stakingApr}%` : '-'}</TYPE.white>
         </RowBetween>
         <RowBetween>
@@ -192,7 +192,7 @@ export default function DoubleSidePoolCard({
               </span>
               {`${stakingInfo.rewardRate
                 ?.multiply(`${60 * 60 * 24 * 7}`)
-                ?.toSignificant(4, { groupSeparator: ',' })} PNG / week`}
+                ?.toSignificant(4, { groupSeparator: ',' })} PIZA / week`}
             </TYPE.black>
           </BottomSection>
         </>

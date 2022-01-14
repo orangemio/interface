@@ -224,7 +224,8 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
 
   useEffect(() => {
     setPoolCardsLoading(true)
-    if (stakingInfos ?.length > 0) {
+    console.log(stakingInfos, 'stakingInfos')
+    if (stakingInfos?.length > 0) {
       Promise.all(
         stakingInfos
           .filter(function (info) {

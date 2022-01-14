@@ -122,7 +122,7 @@ const Manage: React.FC<ManageProps> = ({ version, stakingInfo, currencyA, curren
   }, [account, toggleWalletModal])
 
   const poolMap = useMinichefPools()
-  let pairAddress = stakingInfo?.stakedAmount?.token?.address
+  const pairAddress = stakingInfo?.stakedAmount?.token?.address
 
   return (
     <PageWrapper gap="lg" justify="center">
@@ -149,7 +149,7 @@ const Manage: React.FC<ManageProps> = ({ version, stakingInfo, currencyA, curren
               {stakingInfo?.totalRewardRate
                 ?.multiply((60 * 60 * 24 * 7).toString())
                 ?.toFixed(0, { groupSeparator: ',' }) ?? '-'}
-              {t('earnPage.rewardPerWeek', { symbol: 'PNG' })}
+              {t('earnPage.rewardPerWeek', { symbol: 'PIZA' })}
             </TYPE.body>
           </AutoColumn>
         </PoolData>
@@ -259,7 +259,7 @@ const Manage: React.FC<ManageProps> = ({ version, stakingInfo, currencyA, curren
             <AutoColumn gap="sm">
               <RowBetween>
                 <div>
-                  <TYPE.black>{t('earnPage.unclaimedReward', { symbol: 'PNG' })}</TYPE.black>
+                  <TYPE.black>{t('earnPage.unclaimedReward', { symbol: 'PIZA' })}</TYPE.black>
                 </div>
                 {stakingInfo?.earnedAmount && JSBI.notEqual(BIG_INT_ZERO, stakingInfo?.earnedAmount?.raw) && (
                   <ButtonEmpty
@@ -291,7 +291,7 @@ const Manage: React.FC<ManageProps> = ({ version, stakingInfo, currencyA, curren
                   {stakingInfo?.rewardRate
                     ?.multiply((60 * 60 * 24 * 7).toString())
                     ?.toSignificant(4, { groupSeparator: ',' }) ?? '-'}
-                  {t('earnPage.rewardPerWeek', { symbol: 'PNG' })}
+                  {t('earnPage.rewardPerWeek', { symbol: 'PIZA' })}
                 </TYPE.black>
               </RowBetween>
             </AutoColumn>
