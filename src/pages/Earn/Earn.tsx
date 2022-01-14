@@ -156,7 +156,6 @@ export interface EarnProps {
 const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
   const { chainId } = useActiveWeb3React()
   const { t } = useTranslation()
-
   const [poolCardsLoading, setPoolCardsLoading] = useState(false)
   const [poolCards, setPoolCards] = useState<any[]>()
   const [filteredPoolCards, setFilteredPoolCards] = useState<any[]>()
@@ -164,13 +163,11 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
   const [sortBy, setSortBy] = useState<any>({ field: '', desc: true })
   const debouncedSearchQuery = useDebounce(searchQuery, 250)
   const [stakingInfoData, setStakingInfoData] = useState<any[]>(stakingInfos)
-
-  console.log("======================>",poolCards);
-
-
   const handleSearch = useCallback(event => {
     setSearchQuery(event.target.value.trim().toUpperCase())
   }, [])
+
+  console.log("=========EarnPropsEarnProps=============>", stakingInfoData);
 
   useEffect(() => {
     const filtered = poolCards ?.filter(
@@ -356,7 +353,8 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
               <HeaderTitle>APR</HeaderTitle>
             </ContainerHeader>
             <ContainerContent>
-              <RowItem>
+              {getSortField('Liquidity', SortingType.totalStakedInUsd, sortBy, setSortBy)} |{' '}
+              {/* <RowItem>
                 <ContentItem>
                   <img height={'20px'} src={'./static/media/icon.adcff230.svg'} />
                   <img height={'20px'} style={{margin:'0 5px 0 3px'}} src={'./static/media/icon.adcff230.svg'} />
@@ -372,7 +370,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                 <ContentItem>
                 4.92%
                 </ContentItem>
-              </RowItem>
+              </RowItem> */}
 
             </ContainerContent>
           </ListContainer>
