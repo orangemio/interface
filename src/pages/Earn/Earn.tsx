@@ -41,7 +41,7 @@ const PoolSection = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 10px;
-  row-gap: 15px;
+  // row-gap: 15px;
   width: 100%;
   justify-self: center;
 `
@@ -72,13 +72,80 @@ const SortFieldContainer = styled.div`
  `};
 `
 
-
-
 enum SortingType {
   totalStakedInUsd = 'totalStakedInUsd',
   multiplier = 'multiplier',
   totalApr = 'totalApr'
 }
+
+const SearchBox = styled.div`
+  border-bottom: 1px solid #F6F5F8;;
+  padding-bottom: 15px;
+`
+
+const ListContainer = styled.div`
+
+`
+const ContainerHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+`
+const HeaderTitle = styled.div`
+  font-family: PingFang HK;
+  font-size: 18px;
+  line-height: 34px;
+  color: #2C0F10;
+  flex: 1;
+  line-height: 54px;
+`
+const ContainerContent = styled.div`
+  max-height: 450px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width:4px;
+    height:4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+    background:#86909c;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius:0;
+    background:rgba(0,0,0,0.1);
+  }
+`
+
+const RowItem = styled.div`
+  display: flex;
+  width: 100%;
+  line-height: 50px;
+  background: #F6F5F8;
+  border-radius: 10px;
+  white-space:nowrap
+  margin-top: 18px;
+  padding: 0 10px;
+  &:first-child{
+    margin-top: 0;
+  }
+`
+const ContentItem = styled.div`
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-content: center;
+}
+`
+
+const IconStyle = `margin: 0 10px;`
+
+
+
 
 export interface EarnProps {
   version: string
@@ -97,6 +164,9 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
   const [sortBy, setSortBy] = useState<any>({ field: '', desc: true })
   const debouncedSearchQuery = useDebounce(searchQuery, 250)
   const [stakingInfoData, setStakingInfoData] = useState<any[]>(stakingInfos)
+
+  console.log("======================>",poolCards);
+
 
   const handleSearch = useCallback(event => {
     setSearchQuery(event.target.value.trim().toUpperCase())
@@ -269,14 +339,43 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
           <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>{t('earnPage.participatingPools')}</TYPE.mediumHeader>
         </DataRow>
         <PoolSection>
-          <SearchInput
-            type="text"
-            id="token-search-input"
-            placeholder={t('searchModal.tokenName')}
-            value={searchQuery}
-            onChange={handleSearch}
-          />
-          <Table></Table>
+          <SearchBox>
+            <SearchInput
+              type="text"
+              id="token-search-input"
+              placeholder={t('searchModal.tokenName')}
+              value={searchQuery}
+              onChange={handleSearch}
+            />
+          </SearchBox>
+          <ListContainer>
+            <ContainerHeader>
+              <HeaderTitle>资金池</HeaderTitle>
+              <HeaderTitle>TVL</HeaderTitle>
+              <HeaderTitle>奖励</HeaderTitle>
+              <HeaderTitle>APR</HeaderTitle>
+            </ContainerHeader>
+            <ContainerContent>
+              <RowItem>
+                <ContentItem>
+                  <img height={'20px'} src={'./static/media/icon.adcff230.svg'} />
+                  <img height={'20px'} style={{margin:'0 5px 0 3px'}} src={'./static/media/icon.adcff230.svg'} />
+                  WETH/PSP
+                </ContentItem>
+                <ContentItem>
+                $2,632,901
+                </ContentItem>
+                <ContentItem>
+                  <img height={'20px'} style={{margin:'0 6px 0 0px'}} src={'./static/media/icon.adcff230.svg'} />
+                  19.43 SUSHI/DAY
+                </ContentItem>
+                <ContentItem>
+                4.92%
+                </ContentItem>
+              </RowItem>
+
+            </ContainerContent>
+          </ListContainer>
           {/* {(stakingRewardsExist && stakingInfos?.length === 0) || poolCardsLoading ? (
             t('earnPage.noActiveRewards')
           ) : (!stakingRewardsExist || poolCards?.length === 0) && !poolCardsLoading ? (
@@ -298,7 +397,6 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                 </SortFieldContainer>
                 {getSortField('APR', SortingType.totalApr, sortBy, setSortBy)}
               </SortSection>
-
               {filteredPoolCards}
             </>
           )} */}
