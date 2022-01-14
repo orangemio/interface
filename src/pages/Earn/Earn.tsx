@@ -142,11 +142,6 @@ const ContentItem = styled.div`
 }
 `
 
-const IconStyle = `margin: 0 10px;`
-
-
-
-
 export interface EarnProps {
   version: string
   stakingInfos: DoubleSideStakingInfo[]
@@ -166,9 +161,6 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
   const handleSearch = useCallback(event => {
     setSearchQuery(event.target.value.trim().toUpperCase())
   }, [])
-
-  console.log("=========EarnPropsEarnProps=============>", stakingInfoData);
-
   useEffect(() => {
     const filtered = poolCards ?.filter(
       card =>
@@ -333,9 +325,9 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
         </DataCard>
       </TopSection> */}
       <AutoColumn gap="lg" style={{ width: '100%', maxWidth: '720px' }}>
-        <DataRow style={{ alignItems: 'baseline' }}>
+        {/* <DataRow style={{ alignItems: 'baseline' }}>
           <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>{t('earnPage.participatingPools')}</TYPE.mediumHeader>
-        </DataRow>
+        </DataRow> */}
         <PoolSection>
           <SearchBox>
             <SearchInput
@@ -354,8 +346,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
               <HeaderTitle>APR</HeaderTitle>
             </ContainerHeader>
             <ContainerContent>
-              {getSortField('Liquidity', SortingType.totalStakedInUsd, sortBy, setSortBy)} |{' '}
-              {/* <RowItem>
+              <RowItem>
                 <ContentItem>
                   <img height={'20px'} src={'./static/media/icon.adcff230.svg'} />
                   <img height={'20px'} style={{margin:'0 5px 0 3px'}} src={'./static/media/icon.adcff230.svg'} />
@@ -371,7 +362,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                 <ContentItem>
                 4.92%
                 </ContentItem>
-              </RowItem> */}
+              </RowItem>
 
             </ContainerContent>
           </ListContainer>
