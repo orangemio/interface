@@ -92,7 +92,7 @@ export default function StakingModalSingleSide({
           .stake(`0x${parsedAmount.raw.toString(16)}`)
           .then((response: TransactionResponse) => {
             addTransaction(response, {
-              summary: t('earnPage.stakeStakingTokens', { symbol: 'PNG' })
+              summary: t('earnPage.stakeStakingTokens', { symbol: 'PIZA' })
             })
             setHash(response.hash)
           })
@@ -111,7 +111,7 @@ export default function StakingModalSingleSide({
           )
           .then((response: TransactionResponse) => {
             addTransaction(response, {
-              summary: t('earnPage.stakeStakingTokens', { symbol: 'PNG' })
+              summary: t('earnPage.stakeStakingTokens', { symbol: 'PIZA' })
             })
             setHash(response.hash)
           })
@@ -255,7 +255,7 @@ export default function StakingModalSingleSide({
       {attempting && !hash && (
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
-            <TYPE.largeHeader>{t('earn.depositingToken', { symbol: 'PNG' })}</TYPE.largeHeader>
+            <TYPE.largeHeader>{t('earn.depositingToken', { symbol: 'PIZA' })}</TYPE.largeHeader>
             <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} PNG</TYPE.body>
           </AutoColumn>
         </LoadingView>

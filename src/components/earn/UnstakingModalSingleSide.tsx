@@ -81,7 +81,7 @@ export default function UnstakingModalSingleSide({ isOpen, onDismiss, stakingInf
               <TYPE.body fontWeight={600} fontSize={36}>
                 {<FormattedCurrencyAmount currencyAmount={stakingInfo.stakedAmount} />}
               </TYPE.body>
-              <TYPE.body>{t('earn.depositedToken', { symbol: 'PNG' })}</TYPE.body>
+              <TYPE.body>{t('earn.depositedToken', { symbol: 'PIZA' })}</TYPE.body>
             </AutoColumn>
           )}
           {stakingInfo?.earnedAmount && (
