@@ -41,7 +41,6 @@ export default function CurrencyLogo({
 
   const srcs: string[] = useMemo(() => {
     if (currency === CBNB) return []
-
     if (currency instanceof Token) {
       if (currency instanceof WrappedTokenInfo) {
         return [...uriLocations, getTokenLogoURL(currency.address)]
@@ -55,6 +54,5 @@ export default function CurrencyLogo({
   if (currency === CBNB) {
     return <StyledEthereumLogo src={AvaxLogo} size={size} style={style} />
   }
-
   return <StyledLogo size={size} srcs={srcs} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
 }

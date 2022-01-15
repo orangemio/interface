@@ -5,8 +5,10 @@ import { hex } from 'wcag-contrast'
 import { Token } from 'pizzaswap-sdk'
 
 async function getColorFromToken(token: Token): Promise<string | null> {
-  const path = `https://raw.githubusercontent.com/pangolindex/tokens/main/assets/${token.address}/logo.png`
-
+  let path = `https://raw.githubusercontent.com/pangolindex/tokens/main/assets/${token.address}/logo.png`
+  if(token.address.toLowerCase() == '0xFC646D0B564bf191B3d3adF2B620a792E485e6Da'.toLowerCase()){
+    path = `/logo.png`;
+  }
   return Vibrant.from(path)
     .getPalette()
     .then(palette => {

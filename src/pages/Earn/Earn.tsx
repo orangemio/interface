@@ -6,10 +6,12 @@ import { DoubleSideStakingInfo } from '../../state/stake/hooks'
 import { DOUBLE_SIDE_STAKING_REWARDS_INFO } from '../../state/stake/doubleSideConfig'
 import { TYPE, ExternalLink } from '../../theme'
 import DoubleSidePoolCard from '../../components/earn/DoubleSidePoolCard'
+import SidePoolItem from '../../components/earn/SidePoolItem'
 import { NavLink } from 'react-router-dom'
 import { AutoRow, RowBetween } from '../../components/Row'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
-import Loader from '../../components/Loader'
+import Loader from '../../components/Loader';
+import { Table } from '../../components/Table'
 import { useActiveWeb3React } from '../../hooks'
 import { JSBI } from 'pizzaswap-sdk'
 import { useTranslation } from 'react-i18next'
@@ -20,6 +22,9 @@ import { BIG_INT_ZERO } from '../../constants'
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
   width: 100%;
+  background: #fff;
+  border-radius: 26px;
+  padding: 34px 36px;
 `
 
 const TopSection = styled(AutoColumn)`
@@ -37,7 +42,7 @@ const PoolSection = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 10px;
-  row-gap: 15px;
+  // row-gap: 15px;
   width: 100%;
   justify-self: center;
 `
@@ -62,6 +67,7 @@ const SortField = styled.div`
 
 const SortFieldContainer = styled.div`
   display: flex;
+  max-width: 640px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
    display: none;
  `};
@@ -73,6 +79,48 @@ enum SortingType {
   totalApr = 'totalApr'
 }
 
+const SearchBox = styled.div`
+  border-bottom: 1px solid #F6F5F8;;
+  padding-bottom: 15px;
+`
+
+const ListContainer = styled.div`
+
+`
+const ContainerHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+`
+const HeaderTitle = styled.div`
+  font-family: PingFang HK;
+  font-size: 18px;
+  line-height: 34px;
+  color: #2C0F10;
+  flex: 1;
+  line-height: 54px;
+`
+const ContainerContent = styled.div`
+  max-height: 450px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width:4px;
+    height:4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+    background:#86909c;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius:0;
+    background:rgba(0,0,0,0.1);
+  }
+`
+
+
 export interface EarnProps {
   version: string
   stakingInfos: DoubleSideStakingInfo[]
@@ -82,7 +130,6 @@ export interface EarnProps {
 const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
   const { chainId } = useActiveWeb3React()
   const { t } = useTranslation()
-
   const [poolCardsLoading, setPoolCardsLoading] = useState(false)
   const [poolCards, setPoolCards] = useState<any[]>()
   const [filteredPoolCards, setFilteredPoolCards] = useState<any[]>()
@@ -90,13 +137,11 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
   const [sortBy, setSortBy] = useState<any>({ field: '', desc: true })
   const debouncedSearchQuery = useDebounce(searchQuery, 250)
   const [stakingInfoData, setStakingInfoData] = useState<any[]>(stakingInfos)
-
   const handleSearch = useCallback(event => {
     setSearchQuery(event.target.value.trim().toUpperCase())
   }, [])
-
   useEffect(() => {
-    const filtered = poolCards?.filter(
+    const filtered = poolCards ?.filter(
       card =>
         card.props.stakingInfo.tokens[0].symbol.toUpperCase().includes(debouncedSearchQuery) ||
         card.props.stakingInfo.tokens[1].symbol.toUpperCase().includes(debouncedSearchQuery)
@@ -107,12 +152,12 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
 
   useEffect(() => {
     Promise.all(
-      stakingInfoData.sort(function(info_a, info_b) {
+      stakingInfoData.sort(function (info_a, info_b) {
         if (sortBy.field === SortingType.totalStakedInUsd) {
           if (sortBy.desc) {
-            return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
+            return info_a.totalStakedInUsd ?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
           } else {
-            return info_a.totalStakedInUsd?.lessThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
+            return info_a.totalStakedInUsd ?.lessThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
           }
         }
         if (sortBy.field === SortingType.multiplier) {
@@ -133,20 +178,28 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
       })
     ).then(stakingInfoData => {
       const poolCards = stakingInfoData.map((stakingInfo, index) => {
-        return (
-          <DoubleSidePoolCard
-            swapFeeApr={stakingInfo.swapFeeApr}
-            stakingApr={stakingInfo.stakingApr}
-            key={index}
-            stakingInfo={stakingInfo}
-            version={version}
-          />
-        )
+
+        return (<SidePoolItem 
+          swapFeeApr={stakingInfo.swapFeeApr}
+          stakingApr={stakingInfo.stakingApr}
+          key={index}
+          stakingInfo={stakingInfo}
+          version={version}
+        />)
+        // return (
+        //   <DoubleSidePoolCard
+        //     swapFeeApr={stakingInfo.swapFeeApr}
+        //     stakingApr={stakingInfo.stakingApr}
+        //     key={index}
+        //     stakingInfo={stakingInfo}
+        //     version={version}
+        //   />
+        // )
       })
       setPoolCards(poolCards)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sortBy?.field, sortBy?.desc])
+  }, [sortBy ?.field, sortBy ?.desc])
 
   useEffect(() => {
     setPoolCardsLoading(true)
@@ -154,19 +207,19 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
     if (stakingInfos?.length > 0) {
       Promise.all(
         stakingInfos
-          .filter(function(info) {
+          .filter(function (info) {
             // Only include pools that are live or require a migration
             return !info.isPeriodFinished || info.stakedAmount.greaterThan(BIG_INT_ZERO)
           })
-          .sort(function(info_a, info_b) {
+          .sort(function (info_a, info_b) {
             // only first has ended
             if (info_a.isPeriodFinished && !info_b.isPeriodFinished) return 1
             // only second has ended
             if (!info_a.isPeriodFinished && info_b.isPeriodFinished) return -1
             // greater stake in avax comes first
-            return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
+            return info_a.totalStakedInUsd ?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
           })
-          .sort(function(info_a, info_b) {
+          .sort(function (info_a, info_b) {
             // only the first is being staked, so we should bring the first up
             if (info_a.stakedAmount.greaterThan(BIG_INT_ZERO) && !info_b.stakedAmount.greaterThan(BIG_INT_ZERO))
               return -1
@@ -201,47 +254,64 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
           })
       ).then(updatedStakingInfos => {
         const poolCards = updatedStakingInfos.map((stakingInfo, index) => {
-          return (
-            <DoubleSidePoolCard
-              // @ts-ignore
-              swapFeeApr={stakingInfo.swapFeeApr}
-              // @ts-ignore
-              stakingApr={stakingInfo.stakingApr}
-              key={index}
-              stakingInfo={stakingInfo}
-              version={version}
-            />
-          )
+          // return (
+          //   <DoubleSidePoolCard
+          //     // @ts-ignore
+          //     swapFeeApr={stakingInfo.swapFeeApr}
+          //     // @ts-ignore
+          //     stakingApr={stakingInfo.stakingApr}
+          //     key={index}
+          //     stakingInfo={stakingInfo}
+          //     version={version}
+          //   />
+          // )
+          return (<SidePoolItem 
+            swapFeeApr={stakingInfo.swapFeeApr}
+            stakingApr={stakingInfo.stakingApr}
+            key={index}
+            stakingInfo={stakingInfo}
+            version={version}
+          />)
+          // return (
+          //   <DoubleSidePoolCard
+          //     // @ts-ignore
+          //     swapFeeApr={stakingInfo.swapFeeApr}
+          //     // @ts-ignore
+          //     stakingApr={stakingInfo.stakingApr}
+          //     key={index}
+          //     stakingInfo={stakingInfo}
+          //     version={version}
+          //   />
+          // )
         })
         setStakingInfoData(updatedStakingInfos)
         setPoolCards(poolCards)
         setPoolCardsLoading(false)
       })
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stakingInfos?.length, version])
+  }, [stakingInfos ?.length, version])
 
   const stakingRewardsExist = Boolean(
-    typeof chainId === 'number' && (DOUBLE_SIDE_STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0
+    typeof chainId === 'number' && (DOUBLE_SIDE_STAKING_REWARDS_INFO[chainId] ?.length ?? 0) > 0
   )
   const getSortField = (label: string, field: string, sortBy: any, setSortBy: Function) => {
     return (
       <SortField
         onClick={() => {
-          const desc = sortBy?.field === field ? !sortBy?.desc : true
+          const desc = sortBy ?.field === field ? !sortBy ?.desc : true
           setSortBy({ field, desc })
         }}
       >
         {label}
-        {sortBy?.field === field && (sortBy?.desc ? <ChevronDown size="16" /> : <ChevronUp size="16" />)}
+        {sortBy ?.field === field && (sortBy ?.desc ? <ChevronDown size="16" /> : <ChevronUp size="16" />)}
       </SortField>
     )
   }
 
   return (
     <PageWrapper gap="lg" justify="center">
-      <TopSection gap="md">
+      {/* <TopSection gap="md">
         <DataCard>
           <CardBGImage />
           <CardNoise />
@@ -252,66 +322,57 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
               </RowBetween>
               <RowBetween>
                 <TYPE.white fontSize={14}>{t('earnPage.depositPangolinLiquidity')}</TYPE.white>
-              </RowBetween>{' '}
-              {/* <AutoRow justify="space-between">
-                <ExternalLink
-                  style={{ color: 'white', textDecoration: 'underline' }}
-                  href="https://pangolin.exchange/litepaper"
-                  target="_blank"
-                >
-                  <TYPE.white fontSize={14}>{t('earnPage.readMoreAboutPng')}</TYPE.white>
-                </ExternalLink>
-                <FlexDiv>
-                  <ExternalLink
-                    style={{ color: 'white', textDecoration: 'underline', marginRight: 10 }}
-                    href="https://app.nexusmutual.io/cover/buy/get-quote?address=0xefa94DE7a4656D787667C749f7E1223D71E9FD88"
-                    target="_blank"
-                  >
-                    <TYPE.white fontSize={14}>{t('earnPage.getCoverNexusMutual')}</TYPE.white>
-                  </ExternalLink>
-                  <ExternalLink
-                    style={{ color: 'white', textDecoration: 'underline' }}
-                    href="https://app.insurace.io/Insurance/BuyCovers?referrer=565928487188065888397039055593264600345483712698"
-                    target="_blank"
-                  >
-                    <TYPE.white fontSize={14}>{t('earnPage.getInsuranceCoverage')}</TYPE.white>
-                  </ExternalLink>
-                </FlexDiv>
-              </AutoRow> */}
+              </RowBetween>
             </AutoColumn>
           </CardSection>
           <CardBGImage />
           <CardNoise />
         </DataCard>
-        {/* {version === '0' && (
-          <DataCard>
-            <CardNoise />
-            <CardSection>
-              <AutoColumn gap="md">
-                <RowBetween>
-                  <TYPE.white fontWeight={600}>{t('earnPage.importantUpdate')}</TYPE.white>
-                </RowBetween>
-                <RowBetween>
-                  <TYPE.white fontSize={14}>{t('earnPage.pangolinGovernanceProposalResult')}</TYPE.white>
-                </RowBetween>
-                {version !== '0' && (
-                  <NavLink style={{ color: 'white', textDecoration: 'underline' }} to="/png/0">
-                    <TYPE.white fontSize={14}>{t('earnPage.oldPngPools')}</TYPE.white>
-                  </NavLink>
-                )}
-              </AutoColumn>
-            </CardSection>
-          </DataCard>
-        )} */}
-      </TopSection>
-
+      </TopSection> */}
       <AutoColumn gap="lg" style={{ width: '100%', maxWidth: '720px' }}>
         <DataRow style={{ alignItems: 'baseline' }}>
           <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>{t('earnPage.participatingPools')}</TYPE.mediumHeader>
         </DataRow>
         <PoolSection>
-          {(stakingRewardsExist && stakingInfos?.length === 0) || poolCardsLoading ? (
-            // <Loader style={{ margin: 'auto' }} />
+          <SearchBox>
+            <SearchInput
+              type="text"
+              id="token-search-input"
+              placeholder={t('searchModal.tokenName')}
+              value={searchQuery}
+              onChange={handleSearch}
+            />
+          </SearchBox>
+          <ListContainer>
+            <ContainerHeader>
+              <HeaderTitle> Cash Pooling</HeaderTitle>
+              <HeaderTitle>TVL</HeaderTitle>
+              <HeaderTitle>Rewards APR</HeaderTitle>
+              <HeaderTitle>Total APR</HeaderTitle>
+            </ContainerHeader>
+            <ContainerContent>
+             {filteredPoolCards}
+              {/* <RowItem>
+                <ContentItem>
+                  <img height={'20px'} src={'./static/media/icon.adcff230.svg'} />
+                  <img height={'20px'} style={{margin:'0 5px 0 3px'}} src={'./static/media/icon.adcff230.svg'} />
+                  WETH/PSP
+                </ContentItem>
+                <ContentItem>
+                $2,632,901
+                </ContentItem>
+                <ContentItem>
+                  <img height={'20px'} style={{margin:'0 6px 0 0px'}} src={'./static/media/icon.adcff230.svg'} />
+                  19.43 SUSHI/DAY
+                </ContentItem>
+                <ContentItem>
+                4.92%
+                </ContentItem>
+              </RowItem> */}
+
+            </ContainerContent>
+          </ListContainer>
+          {/* {(stakingRewardsExist && stakingInfos?.length === 0) || poolCardsLoading ? (
             t('earnPage.noActiveRewards')
           ) : (!stakingRewardsExist || poolCards?.length === 0) && !poolCardsLoading ? (
             t('earnPage.noActiveRewards')
@@ -332,10 +393,9 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                 </SortFieldContainer>
                 {getSortField('APR', SortingType.totalApr, sortBy, setSortBy)}
               </SortSection>
-
               {filteredPoolCards}
             </>
-          )}
+          )} */}
         </PoolSection>
       </AutoColumn>
     </PageWrapper>
