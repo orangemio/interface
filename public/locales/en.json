@@ -86,7 +86,7 @@
     "deposited": "Deposited",
     "withdrawDepositedLiquidity": "Withdraw deposited liquidity",
     "depositedPglLiquidity": "Deposited PZL liquidity:",
-    "whenYouWithdrawWarning": "When you withdraw, your PNG is claimed and your Pizza LP tokens, PZL, are returned to you. You will no longer earn PNG rewards on this liquidity. Your original token liquidity will remain in its liquidity pool.",
+    "whenYouWithdrawWarning": "When you withdraw, your PIZA is claimed and your Pizza LP tokens, PZL, are returned to you. You will no longer earn PIZA rewards on this liquidity. Your original token liquidity will remain in its liquidity pool.",
     "whenYouWithdrawSingleSideWarning": "When you withdraw, your {{ symbol }} is claimed and your PNG is returned to you. You will no longer earn {{ symbol }} rewards on this PNG.",
     "withdrawAndClaim": "Withdraw & Claim",
     "withdrewStakingToken": "Withdrew {{ symbol }}!",

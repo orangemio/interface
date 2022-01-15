@@ -86,7 +86,7 @@
     "deposited": "存入",
     "withdrawDepositedLiquidity": "提取存入的流动性",
     "depositedPglLiquidity": "存入 PZL 流动性:",
-    "whenYouWithdrawWarning": "当您退出时，您的 PNG 将被认领，您的Pangolin流动性代币 PZL 将退还给您。您将不再透过此流动性获得 PNG 奖励。您的流动性代币将在保持流动状态。",
+    "whenYouWithdrawWarning": "当您退出时，您的 PIZA 将被认领，您的流动性代币 PZL 将退还给您。您将不再透过此流动性获得 PIZA 奖励。您的流动性代币将在保持流动状态。",
     "whenYouWithdrawSingleSideWarning": "当您取出资产时，您的 {{ symbol }}将被认领且您的 PNG 将会退还，您将不会再赚取此 PNG 池 {{ symbol }} 的奖励",
     "withdrawAndClaim": "提取 & 收成",
     "withdrewStakingToken": "提取 {{ symbol }}!",
