@@ -52,7 +52,7 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo, versi
       await stakingContract[method](...args)
         .then((response: TransactionResponse) => {
           addTransaction(response, {
-            summary: t('earn.claimAccumulated', { symbol: 'PNG' })
+            summary: t('earn.claimAccumulated', { symbol: 'PIZA' })
           })
           setHash(response.hash)
         })
