@@ -75,7 +75,7 @@ export default function SidePoolItem({
     // const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
     const totalStakedInUsd = '-'
     const pairAddress = stakingInfo?.stakedAmount?.token?.address
-    return (<StyledInternalLink to={`/beta/migrate/${version}`} style={{color: '#111'}}><RowItem >
+    return (<StyledInternalLink to={`/png/${currencyId(currency0)}/${currencyId(currency1)}/${version}`} style={{color: '#111'}}><RowItem >
         <ContentItem>
             <DoubleCurrencyLogo currency0={currency0} currency1={currency1} size={24}/>
             <div style={{ marginLeft: '8px' }}>
