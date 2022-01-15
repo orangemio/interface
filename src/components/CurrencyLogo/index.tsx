@@ -7,8 +7,14 @@ import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
 
-const getTokenLogoURL = (address: string) =>
-  `https://raw.githubusercontent.com/pangolindex/tokens/main/assets/${address}/logo.png`
+
+const getTokenLogoURL = (address: string) => {
+  if(address.toLowerCase() == '0xFC646D0B564bf191B3d3adF2B620a792E485e6Da'.toLowerCase()){
+    return `/logo.png`
+  }
+  return `https://raw.githubusercontent.com/pangolindex/tokens/main/assets/${address}/logo.png`;
+}
+  
 
 export const StyledEthereumLogo = styled.img<{ size: string }>`
   width: ${({ size }) => size};
@@ -37,7 +43,6 @@ export default function CurrencyLogo({
 
   const srcs: string[] = useMemo(() => {
     if (currency === CBNB) return []
-
     if (currency instanceof Token) {
       if (currency instanceof WrappedTokenInfo) {
         return [...uriLocations, getTokenLogoURL(currency.address)]
@@ -51,6 +56,5 @@ export default function CurrencyLogo({
   if (currency === CBNB) {
     return <StyledEthereumLogo src={AvaxLogo} size={size} style={style} />
   }
-
   return <StyledLogo size={size} srcs={srcs} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
 }

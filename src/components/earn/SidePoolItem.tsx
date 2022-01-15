@@ -75,12 +75,9 @@ export default function SidePoolItem({
     // const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
     const totalStakedInUsd = '-'
     const pairAddress = stakingInfo?.stakedAmount?.token?.address
-
-    return (<RowItem isStaking={isStaking}>
+    return (<StyledInternalLink to={`/beta/migrate/${version}`} style={{color: '#111'}}><RowItem >
         <ContentItem>
             <DoubleCurrencyLogo currency0={currency0} currency1={currency1} size={24}/>
-            {/* <img height={'20px'} src={'./static/media/icon.adcff230.svg'} />
-            <img height={'20px'} style={{margin:'0 5px 0 3px'}} src={'./static/media/icon.adcff230.svg'} /> */}
             <div style={{ marginLeft: '8px' }}>
                 {currency0.symbol}-{currency1.symbol}
             </div>
@@ -95,7 +92,7 @@ export default function SidePoolItem({
         <ContentItem>
             {swapFeeApr && !stakingInfo.isPeriodFinished ? `${swapFeeApr + stakingApr}%` : '-'}
         </ContentItem>
-    </RowItem>);
+    </RowItem></StyledInternalLink>);
 }
 
 

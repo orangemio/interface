@@ -330,9 +330,9 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
         </DataCard>
       </TopSection> */}
       <AutoColumn gap="lg" style={{ width: '100%', maxWidth: '720px' }}>
-        {/* <DataRow style={{ alignItems: 'baseline' }}>
+        <DataRow style={{ alignItems: 'baseline' }}>
           <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>{t('earnPage.participatingPools')}</TYPE.mediumHeader>
-        </DataRow> */}
+        </DataRow>
         <PoolSection>
           <SearchBox>
             <SearchInput
