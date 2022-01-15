@@ -7,14 +7,12 @@ import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
 
-
 const getTokenLogoURL = (address: string) => {
-  if(address.toLowerCase() == '0xFC646D0B564bf191B3d3adF2B620a792E485e6Da'.toLowerCase()){
+  if (address.toLowerCase() == '0xFC646D0B564bf191B3d3adF2B620a792E485e6Da'.toLowerCase()) {
     return `/logo.png`
   }
-  return `https://raw.githubusercontent.com/pangolindex/tokens/main/assets/${address}/logo.png`;
+  return `https://tokens.pancakeswap.finance/images/${address}.png`
 }
-  
 
 export const StyledEthereumLogo = styled.img<{ size: string }>`
   width: ${({ size }) => size};
