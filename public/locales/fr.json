@@ -339,7 +339,7 @@
     "unclaimedReward": "Vos {{ symbol }} non réclamés",
     "claim": "Réclamer",
     "rewardPerWeek": " {{ symbol }} / semaine",
-    "automagically": "Lorsque vous vous retirez, le contrat réclame automatiquement le PNG en votre nom !",
+    "automagically": "Lorsque vous vous retirez, le contrat réclame automatiquement le PIZA en votre nom !",
     "deposit": "Dépôt",
     "depositStakingTokens": "Déposer des jetons {{ symbol }}",
     "stake": "Dépôt",

@@ -339,7 +339,7 @@
     "unclaimedReward": "您未收成的{{ symbol }}",
     "claim": "收成",
     "rewardPerWeek": " {{ symbol }} / 周",
-    "automagically": "当您退出时，合约会自动为您申领 PNG!",
+    "automagically": "当您退出时，合约会自动为您申领 PIZA!",
     "deposit": "存入",
     "depositStakingTokens": "存入 {{ symbol }} 代币",
     "stake": "质押",

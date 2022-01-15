@@ -339,7 +339,7 @@
     "unclaimedReward": "Your unclaimed {{ symbol }}",
     "claim": "Claim",
     "rewardPerWeek": " {{ symbol }} / week",
-    "automagically": "When you withdraw, the contract will automagically claim PNG on your behalf!",
+    "automagically": "When you withdraw, the contract will automagically claim PIZA on your behalf!",
     "deposit": "Deposit",
     "depositStakingTokens": "Deposit {{ symbol }} Tokens",
     "stake": "Stake",

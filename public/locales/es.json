@@ -339,7 +339,7 @@
     "unclaimedReward": "Sus {{ symbol }} sin reclamar",
     "claim": "Reclamar",
     "rewardPerWeek": " {{ symbol }} / week",
-    "automagically": "Cuando retira, el contrato reclama los PNG por usted automáticamente",
+    "automagically": "Cuando retira, el contrato reclama los PIZA por usted automáticamente",
     "deposit": "Depositar",
     "depositStakingTokens": "Depositar tokens {{ symbol }}",
     "stake": "Stake",
