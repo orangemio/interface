@@ -7,8 +7,12 @@ import { darken } from 'polished'
 import { useTranslation } from 'react-i18next'
 // import { ChevronDown } from 'react-feather'
 import styled from 'styled-components'
-import Logo from '../../assets/images/logo.png'
-import LogoDark from '../../assets/images/logo.png'
+import Logo from '../../assets/images/pizza_logo.png'
+import LogoDark from '../../assets/images/pizza_logo.png'
+import SwapIcon from '../../assets/images/index/swap_icon.png';
+import PoolIcon from '../../assets/images/index/pool_icon.png';
+import FarmIcon from '../../assets/images/index/farm_icon.png';
+import ChartIcon from '../../assets/images/index/chars_icon.png';
 import { useActiveWeb3React } from '../../hooks'
 import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances, useAggregatePngBalance } from '../../state/wallet/hooks'
@@ -41,8 +45,10 @@ const HeaderFrame = styled.div`
   top: 0;
   position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  // padding: 1rem;
+  padding: 5px 28px;
   z-index: 2;
+  background: #FFFFFF;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     grid-template-columns: 1fr;
     padding: 0 1rem;
@@ -118,7 +124,6 @@ const AccountElement = styled.div<{ active: boolean }>`
   white-space: nowrap;
   width: 100%;
   cursor: pointer;
-
   :focus {
     border: 1px solid blue;
   }
@@ -178,17 +183,22 @@ const Title = styled.a`
   align-items: center;
   pointer-events: auto;
   justify-self: flex-start;
-  margin-right: 12px;
+  margin-right: 20px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     justify-self: center;
   `};
   :hover {
     cursor: pointer;
   }
+
 `
 
 const PngIcon = styled.div`
   transition: transform 0.3s ease;
+  &>img{
+    width: 66px;
+    height: 46px;
+  }
   :hover {
     transform: rotate(-5deg);
   }
@@ -210,11 +220,13 @@ const StyledNavLink = styled(NavLink).attrs({
   width: fit-content;
   margin: 0 12px;
   font-weight: 500;
-
+  padding: 14px 15px;
   &.${activeClassName} {
     border-radius: 12px;
     font-weight: 600;
     color: ${({ theme }) => theme.text1};
+    background: #FFEAEC;
+    border-radius: 13px;
   }
 
   :hover,
@@ -270,11 +282,24 @@ const StyledExternalLink = styled(ExternalLink).attrs({
     text-decoration: none;
     color: ${({ theme }) => darken(0.1, theme.text1)};
   }
-
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
       display: none;
 `}
 `
+
+const NavItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  &>img{
+    width: 30px;
+    height: 30px;
+    margin: 0 0 6px;
+  }
+`
+
 
 // const NarrowMenuFlyout = styled(MenuFlyout)`
 //   min-width: 8.125rem;
@@ -315,12 +340,15 @@ export default function Header() {
       <HeaderRow>
         <Title href=".">
           <PngIcon>
-            <img width={'24px'} src={isDark ? LogoDark : Logo} alt="logo" />
+            <img src={isDark ? LogoDark : Logo} alt="logo" />
           </PngIcon>
         </Title>
         <HeaderLinks>
           <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
-            {t('header.swap')}
+            <NavItem>
+              <img src={SwapIcon} alt="logo" />
+              {t('header.swap')}
+            </NavItem>
           </StyledNavLink>
           {/* <StyledNavLink id={`swap-nav-link`} to={'/buy'}>
             {t('header.buy')}
@@ -336,7 +364,10 @@ export default function Header() {
               pathname.startsWith('/find')
             }
           >
+          <NavItem>
+              <img width={'24px'} src={PoolIcon} alt="logo" />
             {t('header.pool')}
+            </NavItem>
           </StyledNavLink>
 
           {/* <StyledLink
@@ -363,7 +394,10 @@ export default function Header() {
             to={'/png/2'}
             isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/png')}
           >
+          <NavItem>
+              <img width={'24px'} src={FarmIcon} alt="logo" />
             {t('header.farm')}
+            </NavItem>
           </StyledNavLink>
 
           {/* <StyledNavLink
@@ -377,7 +411,11 @@ export default function Header() {
             Bond <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLink> */}
           <StyledExternalLink id={`info-nav-link`} href={ANALYTICS_PAGE}>
-            {t('header.charts')} <span style={{ fontSize: '11px' }}>↗</span>
+          <NavItem>
+              <img width={'24px'} src={ChartIcon} alt="logo" />
+            {t('header.charts')}
+             {/* <span style={{ fontSize: '11px' }}>↗</span> */}
+            </NavItem>
           </StyledExternalLink>
         </HeaderLinks>
       </HeaderRow>

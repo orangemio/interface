@@ -26,7 +26,7 @@ export const TR = styled.tr`
 `;
 
 export const TH = styled.th`
-    font-family: PingFang HK;
+    // font-family: PingFang HK;
     font-size: 18px;
     line-height: 34px;
     color: #2C0F10;

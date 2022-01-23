@@ -94,7 +94,7 @@ const ContainerHeader = styled.div`
   text-align: center;
 `
 const HeaderTitle = styled.div`
-  font-family: PingFang HK;
+  // font-family: PingFang HK;
   font-size: 18px;
   line-height: 34px;
   color: #2C0F10;
