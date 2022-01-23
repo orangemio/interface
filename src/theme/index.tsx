@@ -307,4 +307,27 @@ body {
         )} 100%)`};
   background-color:  ${({ theme, isBeta }) => (isBeta ? theme.bg6 : 'unset')};
 }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 18px;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color:#999999;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #999999;
+  }
+
+  ::-webkit-scrollbar-corner {
+    display: block;    
+  }
 `
