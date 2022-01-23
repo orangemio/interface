@@ -37,64 +37,65 @@ const ContentItem = styled.div`
 }
 `
 
-
 export default function SidePoolItem({
-    stakingInfo,
-    version,
-    swapFeeApr,
-    stakingApr
-  }: {
-    stakingInfo: DoubleSideStakingInfo
-    version: string
-    swapFeeApr: number
-    stakingApr: number
-  }){
-    const token0 = stakingInfo.tokens[0]
-    const token1 = stakingInfo.tokens[1]
-  
-    const currency0 = unwrappedToken(token0)
-    const currency1 = unwrappedToken(token1)
-  
-    const poolMap = useMinichefPools()
-  
-    const { t } = useTranslation()
-    const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
-  
-    const token: Token =
-      currency0 === CBNB || currency1 === CBNB
-        ? currency0 === CBNB
-          ? token1
-          : token0
-        : token0.equals(PNG[token0.chainId])
+  stakingInfo,
+  version,
+  swapFeeApr,
+  stakingApr
+}: {
+  stakingInfo: DoubleSideStakingInfo
+  version: string
+  swapFeeApr: number
+  stakingApr: number
+}) {
+  const token0 = stakingInfo.tokens[0]
+  const token1 = stakingInfo.tokens[1]
+
+  const currency0 = unwrappedToken(token0)
+  const currency1 = unwrappedToken(token1)
+
+  const poolMap = useMinichefPools()
+
+  const { t } = useTranslation()
+  const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
+
+  const token: Token =
+    currency0 === CBNB || currency1 === CBNB
+      ? currency0 === CBNB
         ? token1
         : token0
-  
-    // get the color of the token
-    const backgroundColor = useColor(token)
-    // TODO: Orange NEED FIX
-    // const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
-    const totalStakedInUsd = '-'
-    const pairAddress = stakingInfo?.stakedAmount?.token?.address
-    return (<StyledInternalLink to={`/png/${currencyId(currency0)}/${currencyId(currency1)}/${version}`} style={{color: '#111'}}><RowItem >
-        <ContentItem>
-            <DoubleCurrencyLogo currency0={currency0} currency1={currency1} size={24}/>
-            <div style={{ marginLeft: '8px' }}>
-                {currency0.symbol}-{currency1.symbol}
-            </div>
-        </ContentItem>
-        <ContentItem>
-            {totalStakedInUsd ? `$${totalStakedInUsd}` : '-'}
-        </ContentItem>
-        <ContentItem>
-            {/* <img height={'20px'} style={{margin:'0 6px 0 0px'}} src={'./static/media/icon.adcff230.svg'} /> */}
-            {stakingApr && !stakingInfo.isPeriodFinished ? `${stakingApr}%` : '-'}
-        </ContentItem>
-        <ContentItem>
-            {swapFeeApr && !stakingInfo.isPeriodFinished ? `${swapFeeApr + stakingApr}%` : '-'}
-        </ContentItem>
-    </RowItem></StyledInternalLink>);
-}
+      : token0.equals(PNG[token0.chainId])
+      ? token1
+      : token0
 
+  // get the color of the token
+  const backgroundColor = useColor(token)
+  // TODO: Orange NEED FIX
+  const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
+  // const totalStakedInUsd = '-'
+  const pairAddress = stakingInfo?.stakedAmount?.token?.address
+  return (
+    <StyledInternalLink
+      to={`/png/${currencyId(currency0)}/${currencyId(currency1)}/${version}`}
+      style={{ color: '#111' }}
+    >
+      <RowItem>
+        <ContentItem>
+          <DoubleCurrencyLogo currency0={currency0} currency1={currency1} size={24} />
+          <div style={{ marginLeft: '8px' }}>
+            {currency0.symbol}-{currency1.symbol}
+          </div>
+        </ContentItem>
+        <ContentItem>{totalStakedInUsd ? `$${totalStakedInUsd}` : '-'}</ContentItem>
+        <ContentItem>
+          {/* <img height={'20px'} style={{margin:'0 6px 0 0px'}} src={'./static/media/icon.adcff230.svg'} /> */}
+          {stakingApr && !stakingInfo.isPeriodFinished ? `${stakingApr}%` : '-'}
+        </ContentItem>
+        <ContentItem>{swapFeeApr && !stakingInfo.isPeriodFinished ? `${swapFeeApr + stakingApr}%` : '-'}</ContentItem>
+      </RowItem>
+    </StyledInternalLink>
+  )
+}
 
 // export default function DoubleSidePoolCard({
 //   stakingInfo,

@@ -220,8 +220,8 @@ export const HUSKY: { [chainId in ChainId]: Token } = {
 }
 
 export const USDCe: { [chainId in ChainId]: Token } = {
-  [ChainId.BSCTestnet]: new Token(ChainId.BSCTestnet, ZERO_ADDRESS, 6, 'USDC.e', 'USD Coin'),
-  [ChainId.BSC]: new Token(ChainId.BSC, '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664', 6, 'USDC.e', 'USD Coin')
+  [ChainId.BSCTestnet]: new Token(ChainId.BSCTestnet, ZERO_ADDRESS, 18, 'USDC.e', 'USD Coin'),
+  [ChainId.BSC]: new Token(ChainId.BSC, '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d', 18, 'USDC.e', 'USD Coin')
 }
 
 export const LYD: { [chainId in ChainId]: Token } = {
@@ -231,7 +231,7 @@ export const LYD: { [chainId in ChainId]: Token } = {
 
 export const TUSD: { [chainId in ChainId]: Token } = {
   [ChainId.BSCTestnet]: new Token(ChainId.BSCTestnet, ZERO_ADDRESS, 18, 'TUSD', 'TrueUSD'),
-  [ChainId.BSC]: new Token(ChainId.BSC, '0x1C20E891Bab6b1727d14Da358FAe2984Ed9B59EB', 18, 'TUSD', 'TrueUSD')
+  [ChainId.BSC]: new Token(ChainId.BSC, '0x44ced87b9f1492bf2dcf5c16004832569f7f6cba', 18, 'TUSD', 'TrueUSD')
 }
 
 export const GAJ: { [chainId in ChainId]: Token } = {
