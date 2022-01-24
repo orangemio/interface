@@ -19,13 +19,21 @@ export const StyledEthereumLogo = styled.img<{ size: string }>`
   height: ${({ size }) => size};
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
   border-radius: 24px;
+  ${({ theme, size }) => theme.mediaWidth.upToMedium`
+    width: ${parseInt(size) / 2 + "px"};
+    height: ${parseInt(size) / 2 + "px"};
+`};
 `
 
-const StyledLogo = styled(Logo)<{ size: string }>`
+const StyledLogo = styled(Logo) <{ size: string }>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   border-radius: ${({ size }) => size};
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
+  ${({ theme, size }) => theme.mediaWidth.upToMedium`
+    width: ${parseInt(size) / 2 + "px"};
+    height: ${parseInt(size) / 2 + "px"};
+  `};
 `
 
 export default function CurrencyLogo({

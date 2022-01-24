@@ -26,6 +26,9 @@ const RowItem = styled.div`
   &:first-child{
     margin-top: 0;
   }
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+  padding: 0 5px;
+  `};
 `
 const ContentItem = styled.div`
   align-items: center;
@@ -36,6 +39,41 @@ const ContentItem = styled.div`
   align-content: center;
 }
 `
+
+export const StyledTable = styled.table`
+  // custom css goes here
+  border-collapse: collapse;
+`;
+
+export const THead = styled.thead`
+ // custom css goes here
+`;
+
+export const TFoot = styled.tfoot`
+  // custom css goes here
+`;
+
+export const TR = styled.tr`
+  // custom css goes here
+`;
+
+export const TH = styled.th`
+    // font-family: PingFang HK;
+    font-size: 18px;
+    line-height: 34px;
+    color: #2C0F10;
+    font-weight: 400;
+`;
+
+export const TBodyTd = styled.td`
+  text-align: center;
+`;
+
+export const TBodyTr = styled.tr`
+  background: #F6F5F8;
+  line-height: 50px;
+`;
+
 
 export default function SidePoolItem({
   stakingInfo,
@@ -65,8 +103,8 @@ export default function SidePoolItem({
         ? token1
         : token0
       : token0.equals(PNG[token0.chainId])
-      ? token1
-      : token0
+        ? token1
+        : token0
 
   // get the color of the token
   const backgroundColor = useColor(token)
@@ -75,26 +113,29 @@ export default function SidePoolItem({
   // const totalStakedInUsd = '-'
   const pairAddress = stakingInfo?.stakedAmount?.token?.address
   return (
-    <StyledInternalLink
-      to={`/png/${currencyId(currency0)}/${currencyId(currency1)}/${version}`}
-      style={{ color: '#111' }}
-    >
-      <RowItem>
-        <ContentItem>
-          <DoubleCurrencyLogo currency0={currency0} currency1={currency1} size={24} />
-          <div style={{ marginLeft: '8px' }}>
-            {currency0.symbol}-{currency1.symbol}
-          </div>
-        </ContentItem>
-        <ContentItem>{totalStakedInUsd ? `$${totalStakedInUsd}` : '-'}</ContentItem>
-        <ContentItem>
+    <TBodyTr>
+      <StyledInternalLink to={`/png/${currencyId(currency0)}/${currencyId(currency1)}/${version}`} style={{ color: '#111' }}>
+        <TBodyTd>
+          <ContentItem>
+            <DoubleCurrencyLogo currency0={currency0} currency1={currency1} size={24} />
+            <div style={{ marginLeft: '8px' }}>
+              {currency0.symbol}-{currency1.symbol}
+            </div>
+          </ContentItem>
+        </TBodyTd>
+        <TBodyTd>
+          {totalStakedInUsd ? `$${totalStakedInUsd}` : '-'}
+        </TBodyTd>
+        <TBodyTd>
           {/* <img height={'20px'} style={{margin:'0 6px 0 0px'}} src={'./static/media/icon.adcff230.svg'} /> */}
           {stakingApr && !stakingInfo.isPeriodFinished ? `${stakingApr}%` : '-'}
-        </ContentItem>
-        <ContentItem>{swapFeeApr && !stakingInfo.isPeriodFinished ? `${swapFeeApr + stakingApr}%` : '-'}</ContentItem>
-      </RowItem>
-    </StyledInternalLink>
-  )
+        </TBodyTd>
+        <TBodyTd>
+          {swapFeeApr && !stakingInfo.isPeriodFinished ? `${swapFeeApr + stakingApr}%` : '-'}
+        </TBodyTd>
+      </StyledInternalLink>
+    </TBodyTr >
+  );
 }
 
 // export default function DoubleSidePoolCard({

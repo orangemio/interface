@@ -25,6 +25,9 @@ const PageWrapper = styled(AutoColumn)`
   background: #fff;
   border-radius: 26px;
   padding: 34px 36px;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    padding: 34px 9px;
+`};
 `
 
 const TopSection = styled(AutoColumn)`
@@ -100,10 +103,17 @@ const HeaderTitle = styled.div`
   color: #2C0F10;
   flex: 1;
   line-height: 54px;
+  white-space: nowrap;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    font-size: 14px;
+`};
 `
 const ContainerContent = styled.div`
   max-height: 450px;
   overflow: auto;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    font-size: 12px;
+  `};
   &::-webkit-scrollbar {
     width:4px;
     height:4px;
@@ -120,6 +130,32 @@ const ContainerContent = styled.div`
   }
 `
 
+export const StyledTable = styled.table`
+  // custom css goes here
+  border-collapse: collapse;
+  width: 100%;
+`;
+
+export const THead = styled.thead`
+ // custom css goes here
+`;
+export const TH = styled.th`
+    // font-family: PingFang HK;
+    font-size: 18px;
+    line-height:50px;
+    color: #2C0F10;
+    font-weight: 400;
+`;
+export const TBody = styled.tbody`
+ // custom css goes here
+    max-height: 450px;
+    overflow: auto;
+`;
+
+export const TR = styled.tr`
+  // custom css goes here
+  
+`;
 
 export interface EarnProps {
   version: string
@@ -141,7 +177,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
     setSearchQuery(event.target.value.trim().toUpperCase())
   }, [])
   useEffect(() => {
-    const filtered = poolCards ?.filter(
+    const filtered = poolCards?.filter(
       card =>
         card.props.stakingInfo.tokens[0].symbol.toUpperCase().includes(debouncedSearchQuery) ||
         card.props.stakingInfo.tokens[1].symbol.toUpperCase().includes(debouncedSearchQuery)
@@ -155,9 +191,9 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
       stakingInfoData.sort(function (info_a, info_b) {
         if (sortBy.field === SortingType.totalStakedInUsd) {
           if (sortBy.desc) {
-            return info_a.totalStakedInUsd ?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
+            return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
           } else {
-            return info_a.totalStakedInUsd ?.lessThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
+            return info_a.totalStakedInUsd?.lessThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
           }
         }
         if (sortBy.field === SortingType.multiplier) {
@@ -179,7 +215,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
     ).then(stakingInfoData => {
       const poolCards = stakingInfoData.map((stakingInfo, index) => {
 
-        return (<SidePoolItem 
+        return (<SidePoolItem
           swapFeeApr={stakingInfo.swapFeeApr}
           stakingApr={stakingInfo.stakingApr}
           key={index}
@@ -199,7 +235,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
       setPoolCards(poolCards)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sortBy ?.field, sortBy ?.desc])
+  }, [sortBy?.field, sortBy?.desc])
 
   useEffect(() => {
     setPoolCardsLoading(true)
@@ -217,7 +253,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
             // only second has ended
             if (!info_a.isPeriodFinished && info_b.isPeriodFinished) return -1
             // greater stake in avax comes first
-            return info_a.totalStakedInUsd ?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
+            return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
           })
           .sort(function (info_a, info_b) {
             // only the first is being staked, so we should bring the first up
@@ -265,7 +301,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
           //     version={version}
           //   />
           // )
-          return (<SidePoolItem 
+          return (<SidePoolItem
             swapFeeApr={stakingInfo.swapFeeApr}
             stakingApr={stakingInfo.stakingApr}
             key={index}
@@ -290,21 +326,21 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stakingInfos ?.length, version])
+  }, [stakingInfos?.length, version])
 
   const stakingRewardsExist = Boolean(
-    typeof chainId === 'number' && (DOUBLE_SIDE_STAKING_REWARDS_INFO[chainId] ?.length ?? 0) > 0
+    typeof chainId === 'number' && (DOUBLE_SIDE_STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0
   )
   const getSortField = (label: string, field: string, sortBy: any, setSortBy: Function) => {
     return (
       <SortField
         onClick={() => {
-          const desc = sortBy ?.field === field ? !sortBy ?.desc : true
+          const desc = sortBy?.field === field ? !sortBy?.desc : true
           setSortBy({ field, desc })
         }}
       >
         {label}
-        {sortBy ?.field === field && (sortBy ?.desc ? <ChevronDown size="16" /> : <ChevronUp size="16" />)}
+        {sortBy?.field === field && (sortBy?.desc ? <ChevronDown size="16" /> : <ChevronUp size="16" />)}
       </SortField>
     )
   }
@@ -344,15 +380,18 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
             />
           </SearchBox>
           <ListContainer>
-            <ContainerHeader>
-              <HeaderTitle> Cash Pooling</HeaderTitle>
-              <HeaderTitle>TVL</HeaderTitle>
-              <HeaderTitle>Rewards APR</HeaderTitle>
-              <HeaderTitle>Total APR</HeaderTitle>
-            </ContainerHeader>
-            <ContainerContent>
-             {filteredPoolCards}
-              {/* <RowItem>
+            <StyledTable>
+              <THead>
+                <TR>
+                  <TH> Cash Pooling</TH>
+                  <TH>TVL</TH>
+                  <TH>Rewards APR</TH>
+                  <TH>Total APR</TH>
+                </TR>
+              </THead>
+              <TBody>
+                {filteredPoolCards}
+                {/* <RowItem>
                 <ContentItem>
                   <img height={'20px'} src={'./static/media/icon.adcff230.svg'} />
                   <img height={'20px'} style={{margin:'0 5px 0 3px'}} src={'./static/media/icon.adcff230.svg'} />
@@ -370,7 +409,8 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                 </ContentItem>
               </RowItem> */}
 
-            </ContainerContent>
+              </TBody>
+            </StyledTable>
           </ListContainer>
           {/* {(stakingRewardsExist && stakingInfos?.length === 0) || poolCardsLoading ? (
             t('earnPage.noActiveRewards')

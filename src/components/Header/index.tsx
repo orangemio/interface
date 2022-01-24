@@ -110,8 +110,9 @@ const HeaderRow = styled(RowFixed)`
 const HeaderLinks = styled(Row)`
   justify-content: center;
   ${({ theme }) => theme.mediaWidth.upToMedium`
-    padding: 1rem 0 1rem 1rem;
-    justify-content: flex-end;
+    // padding: 1rem 0 1rem 1rem;
+    // justify-content: flex-end;
+    justify-content: space-around;
 `};
 `
 
@@ -233,7 +234,13 @@ const StyledNavLink = styled(NavLink).attrs({
   :focus {
     color: ${({ theme }) => darken(0.1, theme.text1)};
   }
+
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    margin: 0 0px;
+    padding: 7px 7px;
+`};
 `
+
 
 // const StyledLink = styled.div<{ isActive: boolean }>`
 //   ${({ theme }) => theme.flexRowNoWrap}
@@ -258,7 +265,7 @@ const StyledNavLink = styled(NavLink).attrs({
 
 const StyledExternalLink = styled(ExternalLink).attrs({
   activeClassName
-})<{ isActive?: boolean }>`
+}) <{ isActive?: boolean }>`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
   border-radius: 3rem;
@@ -364,9 +371,9 @@ export default function Header() {
               pathname.startsWith('/find')
             }
           >
-          <NavItem>
+            <NavItem>
               <img width={'24px'} src={PoolIcon} alt="logo" />
-            {t('header.pool')}
+              {t('header.pool')}
             </NavItem>
           </StyledNavLink>
 
@@ -394,9 +401,9 @@ export default function Header() {
             to={'/png/2'}
             isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/png')}
           >
-          <NavItem>
+            <NavItem>
               <img width={'24px'} src={FarmIcon} alt="logo" />
-            {t('header.farm')}
+              {t('header.farm')}
             </NavItem>
           </StyledNavLink>
 
@@ -411,10 +418,10 @@ export default function Header() {
             Bond <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLink> */}
           <StyledExternalLink id={`info-nav-link`} href={ANALYTICS_PAGE}>
-          <NavItem>
+            <NavItem>
               <img width={'24px'} src={ChartIcon} alt="logo" />
-            {t('header.charts')}
-             {/* <span style={{ fontSize: '11px' }}>↗</span> */}
+              {t('header.charts')}
+              {/* <span style={{ fontSize: '11px' }}>↗</span> */}
             </NavItem>
           </StyledExternalLink>
         </HeaderLinks>
