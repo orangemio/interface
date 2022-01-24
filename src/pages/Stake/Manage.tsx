@@ -185,7 +185,7 @@ export default function Manage({
             <CardSection>
               <AutoColumn gap="md">
                 <RowBetween>
-                  <TYPE.white fontWeight={600}>{t('earnPage.yourStakedToken', { symbol: 'PNG' })}</TYPE.white>
+                  <TYPE.white fontWeight={600}>{t('earnPage.yourStakedToken', { symbol: 'PIZA' })}</TYPE.white>
                 </RowBetween>
                 <RowBetween style={{ alignItems: 'baseline' }}>
                   <TYPE.white fontSize={36} fontWeight={600}>
@@ -245,7 +245,7 @@ export default function Manage({
           <ButtonPrimary padding="10px" borderRadius="8px" width="auto" onClick={handleStakeClick}>
             {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0))
               ? t('earnPage.stake')
-              : t('earnPage.stakeStakingTokens', { symbol: 'PNG' })}
+              : t('earnPage.stakeStakingTokens', { symbol: 'PIZA' })}
           </ButtonPrimary>
         ) : (
           <ButtonPrimary
@@ -254,7 +254,7 @@ export default function Manage({
             as={Link}
             to={`/swap?inputCurrency=${ZERO_ADDRESS}&outputCurrency=${png.address}`}
           >
-            {t('earnPage.getToken', { symbol: 'PNG' })}
+            {t('earnPage.getToken', { symbol: 'PIZA' })}
           </ButtonPrimary>
         )}
 
@@ -267,7 +267,7 @@ export default function Manage({
 
       {userPngUnstaked?.greaterThan('0') && (
         <TYPE.main>
-          {userPngUnstaked.toSignificant(6)} {t('earnPage.stakingTokensAvailable', { symbol: 'PNG' })}
+          {userPngUnstaked.toSignificant(6)} {t('earnPage.stakingTokensAvailable', { symbol: 'PIZA' })}
         </TYPE.main>
       )}
     </PageWrapper>

@@ -339,7 +339,7 @@
     "unclaimedReward": "Số {{ symbol }} của bạn chưa nhận",
     "claim": "Nhận",
     "rewardPerWeek": " {{ symbol }} / tuần",
-    "automagically": "Khi bạn rút tiền, hợp đồng sẽ tự động nhận phần thưởng PNG thay cho bạn! ",
+    "automagically": "Khi bạn rút tiền, hợp đồng sẽ tự động nhận phần thưởng PIZA thay cho bạn! ",
     "deposit": "Gửi",
     "depositStakingTokens": "Gửi token {{ symbol }}",
     "stake": "Đặt cổ phần",

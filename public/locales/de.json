@@ -339,7 +339,7 @@
     "unclaimedReward": "Deine unbeanspruchten {{ symbol }}",
     "claim": "Beanspruchen",
     "rewardPerWeek": " {{ symbol }} / Woche",
-    "automagically": "Wenn du abbuchst, wird der Smart Contract automagisch PNG für dich beanspruchen!",
+    "automagically": "Wenn du abbuchst, wird der Smart Contract automagisch PIZA für dich beanspruchen!",
     "deposit": "Einzahlen",
     "depositStakingTokens": "Zahle {{ symbol }}-Token ein",
     "stake": "Stake",
