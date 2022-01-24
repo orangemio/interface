@@ -26,6 +26,9 @@ const RowItem = styled.div`
   &:first-child{
     margin-top: 0;
   }
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+  padding: 0 5px;
+  `};
 `
 const ContentItem = styled.div`
   align-items: center;
