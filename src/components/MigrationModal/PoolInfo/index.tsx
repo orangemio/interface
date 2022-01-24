@@ -107,7 +107,7 @@ const PoolInfo = ({
 
   const yourPngRate = {
     label: `${t('migratePage.yourRate')}`,
-    value: `${pngRate}    ${t('earnPage.rewardPerWeek', { symbol: 'PNG' })}`
+    value: `${pngRate}    ${t('earnPage.rewardPerWeek', { symbol: 'PIZA' })}`
   }
 
   const unClaimedRow = {

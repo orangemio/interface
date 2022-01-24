@@ -133,7 +133,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo, version
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>{t('earn.transactionSubmitted')}</TYPE.largeHeader>
             <TYPE.body fontSize={20}>{t('earn.withdrewStakingToken', { symbol: 'PZL' })}</TYPE.body>
-            <TYPE.body fontSize={20}>{t('earn.claimedReward', { symbol: 'PNG' })}</TYPE.body>
+            <TYPE.body fontSize={20}>{t('earn.claimedReward', { symbol: 'PIZA' })}</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

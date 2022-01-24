@@ -40,7 +40,6 @@ const ContentItem = styled.div`
 }
 `
 
-
 export const StyledTable = styled.table`
   // custom css goes here
   border-collapse: collapse;
@@ -74,7 +73,6 @@ export const TBodyTr = styled.tr`
   background: #F6F5F8;
   line-height: 50px;
 `;
-
 
 
 export default function SidePoolItem({
@@ -111,8 +109,8 @@ export default function SidePoolItem({
   // get the color of the token
   const backgroundColor = useColor(token)
   // TODO: Orange NEED FIX
-  // const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
-  const totalStakedInUsd = '-'
+  const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
+  // const totalStakedInUsd = '-'
   const pairAddress = stakingInfo?.stakedAmount?.token?.address
   return (
     <TBodyTr>
@@ -139,7 +137,6 @@ export default function SidePoolItem({
     </TBodyTr >
   );
 }
-
 
 // export default function DoubleSidePoolCard({
 //   stakingInfo,

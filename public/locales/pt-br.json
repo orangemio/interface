@@ -339,7 +339,7 @@
     "unclaimedReward": "{{ symbol }} não resgatado",
     "claim": "Resgate",
     "rewardPerWeek": " {{ symbol }} / Semana",
-    "automagically": "Quando você retirar, o contrato automagicamente irá resgatar PNG em seu nome!",
+    "automagically": "Quando você retirar, o contrato automagicamente irá resgatar PIZA em seu nome!",
     "deposit": "Deposite",
     "depositStakingTokens": "Deposite Tokens {{ symbol }}",
     "stake": "Stake",
