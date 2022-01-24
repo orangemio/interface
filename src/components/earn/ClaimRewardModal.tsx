@@ -52,7 +52,7 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo, versi
       await stakingContract[method](...args)
         .then((response: TransactionResponse) => {
           addTransaction(response, {
-            summary: t('earn.claimAccumulated', { symbol: 'PNG' })
+            summary: t('earn.claimAccumulated', { symbol: 'PIZA' })
           })
           setHash(response.hash)
         })
@@ -84,7 +84,7 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo, versi
               <TYPE.body fontWeight={600} fontSize={36}>
                 {stakingInfo?.earnedAmount?.toSignificant(6)}
               </TYPE.body>
-              <TYPE.body>{t('earn.unclaimedReward', { symbol: 'PNG' })}</TYPE.body>
+              <TYPE.body>{t('earn.unclaimedReward', { symbol: 'PIZA' })}</TYPE.body>
             </AutoColumn>
           )}
           <TYPE.subHeader style={{ textAlign: 'center' }}>{t('earn.liquidityRemainsPool')}</TYPE.subHeader>
@@ -109,7 +109,7 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo, versi
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>{t('earn.transactionSubmitted')}</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{t('earn.claimedReward', { symbol: 'PNG' })}</TYPE.body>
+            <TYPE.body fontSize={20}>{t('earn.claimedReward', { symbol: 'PIZA' })}</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

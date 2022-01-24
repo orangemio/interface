@@ -40,7 +40,6 @@ const ContentItem = styled.div`
 }
 `
 
-
 export default function SidePoolItem({
   stakingInfo,
   version,
@@ -75,8 +74,8 @@ export default function SidePoolItem({
   // get the color of the token
   const backgroundColor = useColor(token)
   // TODO: Orange NEED FIX
-  // const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
-  const totalStakedInUsd = '-'
+  const totalStakedInUsd = stakingInfo.totalStakedInUsd.toSignificant(4, { groupSeparator: ',' })
+  // const totalStakedInUsd = '-'
   const pairAddress = stakingInfo?.stakedAmount?.token?.address
   return (<StyledInternalLink to={`/png/${currencyId(currency0)}/${currencyId(currency1)}/${version}`} style={{ color: '#111' }}><RowItem >
     <ContentItem>
@@ -97,7 +96,6 @@ export default function SidePoolItem({
     </ContentItem>
   </RowItem></StyledInternalLink>);
 }
-
 
 // export default function DoubleSidePoolCard({
 //   stakingInfo,
