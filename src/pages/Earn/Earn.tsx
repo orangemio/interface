@@ -130,6 +130,32 @@ const ContainerContent = styled.div`
   }
 `
 
+export const StyledTable = styled.table`
+  // custom css goes here
+  border-collapse: collapse;
+  width: 100%;
+`;
+
+export const THead = styled.thead`
+ // custom css goes here
+`;
+export const TH = styled.th`
+    // font-family: PingFang HK;
+    font-size: 18px;
+    line-height:50px;
+    color: #2C0F10;
+    font-weight: 400;
+`;
+export const TBody = styled.tbody`
+ // custom css goes here
+    max-height: 450px;
+    overflow: auto;
+`;
+
+export const TR = styled.tr`
+  // custom css goes here
+  
+`;
 
 export interface EarnProps {
   version: string
@@ -354,15 +380,18 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
             />
           </SearchBox>
           <ListContainer>
-            <ContainerHeader>
-              <HeaderTitle> Cash Pooling</HeaderTitle>
-              <HeaderTitle>TVL</HeaderTitle>
-              <HeaderTitle>Rewards APR</HeaderTitle>
-              <HeaderTitle>Total APR</HeaderTitle>
-            </ContainerHeader>
-            <ContainerContent>
-              {filteredPoolCards}
-              {/* <RowItem>
+            <StyledTable>
+              <THead>
+                <TR>
+                  <TH> Cash Pooling</TH>
+                  <TH>TVL</TH>
+                  <TH>Rewards APR</TH>
+                  <TH>Total APR</TH>
+                </TR>
+              </THead>
+              <TBody>
+                {filteredPoolCards}
+                {/* <RowItem>
                 <ContentItem>
                   <img height={'20px'} src={'./static/media/icon.adcff230.svg'} />
                   <img height={'20px'} style={{margin:'0 5px 0 3px'}} src={'./static/media/icon.adcff230.svg'} />
@@ -380,7 +409,8 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                 </ContentItem>
               </RowItem> */}
 
-            </ContainerContent>
+              </TBody>
+            </StyledTable>
           </ListContainer>
           {/* {(stakingRewardsExist && stakingInfos?.length === 0) || poolCardsLoading ? (
             t('earnPage.noActiveRewards')
