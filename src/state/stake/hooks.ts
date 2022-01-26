@@ -639,7 +639,7 @@ export function useGetStakingDataWithAPR(version: number) {
     if (stakingInfos?.length > 0) {
       Promise.all(
         stakingInfos.map(stakingInfo => {
-          return fetch(`https://api.pangolin.exchange/pangolin/apr/${stakingInfo.stakingRewardAddress}`)
+          return fetch(`https://api.pangolin.exchange/pangolin/apr2/0`)
             .then(res => res.json())
             .then(res => ({
               swapFeeApr: Number(res.swapFeeApr),

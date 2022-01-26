@@ -10,7 +10,7 @@ import SidePoolItem from '../../components/earn/SidePoolItem'
 import { NavLink } from 'react-router-dom'
 import { AutoRow, RowBetween } from '../../components/Row'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
-import Loader from '../../components/Loader';
+import Loader from '../../components/Loader'
 import { Table } from '../../components/Table'
 import { useActiveWeb3React } from '../../hooks'
 import { JSBI } from 'pizzaswap-sdk'
@@ -83,13 +83,11 @@ enum SortingType {
 }
 
 const SearchBox = styled.div`
-  border-bottom: 1px solid #F6F5F8;;
+  border-bottom: 1px solid #f6f5f8;
   padding-bottom: 15px;
 `
 
-const ListContainer = styled.div`
-
-`
+const ListContainer = styled.div``
 const ContainerHeader = styled.div`
   display: flex;
   justify-content: center;
@@ -100,7 +98,7 @@ const HeaderTitle = styled.div`
   // font-family: PingFang HK;
   font-size: 18px;
   line-height: 34px;
-  color: #2C0F10;
+  color: #2c0f10;
   flex: 1;
   line-height: 54px;
   white-space: nowrap;
@@ -115,21 +113,20 @@ const ContainerContent = styled.div`
     font-size: 12px;
   `};
   &::-webkit-scrollbar {
-    width:4px;
-    height:4px;
+    width: 4px;
+    height: 4px;
   }
   &::-webkit-scrollbar-thumb {
-    border-radius:10px;
-    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
-    background:#86909c;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #86909c;
   }
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
-    border-radius:0;
-    background:rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1);
   }
 `
-
 
 export interface EarnProps {
   version: string
@@ -162,7 +159,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
 
   useEffect(() => {
     Promise.all(
-      stakingInfoData.sort(function (info_a, info_b) {
+      stakingInfoData.sort(function(info_a, info_b) {
         if (sortBy.field === SortingType.totalStakedInUsd) {
           if (sortBy.desc) {
             return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
@@ -188,14 +185,15 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
       })
     ).then(stakingInfoData => {
       const poolCards = stakingInfoData.map((stakingInfo, index) => {
-
-        return (<SidePoolItem
-          swapFeeApr={stakingInfo.swapFeeApr}
-          stakingApr={stakingInfo.stakingApr}
-          key={index}
-          stakingInfo={stakingInfo}
-          version={version}
-        />)
+        return (
+          <SidePoolItem
+            swapFeeApr={stakingInfo.swapFeeApr}
+            stakingApr={stakingInfo.stakingApr}
+            key={index}
+            stakingInfo={stakingInfo}
+            version={version}
+          />
+        )
         // return (
         //   <DoubleSidePoolCard
         //     swapFeeApr={stakingInfo.swapFeeApr}
@@ -217,11 +215,11 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
     if (stakingInfos?.length > 0) {
       Promise.all(
         stakingInfos
-          .filter(function (info) {
+          .filter(function(info) {
             // Only include pools that are live or require a migration
             return !info.isPeriodFinished || info.stakedAmount.greaterThan(BIG_INT_ZERO)
           })
-          .sort(function (info_a, info_b) {
+          .sort(function(info_a, info_b) {
             // only first has ended
             if (info_a.isPeriodFinished && !info_b.isPeriodFinished) return 1
             // only second has ended
@@ -229,7 +227,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
             // greater stake in avax comes first
             return info_a.totalStakedInUsd?.greaterThan(info_b.totalStakedInUsd ?? BIG_INT_ZERO) ? -1 : 1
           })
-          .sort(function (info_a, info_b) {
+          .sort(function(info_a, info_b) {
             // only the first is being staked, so we should bring the first up
             if (info_a.stakedAmount.greaterThan(BIG_INT_ZERO) && !info_b.stakedAmount.greaterThan(BIG_INT_ZERO))
               return -1
@@ -241,9 +239,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
           // TODO: update here api call without staking reward address
           .map(stakingInfo => {
             if (poolMap) {
-              return fetch(
-                `https://api.pangolin.exchange/pangolin/apr2/${poolMap[stakingInfo.totalStakedAmount.token.address]}`
-              )
+              return fetch(`https://api.pangolin.exchange/pangolin/apr2/0`)
                 .then(res => res.json())
                 .then(res => ({
                   swapFeeApr: Number(res.swapFeeApr),
@@ -252,7 +248,7 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                   ...stakingInfo
                 }))
             } else {
-              return fetch(`https://api.pangolin.exchange/pangolin/apr/${stakingInfo.stakingRewardAddress}`)
+              return fetch(`https://api.pangolin.exchange/pangolin/apr2/0`)
                 .then(res => res.json())
                 .then(res => ({
                   swapFeeApr: Number(res.swapFeeApr),
@@ -275,13 +271,15 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
           //     version={version}
           //   />
           // )
-          return (<SidePoolItem
-            swapFeeApr={stakingInfo.swapFeeApr}
-            stakingApr={stakingInfo.stakingApr}
-            key={index}
-            stakingInfo={stakingInfo}
-            version={version}
-          />)
+          return (
+            <SidePoolItem
+              swapFeeApr={stakingInfo.swapFeeApr}
+              stakingApr={stakingInfo.stakingApr}
+              key={index}
+              stakingInfo={stakingInfo}
+              version={version}
+            />
+          )
           // return (
           //   <DoubleSidePoolCard
           //     // @ts-ignore
@@ -379,7 +377,6 @@ const Earn: React.FC<EarnProps> = ({ version, stakingInfos, poolMap }) => {
                 4.92%
                 </ContentItem>
               </RowItem> */}
-
             </ContainerContent>
           </ListContainer>
           {/* {(stakingRewardsExist && stakingInfos?.length === 0) || poolCardsLoading ? (

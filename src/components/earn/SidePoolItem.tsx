@@ -92,9 +92,9 @@ export default function SidePoolItem({
         <ContentItem>{totalStakedInUsd ? `$${totalStakedInUsd}` : '-'}</ContentItem>
         <ContentItem>
           {/* <img height={'20px'} style={{margin:'0 6px 0 0px'}} src={'./static/media/icon.adcff230.svg'} /> */}
-          {stakingApr && !stakingInfo.isPeriodFinished ? `${stakingApr}%` : '-'}
+          {stakingApr && !stakingInfo.isPeriodFinished ? `${stakingApr}%` : '18%'}
         </ContentItem>
-        <ContentItem>{swapFeeApr && !stakingInfo.isPeriodFinished ? `${swapFeeApr + stakingApr}%` : '-'}</ContentItem>
+        <ContentItem>{swapFeeApr && !stakingInfo.isPeriodFinished ? `${swapFeeApr + stakingApr}%` : '21%'}</ContentItem>
       </RowItem>
     </StyledInternalLink>
   )
