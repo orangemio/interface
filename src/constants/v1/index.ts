@@ -6,7 +6,8 @@ import V1_FACTORY_ABI from './v1_factory.json'
 
 const V1_FACTORY_ADDRESSES: { [chainId in ChainId]: string } = {
   [ChainId.BSCTestnet]: ZERO_ADDRESS,
-  [ChainId.BSC]: ZERO_ADDRESS
+  [ChainId.BSC]: ZERO_ADDRESS,
+  [ChainId.ETH]: ZERO_ADDRESS
 }
 
 const V1_FACTORY_INTERFACE = new Interface(V1_FACTORY_ABI)

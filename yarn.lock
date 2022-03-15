@@ -14561,10 +14561,10 @@ pixelmatch@^4.0.2:
   dependencies:
     pngjs "^3.0.0"
 
-pizzaswap-sdk@^1.4.0:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/pizzaswap-sdk/-/pizzaswap-sdk-1.4.1.tgz#7e1ce61c8cd0b178470711777fcc80020c314079"
-  integrity sha512-UTESGSJjeyITEJTv5In/MxAuGw1PMGbBHYiDJEn3TyGpa44Ku9UPhOB+vnQXKHlmWY+SLv8agFHgCX7XH68BqQ==
+pizzaswap-sdk@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/pizzaswap-sdk/-/pizzaswap-sdk-2.0.1.tgz#024e1c90ba07596b9c01389581a17841127356b2"
+  integrity sha512-44ltFMj12sbWT8CX/vT8XVxjaOT7yaWLRLdMLPvJQbGb6j1RRsEhC/jf3aFSFbAL9gy9wZJhMMDe9rk1SKet1w==
   dependencies:
     "@openzeppelin/cli" "^2.8.2"
     big.js "^5.2.2"
