@@ -22,6 +22,7 @@ import { TYPE, ExternalLink } from '../../theme'
 import { RedCard } from '../Card'
 import Settings from '../Settings'
 import Menu from '../Menu'
+import SwitchNetwork from '../switchNetwork'
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
 import Modal from '../Modal'
@@ -427,9 +428,7 @@ export default function Header() {
       <HeaderControls>
         <HeaderElement>
           <HideSmall>
-            {chainId && NETWORK_LABELS[chainId] && (
-              <NetworkCard title={NETWORK_LABELS[chainId]}>{NETWORK_LABELS[chainId]}</NetworkCard>
-            )}
+            <SwitchNetwork />
           </HideSmall>
           {/* //TODO:ORANGE */}
           {/* {aggregateBalance && (
@@ -478,4 +477,3 @@ export default function Header() {
     </HeaderFrame>
   )
 }
-
