@@ -427,9 +427,8 @@ export default function Header() {
       </HeaderRow>
       <HeaderControls>
         <HeaderElement>
-          <HideSmall>
-            <SwitchNetwork />
-          </HideSmall>
+          <SwitchNetwork />
+
           {/* //TODO:ORANGE */}
           {/* {aggregateBalance && (
             <PNGWrapper onClick={() => setShowPngBalanceModal(true)}>
