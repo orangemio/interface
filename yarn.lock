@@ -14561,7 +14561,7 @@ pixelmatch@^4.0.2:
   dependencies:
     pngjs "^3.0.0"
 
-pizzaswap-sdk@^1.4.0:
+pizzaswap-sdk@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/pizzaswap-sdk/-/pizzaswap-sdk-1.4.1.tgz#7e1ce61c8cd0b178470711777fcc80020c314079"
   integrity sha512-UTESGSJjeyITEJTv5In/MxAuGw1PMGbBHYiDJEn3TyGpa44Ku9UPhOB+vnQXKHlmWY+SLv8agFHgCX7XH68BqQ==

@@ -29,6 +29,7 @@ export enum ApplicationModal {
   VOTE,
   LANGUAGE,
   MIGRATION,
+  NETWORK,
   FARM,
   PORTFOLIO_TOKEN,
   PORTFOLIO_DATE
